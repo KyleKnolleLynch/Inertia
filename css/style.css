@@ -48,7 +48,7 @@
 
 #clock {
   margin-top: 47vh;
-  font-size: 6rem;
+  font-size: 7rem;
 }
 
 #clockSpan {
@@ -176,11 +176,45 @@
 
 #todo-item {
   padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.done {
+#todo-item span {
+  flex-grow: 1;
+  margin: 0 0.5rem;
+  font-size: 18px;
+}
+
+.done span {
   text-decoration: line-through;
-  color: green;
+  color: #999;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.checkmark {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 30%;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.checkmark::before {
+  content: '✓';
+  font-size: 20px;
+  display: none;
+  align-self: center;
+}
+
+.done .checkmark::before {
+  display: inline-block;
+  color: rgb(11, 197, 182);
 }
 
 .delete-todo {
@@ -191,6 +225,7 @@
   position: absolute;
   right: 1rem;
   background: transparent;
+  outline: none;
 }
 
 #cog {

@@ -28,7 +28,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-setInterval(time);
+setInterval(time, 1000);
 
 const setDisplay = () => {
   let today = new Date();
@@ -190,7 +190,6 @@ const toggleCheck = key => {
     item.classList.remove('done');
   }
 };
-
 
 const deleteTodoFunc = key => {
   newTodos = newTodos.filter(item => item.id !== Number(key));
