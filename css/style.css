@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:300&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.danger {
+  color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: '100vh';
+  width: '100vw';
+  justify-content: 'center';
+  align-items: 'center';
+  text-align: center;
+  color: lavenderblush;
+  font-family: 'Exo', sans-serif;
+  overflow: hidden;
+}
+
+#heading {
+  font-size: 2rem;
+  margin: 8vh 0 2rem;
+}
+
+#user {
+  width: 70vw;
+  margin: auto;
+  outline-color: #999;
+}
+
+#input-focus {
+  width: 50vw;
+  align-self: center;
+  outline-color: #999;
+}
+
+#bg-full-image {
+  background-blend-mode: multiply;
+  height: 100vh;
+  width: 100vw;
+}
+
+#clock {
+  margin-top: 47vh;
+  font-size: 6rem;
+}
+
+#clockSpan {
+  font-size: 4rem;
+  margin-left: 1rem;
+}
+
+#settings {
+  background: rgba(33, 33, 33);
+  border: 1px thin #000;
+  padding: 1rem;
+  width: 16rem;
+  height: 14rem;
+  position: absolute;
+  bottom: 12vh;
+  right: 3vw;
+  z-index: 2;
+  opacity: 0.7;
+  display: none;
+  grid-template-areas:
+    'head head head'
+    'radios . .'
+    '. .  close';
+  grid-template-columns: 1fr 1fr 4rem;
+  grid-template-rows: 2rem 1fr 1.5rem;
+}
+
+#settings > h3 {
+  grid-area: head;
+}
+
+#radios {
+  grid-area: radios;
+  display: grid;
+  justify-items: flex-start;
+  align-content: flex-start;
+}
+
+#radios > div > :nth-child(n) {
+  cursor: pointer;
+}
+
+#close-btn {
+  grid-area: close;
+}
+
+.p {
+  padding: 0.3rem;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+#todo-open {
+  position: absolute;
+  font-size: 1.5rem;
+  bottom: 3rem;
+  left: 3rem;
+  opacity: 0.5;
+}
+
+#todo-open:hover {
+  opacity: 0.3;
+}
+
+#todos {
+  background: rgba(33, 33, 33);
+  border: 1px thin #000;
+  padding: 1rem;
+  width: 30rem;
+  max-height: 30rem;
+  position: absolute;
+  margin: 20rem 0 0 1rem;
+  z-index: 1;
+  opacity: 0.8;
+  display: none;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+#todo-input {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  background: inherit;
+  color: #888;
+  outline: none;
+}
+
+#add-btn {
+  border: 1px solid lavenderblush;
+  border-radius: 6px;
+  padding: 2px 10px;
+  background: #444;
+  margin-bottom: 2rem;
+}
+
+#todo-clear {
+  margin-top: 1rem;
+}
+
+#todo-list {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  word-break: break-all;
+}
+
+#todo-item {
+  padding-bottom: 5px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: green;
+}
+
+.delete-todo {
+  font-size: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+}
+
+#cog {
+  position: absolute;
+  font-size: 1.4rem;
+  bottom: 3rem;
+  right: 3rem;
+  opacity: 0.5;
+}
+
+#cog:hover {
+  opacity: 0.3;
+}
+
+@media (max-width: 550px) {
+  #heading {
+    font-size: 1.5rem;
+    margin: 7vh 1rem 2rem;
+  }
+
+  #clock {
+    font-size: 3rem;
+    margin-top: 40vh;
+  }
+
+  #clockSpan {
+    font-size: 2rem;
+  }
+
+  #focus {
+    font-size: 1rem;
+  }
+
+  #input-focus {
+    font-size: 1rem;
+  }
+
+  #cog {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  #todo-open {
+    font-size: 1rem;
+  }
+
+  #todos {
+    width: 70vw;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-height: 600px) {
+  #heading {
+    font-size: 1.5rem;
+    margin: 7vh 1rem 2rem;
+  }
+
+  #clock {
+    margin-top: 0;
+  }
+
+  #clockSpan {
+    font-size: 2rem;
+  }
+
+  #focus {
+    font-size: 1rem;
+  }
+
+  #input-focus {
+    font-size: 1rem;
+  }
+
+  #cog {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  #clock {
+    padding-top: 30vh;
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,3 @@
+#  Inertia
+
+##  Welcome page project.
