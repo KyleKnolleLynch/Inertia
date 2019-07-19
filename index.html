@@ -19,21 +19,6 @@
       <h2 id="focus">My Primary Focus Today Is</h2>
       <h2 id="input-focus" contenteditable="true"></h2>
 
-      <div id="settings">
-        <h3>Settings</h3>
-      <div id="radios">
-        <h4 class="p">Todo list</h4>
-        <div>
-          <input type="radio" id="todo-on" name="todo" value="todoOn"></input>
-          <label for="todo-on">Open</label>
-        </div>
-        <div>
-          <input type="radio" id=todo-off name="todo" value="todoOff" checked></input>
-          <label for="todo-off">Close</label>
-        </div>
-      </div>
-      <button id="close-btn" class="button"><i class="fas fa-times p"></i>Close</button>
-    </div>
     
     <div id="todos">
       <form id="todo-form"> 
@@ -48,10 +33,25 @@
       <button id="todo-clear" class="button"><i class="fas fa-times p danger"></i>Clear All</button>
     </div>
 
-    <button type="button" id="todo-open" class="button"><i class="far fa-list-alt"></i>
-      Todo List</button>
+    <div id="todo-open"><i class="far fa-list-alt"></i>
+      Todo List</div>
     
-      <button type="button" id="cog" class="button"><i class="fas fa-cog p"></i></button>
+      <div id="settings" style="display: none">
+        <h3>Settings</h3>
+      <div id="radios">
+        <h4 class="p">Todo list</h4>
+        <div>
+          <input type="radio" id="todo-on" name="todo" value="todoOn"></input>
+          <label for="todo-on">Open</label>
+        </div>
+        <div>
+          <input type="radio" id=todo-off name="todo" value="todoOff" checked></input>
+          <label for="todo-off">Close</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="cog"><i class="fas fa-cog p"></i></div>  
 
       <time id="clock"></time>
     </div>

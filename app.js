@@ -5,7 +5,6 @@ const inputFocus = document.getElementById('input-focus');
 const bgImg = document.getElementById('bg-full-image');
 const settings = document.getElementById('settings');
 const cog = document.getElementById('cog');
-const btnClose = document.getElementById('close-btn');
 const todos = document.getElementById('todos');
 const todoOpen = document.getElementById('todo-open');
 const todoClear = document.getElementById('todo-clear');
@@ -28,7 +27,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-setInterval(time, 1000);
+setInterval(time);
 
 const setDisplay = () => {
   let today = new Date();
@@ -101,18 +100,20 @@ const setInputFocus = e => {
 };
 
 const openSettings = () => {
-  cog.style.display = 'none';
-  settings.style.display = 'grid';
+  settings.style.display === 'none'
+    ? (settings.style.display = 'grid')
+    : (settings.style.display = 'none');
+  cog.classList.toggle('rotate');
 };
 
 const closeBtn = e => {
   if (!settings.contains(e.target) && !cog.contains(e.target)) {
     settings.style.display = 'none';
-    cog.style.display = 'inline-block';
-  } else if (btnClose.contains(e.target)) {
-    settings.style.display = 'none';
-    cog.style.display = 'inline-block';
+    cog.style.display = 'block';
   }
+  settings.style.display === 'none'
+    ? (cog.className = 'button close-rotate')
+    : (cog.className = 'button rotate');
 };
 
 const openTodos = () => {
