@@ -120,6 +120,7 @@ const closeBtn = e => {
 const openTodos = () => {
   todoOpen.style.display = 'none';
   todos.style.display = 'block';
+  if (newTodos.length === 0) todoClear.style.display = 'none';
 };
 
 const closeTodos = e => {
@@ -198,6 +199,7 @@ const toggleCheck = key => {
   } else {
     item.classList.remove('done');
   }
+  //  map through new array to save to local storage
 };
 
 const deleteTodoFunc = key => {
