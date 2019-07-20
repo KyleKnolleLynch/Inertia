@@ -161,7 +161,8 @@
 }
 
 #todo-clear {
-  margin-top: 1rem;
+  margin: 1rem auto 0;
+  display: none;
 }
 
 #todo-list {
@@ -225,6 +226,27 @@ input[type='checkbox'] {
   background: transparent;
   outline: none;
 }
+
+.empty {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-list:empty {
+  display: none;
+}
+
+.todo-list:empty + .empty {
+  display: flex;
+}
+
 
 #cog {
   display: block;

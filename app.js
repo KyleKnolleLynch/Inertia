@@ -11,6 +11,7 @@ const todoClear = document.getElementById('todo-clear');
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
+const todoEmpty = document.querySelector('.empty');
 
 const time = () => {
   const today = new Date();
@@ -132,6 +133,12 @@ let newTodos = localStorage.getItem('new-todos')
   ? JSON.parse(localStorage.getItem('new-todos'))
   : [];
 
+if (newTodos.length === 0) {
+  todoList.innerHTML = '';
+} else {
+  todoClear.style.display = 'block';
+}
+
 localStorage.setItem('new-todos', JSON.stringify(newTodos));
 const data = JSON.parse(localStorage.getItem('new-todos'));
 
@@ -153,6 +160,7 @@ const addTodos = text => {
   <button class='delete-todo'><i class='fas fa-trash danger'></i></button> 
   </li>`
   );
+  todoClear.style.display = 'block';
 };
 
 todoForm.addEventListener('submit', e => {
@@ -199,13 +207,12 @@ const deleteTodoFunc = key => {
   localStorage.setItem('new-todos', JSON.stringify(newTodos));
 };
 
-//     todoList.innerHTML = `<span><i class="far fa-clipboard"></i> No Todos Yet!</span>`;
-
 const clearAll = e => {
   e.preventDefault();
   todoList.innerHTML = '';
   localStorage.removeItem('new-todos');
   newTodos = [];
+  todoClear.style.display = 'none';
 };
 
 todoList.addEventListener('click', e => {
