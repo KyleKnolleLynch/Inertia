@@ -200,6 +200,10 @@ const toggleCheck = key => {
     item.classList.remove('done');
   }
   //  map through new array to save to local storage
+   
+   localStorage.setItem('new-todos', JSON.stringify(newTodos));
+    
+  console.log(index);
 };
 
 const deleteTodoFunc = key => {
