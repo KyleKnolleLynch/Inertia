@@ -102,6 +102,7 @@
   outline: none;
   background: transparent;
   color: inherit;
+  font-size: 100%;
 }
 
 .button:hover {
@@ -163,6 +164,7 @@
 #todo-clear {
   margin: 1rem auto 0;
   display: none;
+  font-size: 80%;
 }
 
 #todo-list {
@@ -213,18 +215,12 @@ input[type='checkbox'] {
 
 .done .checkmark::before {
   display: inline-block;
-  color: #ccc;
+  color: rgb(34, 240, 188);
 }
 
 .delete-todo {
-  font-size: 100%;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
   position: absolute;
   right: 1rem;
-  background: transparent;
-  outline: none;
 }
 
 .empty {
@@ -246,7 +242,6 @@ input[type='checkbox'] {
 .todo-list:empty + .empty {
   display: flex;
 }
-
 
 #cog {
   display: block;

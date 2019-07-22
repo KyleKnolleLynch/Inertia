@@ -12,6 +12,7 @@ const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
 const todoEmpty = document.querySelector('.empty');
+const trash = document.querySelector('.delete-todo');
 
 const time = () => {
   const today = new Date();
@@ -143,6 +144,19 @@ if (newTodos.length === 0) {
 localStorage.setItem('new-todos', JSON.stringify(newTodos));
 const data = JSON.parse(localStorage.getItem('new-todos'));
 
+data.forEach(item => {
+  todoList.insertAdjacentHTML(
+    'afterbegin',
+    `<li id='todo-item' data-key='${item.id}'class=${item.checked && 'done'} >
+  <label for='${item.id}' class='checkmark'>
+  <input id='${item.id}' type='checkbox' />
+  </label>
+  <span>${item.text}</span>
+  <button class='delete-todo button'><i class='fas fa-trash danger'></i></button> 
+  </li>`
+  );
+});
+
 const addTodos = text => {
   const item = {
     text,
@@ -155,10 +169,11 @@ const addTodos = text => {
   todoList.insertAdjacentHTML(
     'afterbegin',
     `<li id='todo-item' data-key='${item.id}'>
+  <label for='${item.id}' class='checkmark'>
   <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark'></label>
+  </label>
   <span>${item.text}</span>
-  <button class='delete-todo'><i class='fas fa-trash danger'></i></button> 
+  <button class='delete-todo button'><i class='fas fa-trash danger'></i></button> 
   </li>`
   );
   todoClear.style.display = 'block';
@@ -176,18 +191,6 @@ todoForm.addEventListener('submit', e => {
   }
 });
 
-data.forEach(item => {
-  todoList.insertAdjacentHTML(
-    'afterbegin',
-    `<li id='todo-item' data-key='${item.id}'>
-  <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark'></label>
-  <span>${item.text}</span>
-  <button class='delete-todo'><i class='fas fa-trash danger'></i></button> 
-  </li>`
-  );
-});
-
 const toggleCheck = key => {
   const index = newTodos.findIndex(item => item.id === Number(key));
   newTodos[index].checked = !newTodos[index].checked;
@@ -199,11 +202,8 @@ const toggleCheck = key => {
   } else {
     item.classList.remove('done');
   }
-  //  map through new array to save to local storage
-   
-   localStorage.setItem('new-todos', JSON.stringify(newTodos));
-    
-  console.log(index);
+
+  localStorage.setItem('new-todos', JSON.stringify(newTodos));
 };
 
 const deleteTodoFunc = key => {
