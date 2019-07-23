@@ -12,7 +12,6 @@ const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
 const todoEmpty = document.querySelector('.empty');
-const trash = document.querySelector('.delete-todo');
 
 const time = () => {
   const today = new Date();
@@ -102,31 +101,39 @@ const setInputFocus = e => {
 };
 
 const openSettings = () => {
-  settings.style.display === 'none'
-    ? (settings.style.display = 'grid')
-    : (settings.style.display = 'none');
+  if (settings.style.display === 'none') {
+    settings.className = 'fadeIn';
+    settings.style.display = 'grid';
+  } else {
+    settings.className = 'fadeOut';
+    setTimeout(() => (settings.style.display = 'none'), 500);
+  }
   cog.classList.toggle('rotate');
 };
 
-const closeBtn = e => {
-  if (!settings.contains(e.target) && !cog.contains(e.target)) {
-    settings.style.display = 'none';
-    cog.style.display = 'block';
+const closeSettings = e => {
+  if (
+    !settings.contains(e.target) &&
+    !cog.contains(e.target) &&
+    settings.style.display === 'grid'
+  ) {
+    settings.className = 'fadeOut';
+    setTimeout(() => (settings.style.display = 'none'), 500);
+    cog.classList.toggle('rotate');
   }
-  settings.style.display === 'none'
-    ? (cog.className = 'button close-rotate')
-    : (cog.className = 'button rotate');
 };
 
 const openTodos = () => {
   todoOpen.style.display = 'none';
+  todos.className = 'fadeIn';
   todos.style.display = 'block';
   if (newTodos.length === 0) todoClear.style.display = 'none';
 };
 
 const closeTodos = e => {
   if (!todos.contains(e.target) && !todoOpen.contains(e.target)) {
-    todos.style.display = 'none';
+    todos.className = 'fadeOut';
+    setTimeout(() => (todos.style.display = 'none'), 500);
     todoOpen.style.display = 'inline-block';
   }
 };
@@ -238,7 +245,7 @@ user.addEventListener('blur', setUser);
 inputFocus.addEventListener('keydown', setInputFocus);
 inputFocus.addEventListener('blur', setInputFocus);
 cog.addEventListener('click', openSettings);
-window.addEventListener('click', closeBtn);
+window.addEventListener('click', closeSettings);
 todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);

@@ -28,6 +28,14 @@
   opacity: 0.8;
 }
 
+.fadeIn {
+  animation: fadeIn 500ms ease-in;
+}
+
+.fadeOut {
+  animation: fadeOut 500ms ease-out;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -101,8 +109,8 @@
   display: none;
   overflow-y: scroll;
   scrollbar-width: none;
-  animation: fade-in 500ms ease-in;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -250,8 +258,6 @@ input[type='checkbox'] {
     '. . .';
   grid-template-columns: 1fr 1fr 4rem;
   grid-template-rows: 2rem 1fr 1.5rem;
-  animation: fade-in 500ms ease-in;
-  /* animation: fade-out 500ms ease-in; */
 }
 
 #settings > h3 {
@@ -340,7 +346,7 @@ input[type='checkbox'] {
   }
 }
 
-@keyframes fade-in {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -349,7 +355,7 @@ input[type='checkbox'] {
   }
 }
 
-@keyframes fade-out {
+@keyframes fadeOut {
   0% {
     opacity: 0.8;
   }
