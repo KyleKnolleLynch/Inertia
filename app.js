@@ -1,17 +1,21 @@
 const clock = document.getElementById('clock');
-const title = document.getElementById('title');
-const user = document.getElementById('user');
-const inputFocus = document.getElementById('input-focus');
-const bgImg = document.getElementById('bg-full-image');
-const settings = document.getElementById('settings');
-const cog = document.getElementById('cog');
-const todos = document.getElementById('todos');
-const todoOpen = document.getElementById('todo-open');
-const todoClear = document.getElementById('todo-clear');
-const todoForm = document.getElementById('todo-form');
-const todoInput = document.getElementById('todo-input');
-const todoList = document.getElementById('todo-list');
-const todoEmpty = document.querySelector('.empty');
+title = document.getElementById('title');
+user = document.getElementById('user');
+inputFocus = document.getElementById('input-focus');
+bgImg = document.getElementById('bg-full-image');
+settings = document.getElementById('settings');
+cog = document.getElementById('cog');
+todos = document.getElementById('todos');
+todoOpen = document.getElementById('todo-open');
+todoClear = document.getElementById('todo-clear');
+todoForm = document.getElementById('todo-form');
+todoInput = document.getElementById('todo-input');
+todoList = document.getElementById('todo-list');
+todoEmpty = document.querySelector('.empty');
+radTodoOn = document.getElementById('rad-todo-on');
+radTodoOff = document.getElementById('rad-todo-off');
+radClockOn = document.getElementById('rad-clock-on');
+radClockOff = document.getElementById('rad-clock-off');
 
 const time = () => {
   const today = new Date();
@@ -28,7 +32,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-setInterval(time);
+setInterval(time, 500);
 
 const setDisplay = () => {
   let today = new Date();
@@ -44,7 +48,7 @@ const setDisplay = () => {
     bgImg.style.background =
       'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") no-repeat center';
     bgImg.style.backgroundSize = 'cover';
-  } else if (hours >= 18) {
+  } else if (hours < 24) {
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
       'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?nature?night") no-repeat center';
@@ -106,7 +110,7 @@ const openSettings = () => {
     settings.style.display = 'grid';
   } else {
     settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 500);
+    setTimeout(() => (settings.style.display = 'none'), 400);
   }
   cog.classList.toggle('rotate');
 };
@@ -118,11 +122,11 @@ const closeSettings = e => {
     settings.style.display === 'grid'
   ) {
     settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 500);
+    setTimeout(() => (settings.style.display = 'none'), 400);
     cog.classList.toggle('rotate');
   }
 };
-
+//                            TODO LIST                           //
 const openTodos = () => {
   todoOpen.style.display = 'none';
   todos.className = 'fadeIn';
@@ -133,7 +137,7 @@ const openTodos = () => {
 const closeTodos = e => {
   if (!todos.contains(e.target) && !todoOpen.contains(e.target)) {
     todos.className = 'fadeOut';
-    setTimeout(() => (todos.style.display = 'none'), 500);
+    setTimeout(() => (todos.style.display = 'none'), 400);
     todoOpen.style.display = 'inline-block';
   }
 };
@@ -154,12 +158,11 @@ const data = JSON.parse(localStorage.getItem('new-todos'));
 data.forEach(item => {
   todoList.insertAdjacentHTML(
     'afterbegin',
-    `<li id='todo-item' data-key='${item.id}'class=${item.checked && 'done'} >
-  <label for='${item.id}' class='checkmark'>
+    `<li id='todo-item' data-key='${item.id}' class=${item.checked && 'done'}>
   <input id='${item.id}' type='checkbox' />
-  </label>
-  <span>${item.text}</span>
-  <button class='delete-todo button'><i class='fas fa-trash danger'></i></button> 
+  <label for='${item.id}' class='checkmark'></label>
+  <span id='todo-span'>${item.text}</span>
+  <a class='delete-todo button'><i class='fas fa-trash danger'></i></a> 
   </li>`
   );
 });
@@ -176,11 +179,10 @@ const addTodos = text => {
   todoList.insertAdjacentHTML(
     'afterbegin',
     `<li id='todo-item' data-key='${item.id}'>
-  <label for='${item.id}' class='checkmark'>
   <input id='${item.id}' type='checkbox' />
-  </label>
-  <span>${item.text}</span>
-  <button class='delete-todo button'><i class='fas fa-trash danger'></i></button> 
+  <label for='${item.id}' class='checkmark'></label>
+  <span id='todo-span'>${item.text}</span>
+  <a class='delete-todo button'><i class='fas fa-trash danger'></i></a> 
   </li>`
   );
   todoClear.style.display = 'block';
@@ -239,6 +241,7 @@ todoList.addEventListener('click', e => {
     deleteTodoFunc(itemKey);
   }
 });
+//////////////////////////////////////////////////////////////////////////
 
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);

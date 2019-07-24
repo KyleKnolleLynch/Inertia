@@ -60,6 +60,10 @@
   outline-color: #999;
 }
 
+#focus {
+  font-size: 3.1ch;
+}
+
 #input-focus {
   width: 50vw;
   align-self: center;
@@ -167,7 +171,7 @@
   color: #999;
 }
 
-input[type='checkbox'] {
+#todo-list input[type='checkbox'] {
   display: none;
 }
 
@@ -252,26 +256,19 @@ input[type='checkbox'] {
   right: 3vw;
   z-index: 2;
   opacity: 0.8;
-  grid-template-areas:
-    'head head head'
-    'radios . .'
-    '. . .';
-  grid-template-columns: 1fr 1fr 4rem;
-  grid-template-rows: 2rem 1fr 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px auto 30px;
 }
 
 #settings > h3 {
-  grid-area: head;
+  grid-column: span 2;
 }
 
-#radios {
-  grid-area: radios;
-  display: grid;
-  justify-items: flex-start;
-  align-content: flex-start;
+#settings input {
+  cursor: pointer;
 }
 
-#radios > div > :nth-child(n) {
+.setLabel {
   cursor: pointer;
 }
 
