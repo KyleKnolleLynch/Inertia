@@ -254,5 +254,6 @@ window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
 setDisplay();
+setInterval(setDisplay, 21600000);
 getUser();
 getInputFocus();
