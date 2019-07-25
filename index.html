@@ -23,6 +23,9 @@
       <h2 id="focus">My Primary Focus Today Is</h2>
       <h2 id="input-focus" contenteditable="true"></h2>
 
+      <time id="clock"></time>
+      <time id="alt-clock"></time>
+
       <div id="todos">
         <form id="todo-form">
           <label for="todo-input"
@@ -42,30 +45,40 @@
 
       <div id="todo-open"><i class="far fa-list-alt"></i> Todo List</div>
 
+      <div>
+        <ul id="show-todo-div"></ul>
+      </div>
+
       <div id="settings" style="display: none">
         <h3>Settings</h3>
         <div id="radios">
-          <h4 class="p">Show Todos</h4>
+          <h4 class="p">Focus</h4>
           <div>
-            <input type="radio" id="rad-todo-on" name="radTodo" value="on" />
-            <label for="rad-todo-on" class="setLabel">Open</label>
+            <input type="radio" id="rad-todo-on" name="radTodo" value="hide" />
+            <label for="rad-todo-on" class="setLabel">Hide</label>
           </div>
           <div>
             <input
               type="radio"
               id="rad-todo-off"
               name="radTodo"
-              value="off"
+              value="show"
               checked
             />
-            <label for="rad-todo-off" class="setLabel">Close</label>
+            <label for="rad-todo-off" class="setLabel">Show</label>
           </div>
         </div>
         <div id="clock-settings">
           <h4 class="p">Clock toggle</h4>
           <div>
-            <input type="radio" id="rad-clock-on" name="radClock" value="on" />
-            <label for="rad-clock-on" class="setLabel">Open</label>
+            <input
+              type="radio"
+              id="rad-clock-on"
+              name="radClock"
+              value="on"
+              checked
+            />
+            <label for="rad-clock-on" class="setLabel">12hr</label>
           </div>
           <div>
             <input
@@ -73,16 +86,13 @@
               id="rad-clock-off"
               name="radClock"
               value="off"
-              checked
             />
-            <label for="rad-clock-off" class="setLabel">Close</label>
+            <label for="rad-clock-off" class="setLabel">24hr</label>
           </div>
         </div>
       </div>
 
       <div id="cog"><i class="fas fa-cog p"></i></div>
-
-      <time id="clock"></time>
     </div>
 
     <script src="app.js"></script>

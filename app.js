@@ -1,8 +1,10 @@
 const clock = document.getElementById('clock');
 title = document.getElementById('title');
 user = document.getElementById('user');
+focus = document.getElementById('focus');
 inputFocus = document.getElementById('input-focus');
 bgImg = document.getElementById('bg-full-image');
+altClock = document.getElementById('alt-clock');
 settings = document.getElementById('settings');
 cog = document.getElementById('cog');
 todos = document.getElementById('todos');
@@ -12,6 +14,7 @@ todoForm = document.getElementById('todo-form');
 todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
+showTodo = document.getElementById('show-todo-div');
 radTodoOn = document.getElementById('rad-todo-on');
 radTodoOff = document.getElementById('rad-todo-off');
 radClockOn = document.getElementById('rad-clock-on');
@@ -242,6 +245,52 @@ todoList.addEventListener('click', e => {
   }
 });
 //////////////////////////////////////////////////////////////////////////
+const hideFocus = () => {
+  focus.style.display = 'none';
+  inputFocus.style.display = 'none';
+};
+
+const showFocus = () => {
+  focus.style.display = 'block';
+  inputFocus.style.display = 'block';
+};
+
+const showClock = () => {
+  altClock.style.display = 'none';
+  const time = () => {
+    const today = new Date();
+    let hours = today.getHours();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const minutes = today.getMinutes();
+
+    const displayZero = num => {
+      return (parseInt(num, 10) < 10 ? '0' : '') + num;
+    };
+
+    clock.innerHTML = `
+   ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
+  };
+  clock.style.display = 'block';
+
+  setInterval(time, 500);
+};
+
+const showAltClock = () => {
+  clock.style.display = 'none';
+  const altTime = () => {
+    const d = new Date();
+    const t = d.toLocaleTimeString('default', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false
+    });
+    const amPm = t.hour >= 12 ? 'PM' : 'AM';
+    altClock.innerHTML = `${t}<span id="clockSpan">${amPm}</span>`;
+  };
+  altClock.style.display = 'block';
+  setInterval(altTime, 500);
+};
 
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);
@@ -252,6 +301,10 @@ window.addEventListener('click', closeSettings);
 todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
+radTodoOn.addEventListener('click', hideFocus);
+radTodoOff.addEventListener('click', showFocus);
+radClockOn.addEventListener('click', showClock);
+radClockOff.addEventListener('click', showAltClock);
 
 setDisplay();
 setInterval(setDisplay, 21600000);
