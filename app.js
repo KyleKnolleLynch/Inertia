@@ -257,22 +257,7 @@ const showFocus = () => {
 
 const showClock = () => {
   altClock.style.display = 'none';
-  const time = () => {
-    const today = new Date();
-    let hours = today.getHours();
-    const amPm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12 || 12;
-    const minutes = today.getMinutes();
-
-    const displayZero = num => {
-      return (parseInt(num, 10) < 10 ? '0' : '') + num;
-    };
-
-    clock.innerHTML = `
-   ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
-  };
   clock.style.display = 'block';
-
   setInterval(time, 500);
 };
 
@@ -285,7 +270,7 @@ const showAltClock = () => {
       minute: 'numeric',
       hour12: false
     });
-    const amPm = t.hour >= 12 ? 'PM' : 'AM';
+    const amPm = d >= 12 ? 'PM' : 'AM';
     altClock.innerHTML = `${t}<span id="clockSpan">${amPm}</span>`;
   };
   altClock.style.display = 'block';

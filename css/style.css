@@ -77,11 +77,11 @@
 }
 
 #clock {
-  font-size: 7rem;
+  font-size: 8rem;
 }
 
 #alt-clock {
-  font-size: 7rem;
+  font-size: 8rem;
 }
 
 #clockSpan {
@@ -110,7 +110,7 @@
   width: 30rem;
   max-height: 30rem;
   position: absolute;
-  margin: 20rem 0 0 1rem;
+  margin: 29rem 0 0 1rem;
   z-index: 1;
   opacity: 0.8;
   display: none;
@@ -167,6 +167,7 @@
   flex-grow: 1;
   margin: 0 0.8rem;
   font-size: 18px;
+  padding-right: 0.5rem;
 }
 
 .done span {
@@ -299,8 +300,11 @@
   }
 
   #clock {
-    font-size: 3rem;
-    margin-top: 40vh;
+    font-size: 4rem;
+  }
+
+  #alt-clock {
+    font-size: 4rem;
   }
 
   #clockSpan {
@@ -318,7 +322,7 @@
   #cog {
     bottom: 1.5rem;
     right: 1.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   #todo-open {
@@ -327,18 +331,45 @@
 
   #todos {
     width: 70vw;
+    margin: 25rem 0 0 1rem;
     font-size: 0.7rem;
   }
 }
 
-@media (max-height: 600px) {
+@media (max-width: 440px) {
   #heading {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  #todos {
+    margin: 22rem 0 0 1rem;
+  }
+}
+
+@media (max-height: 760px) {
+  #todos {
+    margin: 20rem 0 0 1rem;
+  }
+}
+
+@media (max-height: 660px) {
+  #todos {
+    margin: 10rem 0 0 1rem;
+  }
+}
+
+@media (max-height: 500px) {
+  #heading {
+    font-size: 1.2rem;
     margin: 7vh 1rem 2rem;
   }
 
   #clock {
-    margin-top: 0;
+    font-size: 4rem;
+  }
+
+  #alt-clock {
+    font-size: 4rem;
   }
 
   #clockSpan {
@@ -349,17 +380,23 @@
     font-size: 1rem;
   }
 
+  #todos {
+    margin: 1.3rem 0 0 2rem;
+    font-size: 0.7rem;
+  }
+
   #input-focus {
+    font-size: 1rem;
+  }
+
+  #todo-open {
     font-size: 1rem;
   }
 
   #cog {
     bottom: 1.5rem;
     right: 1.5rem;
-  }
-  #clock {
-    padding-top: 30vh;
-    font-size: 3rem;
+    font-size: 1rem;
   }
 }
 
