@@ -107,10 +107,11 @@
   background: rgba(33, 33, 33);
   border: 1px thin #000;
   padding: 1rem;
-  width: 30rem;
-  max-height: 30rem;
+  width: 25rem;
+  max-height: 16rem;
   position: absolute;
-  margin: 29rem 0 0 1rem;
+  left: 3vw;
+  bottom: 16vh;
   z-index: 1;
   opacity: 0.8;
   display: none;
@@ -132,14 +133,6 @@
   background: inherit;
   color: #888;
   outline: none;
-}
-
-#add-btn {
-  border: 1px solid lavenderblush;
-  border-radius: 6px;
-  padding: 2px 10px;
-  background: #444;
-  margin-bottom: 2rem;
 }
 
 #todo-clear {
@@ -213,7 +206,7 @@
 }
 
 .empty-text {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0.5rem 2rem 0;
 }
 
@@ -285,12 +278,18 @@
   align-items: flex-start;
 }
 
+#settings > div > div {
+  display: inline-flex;
+  align-items: center;
+}
+
 #settings input {
   cursor: pointer;
 }
 
 .setLabel {
   cursor: pointer;
+  margin-left: 0.3rem;
 }
 
 @media (max-width: 550px) {
@@ -319,19 +318,26 @@
     font-size: 1rem;
   }
 
+  #todo-open {
+    font-size: 1rem;
+  }
+
+  #todos {
+    width: 65vw;
+    font-size: 0.7rem;
+  }
+
+  .empty-text {
+    font-size: 1rem;
+  }
+
   #cog {
     bottom: 1.5rem;
     right: 1.5rem;
     font-size: 1rem;
   }
 
-  #todo-open {
-    font-size: 1rem;
-  }
-
-  #todos {
-    width: 70vw;
-    margin: 25rem 0 0 1rem;
+  #settings {
     font-size: 0.7rem;
   }
 }
@@ -342,19 +348,7 @@
   }
 
   #todos {
-    margin: 22rem 0 0 1rem;
-  }
-}
-
-@media (max-height: 760px) {
-  #todos {
-    margin: 20rem 0 0 1rem;
-  }
-}
-
-@media (max-height: 660px) {
-  #todos {
-    margin: 10rem 0 0 1rem;
+    left: 1rem;
   }
 }
 
@@ -381,7 +375,7 @@
   }
 
   #todos {
-    margin: 1.3rem 0 0 2rem;
+    bottom: 10vh;
     font-size: 0.7rem;
   }
 

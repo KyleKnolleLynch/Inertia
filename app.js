@@ -14,7 +14,7 @@ todoForm = document.getElementById('todo-form');
 todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
-showTodo = document.getElementById('show-todo-div');
+// showTodo = document.getElementById('show-todo-div');
 radTodoOn = document.getElementById('rad-todo-on');
 radTodoOff = document.getElementById('rad-todo-off');
 radClockOn = document.getElementById('rad-clock-on');
@@ -131,9 +131,13 @@ const closeSettings = e => {
 };
 //                            TODO LIST                           //
 const openTodos = () => {
-  todoOpen.style.display = 'none';
-  todos.className = 'fadeIn';
-  todos.style.display = 'block';
+  if (todos.style.display === 'none') {
+    todos.className = 'fadeIn';
+    todos.style.display = 'block';
+  } else {
+    todos.style.display = 'none';
+  }
+
   if (newTodos.length === 0) todoClear.style.display = 'none';
 };
 
@@ -270,7 +274,7 @@ const showAltClock = () => {
       minute: 'numeric',
       hour12: false
     });
-    const amPm = d >= 12 ? 'PM' : 'AM';
+    const amPm = t >= 12 ? 'PM' : 'AM';
     altClock.innerHTML = `${t}<span id="clockSpan">${amPm}</span>`;
   };
   altClock.style.display = 'block';
