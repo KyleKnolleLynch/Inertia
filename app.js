@@ -251,12 +251,10 @@ todoList.addEventListener('click', e => {
 //////////////////////////////////////////////////////////////////////////
 const hideFocus = () => {
   focus.style.display = 'none';
-  inputFocus.style.display = 'none';
 };
 
 const showFocus = () => {
   focus.style.display = 'block';
-  inputFocus.style.display = 'block';
 };
 
 const showClock = () => {
@@ -274,12 +272,52 @@ const showAltClock = () => {
       minute: 'numeric',
       hour12: false
     });
-    const amPm = t >= 12 ? 'PM' : 'AM';
+    const amPm = t > '12' ? 'PM' : 'AM';
     altClock.innerHTML = `${t}<span id="clockSpan">${amPm}</span>`;
   };
   altClock.style.display = 'block';
   setInterval(altTime, 500);
 };
+
+
+
+
+
+// const populateStorage = () => {
+//   localStorage.setItem('focus', );
+  
+
+//   setStyles();
+// };
+
+
+// const setStyles = () => {
+//   const curClock = localStorage.getItem('regclock');
+//   const curAltClock = localStorage.getItem('altclock');
+
+ 
+// console.log(curClock);
+// console.log(curAltClock);
+
+// };
+
+
+// if (!localStorage.getItem('regclock')) {
+//   populateStorage();
+// } else {
+//   setStyles();
+// }
+// if (!localStorage.getItem('altclock')) {
+//   populateStorage();
+// } else {
+//   setStyles();
+// }
+
+// radClockOn.onchange = populateStorage.
+// radClockOff.onchange = populateStorage;
+
+
+
 
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);

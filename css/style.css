@@ -50,8 +50,9 @@
 }
 
 #heading {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   margin: 8vh 0 1rem;
+  align-self: center;
 }
 
 #user {
@@ -61,13 +62,14 @@
 }
 
 #focus {
-  font-size: 3ch;
+  font-size: 1.3rem;
+  align-self: center;
 }
 
 #input-focus {
   width: 50vw;
-  align-self: center;
   outline-color: #999;
+  margin: auto;
 }
 
 #bg-full-image {
@@ -295,7 +297,11 @@
 @media (max-width: 550px) {
   #heading {
     font-size: 1.5rem;
-    margin: 7vh 1rem 2rem;
+    margin: 7vh 0 0;
+  }
+
+  #focus {
+    font-size: 1rem;
   }
 
   #clock {
@@ -308,14 +314,6 @@
 
   #clockSpan {
     font-size: 2rem;
-  }
-
-  #focus {
-    font-size: 1rem;
-  }
-
-  #input-focus {
-    font-size: 1rem;
   }
 
   #todo-open {
@@ -344,7 +342,8 @@
 
 @media (max-width: 440px) {
   #heading {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-top: 7vh;
   }
 
   #todos {
@@ -355,7 +354,11 @@
 @media (max-height: 500px) {
   #heading {
     font-size: 1.2rem;
-    margin: 7vh 1rem 2rem;
+    margin: 7vh 0 0;
+  }
+
+  #focus {
+    font-size: 1rem;
   }
 
   #clock {
@@ -370,17 +373,9 @@
     font-size: 2rem;
   }
 
-  #focus {
-    font-size: 1rem;
-  }
-
   #todos {
     bottom: 10vh;
     font-size: 0.7rem;
-  }
-
-  #input-focus {
-    font-size: 1rem;
   }
 
   #todo-open {

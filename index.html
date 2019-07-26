@@ -20,8 +20,10 @@
         <h1 id="user" contenteditable="true"></h1>
       </div>
 
-      <h2 id="focus">My Primary Focus Today Is</h2>
-      <h2 id="input-focus" contenteditable="true"></h2>
+      <div id="focus">
+        <h2>My Focus Today Is</h2>
+        <h2 id="input-focus" contenteditable="true"></h2>
+      </div>
 
       <time id="clock"></time>
       <time id="alt-clock"></time>
@@ -74,7 +76,7 @@
               type="radio"
               id="rad-clock-on"
               name="radClock"
-              value="on"
+              value="regClock"
               checked
             />
             <label for="rad-clock-on" class="setLabel">12hr</label>
@@ -84,7 +86,7 @@
               type="radio"
               id="rad-clock-off"
               name="radClock"
-              value="off"
+              value="altClock"
             />
             <label for="rad-clock-off" class="setLabel">24hr</label>
           </div>
