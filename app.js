@@ -20,6 +20,8 @@ radTodoOff = document.getElementById('rad-todo-off');
 radClockOn = document.getElementById('rad-clock-on');
 radClockOff = document.getElementById('rad-clock-off');
 
+
+
 const time = () => {
   const today = new Date();
   let hours = today.getHours();
@@ -282,36 +284,43 @@ const showAltClock = () => {
 
 
 
+console.log(focus.style.display);
+const populateStorage = () => {
+ localStorage.setItem('focus', focus.style.display);
 
-// const populateStorage = () => {
-//   localStorage.setItem('focus', );
   
 
-//   setStyles();
-// };
+  setStyles();
+};
 
 
-// const setStyles = () => {
-//   const curClock = localStorage.getItem('regclock');
-//   const curAltClock = localStorage.getItem('altclock');
+const setStyles = () => {
+  const curFocus = localStorage.getItem('focus');
 
- 
-// console.log(curClock);
-// console.log(curAltClock);
+  document.getElementById('focus').style.display = curFocus;
 
-// };
+  
+  
 
 
-// if (!localStorage.getItem('regclock')) {
+};
+// console.log(curFocus);
+
+if (!localStorage.getItem('focus')) {
+  populateStorage();
+} else {
+  setStyles();
+}
+
+
+// if (!localStorage.getItem('hide-focus')) {
 //   populateStorage();
 // } else {
 //   setStyles();
 // }
-// if (!localStorage.getItem('altclock')) {
-//   populateStorage();
-// } else {
-//   setStyles();
-// }
+
+focus.onchange = populateStorage;
+
 
 // radClockOn.onchange = populateStorage.
 // radClockOff.onchange = populateStorage;
