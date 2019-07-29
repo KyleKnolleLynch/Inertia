@@ -19,6 +19,11 @@ radTodoOn = document.getElementById('rad-todo-on');
 radTodoOff = document.getElementById('rad-todo-off');
 radClockOn = document.getElementById('rad-clock-on');
 radClockOff = document.getElementById('rad-clock-off');
+radios = document.querySelectorAll('input[type=radio]');
+saveBtn = document.getElementById('save-btn');
+
+
+
 
 
 
@@ -255,6 +260,7 @@ const hideFocus = () => {
   focus.style.display = 'none';
 };
 
+
 const showFocus = () => {
   focus.style.display = 'block';
 };
@@ -283,34 +289,55 @@ const showAltClock = () => {
 
 
 
+const save = e => {
+e.preventDefault();
+radios.forEach(radio => {
+  localStorage.setItem(radio.value, radio.checked);
+});
 
-console.log(focus.style.display);
-const populateStorage = () => {
- localStorage.setItem('focus', focus.style.display);
-
-  
-
-  setStyles();
-};
-
-
-const setStyles = () => {
-  const curFocus = localStorage.getItem('focus');
-
-  document.getElementById('focus').style.display = curFocus;
-
-  
-  
-
-
-};
-// console.log(curFocus);
-
-if (!localStorage.getItem('focus')) {
-  populateStorage();
-} else {
-  setStyles();
+load();
 }
+
+const load = () => {
+  radios.forEach(radio => {
+      radio.checked = localStorage.getItem(radio.value) === 'true' ? true : false;
+  });
+}
+ 
+
+
+//  const populateStorage = () => {
+//   radios.forEach(radio => {
+//     localStorage.setItem(radio.value, radio.checked);
+//   })
+
+ 
+
+  
+
+//   setStyles();
+// };
+
+// focus.onchange = save;
+
+//  const setStyles = () => {
+//   radios.forEach(radio => {
+//     radio.checked = localStorage.getItem(radio.value) === 'true' ? true : false;
+//   })
+  
+  
+  
+
+
+//  };
+
+
+// if (!localStorage.getItem(radio.value)) {
+//   populateStorage();
+// } else {
+//   setStyles();
+// }
+
 
 
 // if (!localStorage.getItem('hide-focus')) {
@@ -319,7 +346,7 @@ if (!localStorage.getItem('focus')) {
 //   setStyles();
 // }
 
-focus.onchange = populateStorage;
+
 
 
 // radClockOn.onchange = populateStorage.
@@ -341,8 +368,14 @@ radTodoOn.addEventListener('click', hideFocus);
 radTodoOff.addEventListener('click', showFocus);
 radClockOn.addEventListener('click', showClock);
 radClockOff.addEventListener('click', showAltClock);
+saveBtn.addEventListener('click', save);
+
 
 setDisplay();
 setInterval(setDisplay, 21600000);
 getUser();
 getInputFocus();
+
+
+
+

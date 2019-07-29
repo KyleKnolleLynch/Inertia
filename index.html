@@ -50,19 +50,19 @@
         <ul id="show-todo-div"></ul>
       </div>
 
-      <div id="settings" style="display: none">
+      <form id="settings" style="display: none">
         <h3>Settings</h3>
         <div id="radios">
           <h4 class="p">Focus</h4>
           <div>
-            <input type="radio" id="rad-todo-on" name="radTodo" value="hide" />
+            <input type="radio" id="rad-todo-on" name="radFocus"  value="hide" />
             <label for="rad-todo-on" class="setLabel">Hide</label>
           </div>
           <div>
             <input
               type="radio"
               id="rad-todo-off"
-              name="radTodo"
+              name="radFocus" 
               value="show"
               checked
             />
@@ -91,7 +91,8 @@
             <label for="rad-clock-off" class="setLabel">24hr</label>
           </div>
         </div>
-      </div>
+        <button id="save-btn" class="button" type="submit">save</button>
+      </form>
 
       <div id="cog"><i class="fas fa-cog p"></i></div>
     </div>
