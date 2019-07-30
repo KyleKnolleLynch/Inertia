@@ -21,11 +21,7 @@ radClockOn = document.getElementById('rad-clock-on');
 radClockOff = document.getElementById('rad-clock-off');
 radios = document.querySelectorAll('input[type=radio]');
 saveBtn = document.getElementById('save-btn');
-
-
-
-
-
+infoMsg = document.getElementById('info-msg');
 
 const time = () => {
   const today = new Date();
@@ -256,22 +252,31 @@ todoList.addEventListener('click', e => {
   }
 });
 //////////////////////////////////////////////////////////////////////////
-const hideFocus = () => {
- focus.style.display = 'none';
- save();
+const save = e => {
+  e.preventDefault();
+  radios.forEach(radio => {
+    localStorage.setItem(radio.id, radio.checked);
+  });
+
+  load();
+  saveBtn.style.display = 'none';
+  infoMsg.style.display = 'inline-flex';
+  setTimeout(() => (infoMsg.style.display = 'none'), 2000);
+  setTimeout(() => (saveBtn.style.display = 'inline-block'), 2000);
 };
 
+const hideFocus = () => {
+  focus.style.display = 'none';
+};
 
 const showFocus = () => {
-focus.style.display = 'block';
-save();
+  focus.style.display = 'block';
 };
 
 const showClock = () => {
   altClock.style.display = 'none';
   clock.style.display = 'block';
   setInterval(time, 500);
-  save();
 };
 
 const showAltClock = () => {
@@ -288,104 +293,30 @@ const showAltClock = () => {
   };
   altClock.style.display = 'block';
   setInterval(altTime, 500);
-  save();
 };
 
-
-
-// const save = e => {
-// e.preventDefault();
-// radios.forEach(radio => {
-//   localStorage.setItem(radio.id, radio.checked);
-// });
-
-// load();
-// }
-
-const save = () => {
-  radios.forEach(radio => {
-    localStorage.setItem(radio.id, radio.checked);
-  });
-  
-  // load();
-  }
-
-// radios.forEach(radio => {
-//   localStorage.setItem(radio.id, radio.checked);
-// });
+// const save = () => {
+//   radios.forEach(radio => {
+//     localStorage.setItem(radio.id, radio.checked);
+//   });
+// };
 
 const load = () => {
- 
-    radios.forEach(radio => {
-      radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
-      radTodoOff.checked ? showFocus() : hideFocus();
-      radClockOn.checked ? showClock() : showAltClock();
-      
+  radios.forEach(radio => {
+    radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
+    radClockOn.checked ? showClock() : showAltClock();
+    radTodoOff.checked ? showFocus() : hideFocus();
   });
-   
-}
-
+};
 
 radios.forEach(radio => {
   if (!localStorage.getItem(radio.id)) {
     radTodoOff.checked;
     radClockOn.checked;
   } else {
-    setTimeout(() => load()), 550;
+    load();
   }
-})
-
- 
-
-
-//  const populateStorage = () => {
-//   radios.forEach(radio => {
-//     localStorage.setItem(radio.value, radio.checked);
-//   })
-
- 
-
-  
-
-//   setStyles();
-// };
-
-// radTodoOn.onchange = populateStorage;
-
-//  const setStyles = () => {
-//   radios.forEach(radio => {
-//     radio.checked = localStorage.getItem(radio.value) === 'true' ? true : false;
-//   })
-  
-  
-  
-//  };
-
-// radios.forEach(radio => {
-//   if (!localStorage.getItem(radio.value)) {
-//     populateStorage();
-//   } else {
-//     setStyles();
-//   }
-// })
-
-
-
-
-// if (!localStorage.getItem('hide-focus')) {
-//   populateStorage();
-// } else {
-//   setStyles();
-// }
-
-
-
-
-// radClockOn.onchange = populateStorage.
-// radClockOff.onchange = populateStorage;
-
-
-
+});
 
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);
@@ -400,17 +331,9 @@ radTodoOn.addEventListener('click', hideFocus);
 radTodoOff.addEventListener('click', showFocus);
 radClockOn.addEventListener('click', showClock);
 radClockOff.addEventListener('click', showAltClock);
-// saveBtn.addEventListener('click', save);
-
+saveBtn.addEventListener('click', save);
 
 setDisplay();
 setInterval(setDisplay, 21600000);
 getUser();
 getInputFocus();
-
-
-
-
-
-
-

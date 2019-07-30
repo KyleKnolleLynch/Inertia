@@ -31,7 +31,11 @@
       <div id="todos" style="display: none">
         <form id="todo-form">
           <label for="todo-input"
-            ><input type="text" id="todo-input" placeholder="Add Todo.." required
+            ><input
+              type="text"
+              id="todo-input"
+              placeholder="Add Todo.."
+              required
           /></label>
         </form>
         <ul id="todo-list" class="todo-list"></ul>
@@ -55,14 +59,14 @@
         <div id="radios">
           <h4 class="p">Focus</h4>
           <div>
-            <input type="radio" id="rad-todo-on" name="radFocus"  value="hide" />
+            <input type="radio" id="rad-todo-on" name="radFocus" value="hide" />
             <label for="rad-todo-on" class="setLabel">Hide</label>
           </div>
           <div>
             <input
               type="radio"
               id="rad-todo-off"
-              name="radFocus" 
+              name="radFocus"
               value="show"
               checked
             />
@@ -79,7 +83,7 @@
               value="regClock"
               checked
             />
-            <label for="rad-clock-on" class="setLabel">12hr</label>
+            <label for="rad-clock-on" class="setLabel">12hour</label>
           </div>
           <div>
             <input
@@ -88,10 +92,11 @@
               name="radClock"
               value="altClock"
             />
-            <label for="rad-clock-off" class="setLabel">24hr</label>
+            <label for="rad-clock-off" class="setLabel">24hour</label>
           </div>
         </div>
-        <button id="save-btn" class="button" type="submit">save</button>
+        <button id="save-btn" class="button" type="submit">Save</button>
+        <span id="info-msg" class="danger">Prefrences saved!</span>
       </form>
 
       <div id="cog"><i class="fas fa-cog p"></i></div>
