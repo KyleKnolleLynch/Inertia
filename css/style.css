@@ -51,13 +51,14 @@
 
 #heading {
   font-size: 1.8rem;
-  margin: 8vh 0 1rem;
+  margin: 6vh 0 1rem;
   align-self: center;
 }
 
+
 #user {
   width: 60vw;
-  margin: auto;
+  margin: -0.5rem auto;
   outline-color: #999;
 }
 
@@ -79,16 +80,21 @@
 }
 
 #clock {
+  margin: 2rem 0 0 1rem;
   font-size: 8rem;
+  font-weight: 600;
 }
 
 #alt-clock {
+  margin: 2rem 0 0 1rem;
   font-size: 8rem;
+  font-weight: 600;
 }
 
 #clockSpan {
   font-size: 4rem;
   margin-left: 0.4rem;
+  font-weight: 300;
 }
 
 #todo-open {
@@ -320,11 +326,11 @@
   }
 
   #clock {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   #alt-clock {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   #clockSpan {
@@ -377,11 +383,11 @@
   }
 
   #clock {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   #alt-clock {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   #clockSpan {
