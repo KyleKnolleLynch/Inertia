@@ -4,6 +4,7 @@ user = document.getElementById('user');
 focus = document.getElementById('focus');
 inputFocus = document.getElementById('input-focus');
 bgImg = document.getElementById('bg-full-image');
+weatherDis = document.getElementById('weather-dis');
 altClock = document.getElementById('alt-clock');
 settings = document.getElementById('settings');
 cog = document.getElementById('cog');
@@ -23,6 +24,7 @@ radios = document.querySelectorAll('input[type=radio]');
 saveBtn = document.getElementById('save-btn');
 infoMsg = document.getElementById('info-msg');
 
+//                    Main Display                //
 const time = () => {
   const today = new Date();
   let hours = today.getHours();
@@ -109,30 +111,72 @@ const setInputFocus = e => {
     location.reload();
   }
 };
+//////////////////////////////////////////////////////////
 
-const openSettings = () => {
-  if (settings.style.display === 'none') {
-    settings.className = 'fadeIn';
-    settings.style.display = 'grid';
-  } else {
-    settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 400);
-  }
-  cog.classList.toggle('rotate');
-};
+//                        Weather                       //
+const getLocation = () => {
+ if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showPos, showError);
+ } else {
+   weatherDis.innerHTML = "Geolocation not supported on this device";
+ }
+}
 
-const closeSettings = e => {
-  if (
-    !settings.contains(e.target) &&
-    !cog.contains(e.target) &&
-    settings.style.display === 'grid'
-  ) {
-    settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 400);
-    cog.classList.toggle('rotate');
+const showPos = position => {
+ const lat = position.coords.latitude;
+ const lon = position.coords.longitude;
+ return lat, lon;
+}
+
+const curLoc = showPos;
+
+// // init weather object
+// const weather = new Weather(curLoc.lat, curLoc.lon);
+
+const getWeather = async () => {
+  const res = await fetch(
+    `api.openweathermap.org/data/2.5/weather?lat=${curLoc.lat}&lon=${curLoc.lon}&units=imperial&APPID=${apiKey}`
+  );
+
+  const resData = await res.json();
+  return resData;
+}
+
+
+const showError = error => {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      weatherDis.innerHTML = "User denied geolocation request."
+      return;
+    case error.POSITION_UNAVAILABLE:
+      weatherDis.innerHTML = "Location info unavailable from current position."
+      return;
+    case error.TIMEOUT:
+      weatherDis.innerHTML = "Location request timed out."
+      return;
+    case error.UNKNOWN_ERROR:
+      weatherDis.innerHTML = "An unknown error occured."
+      return;
   }
-};
-//                            TODO LIST                           //
+}
+
+
+getLocation();
+
+
+
+// getWeather()
+// .then(res = resData)
+// .error(err);
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+//                        TODO LIST                     //
 const openTodos = () => {
   if (todos.style.display === 'none') {
     todos.className = 'fadeIn';
@@ -251,7 +295,32 @@ todoList.addEventListener('click', e => {
     deleteTodoFunc(itemKey);
   }
 });
-//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//                       Settings                           //
+
+const openSettings = () => {
+  if (settings.style.display === 'none') {
+    settings.className = 'fadeIn';
+    settings.style.display = 'grid';
+  } else {
+    settings.className = 'fadeOut';
+    setTimeout(() => (settings.style.display = 'none'), 400);
+  }
+  cog.classList.toggle('rotate');
+};
+
+const closeSettings = e => {
+  if (
+    !settings.contains(e.target) &&
+    !cog.contains(e.target) &&
+    settings.style.display === 'grid'
+  ) {
+    settings.className = 'fadeOut';
+    setTimeout(() => (settings.style.display = 'none'), 400);
+    cog.classList.toggle('rotate');
+  }
+};
+
 const save = e => {
   e.preventDefault();
   radios.forEach(radio => {
@@ -295,12 +364,6 @@ const showAltClock = () => {
   setInterval(altTime, 500);
 };
 
-// const save = () => {
-//   radios.forEach(radio => {
-//     localStorage.setItem(radio.id, radio.checked);
-//   });
-// };
-
 const load = () => {
   radios.forEach(radio => {
     radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
@@ -317,6 +380,7 @@ radios.forEach(radio => {
     load();
   }
 });
+/////////////////////////////////////////////////////////////////
 
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);
