@@ -114,65 +114,69 @@ const setInputFocus = e => {
 //////////////////////////////////////////////////////////
 
 //                        Weather                       //
+
 const getLocation = () => {
- if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showPos, showError);
- } else {
-   weatherDis.innerHTML = "Geolocation not supported on this device";
- }
-}
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPos, showError, {
+      timeout: 10000
+    });
+  } else {
+    weatherDis.innerHTML = 'Geolocation not supported on this device';
+  }
+};
+
 
 const showPos = position => {
- const lat = position.coords.latitude;
- const lon = position.coords.longitude;
- return lat, lon;
-}
+   const lat = position.coords.latitude;
+   const lon = position.coords.longitude;
+  console.log(lat, lon);
+};
 
-const curLoc = showPos;
+
+
+// console.log(lat, lon);
+const showError = error => {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      weatherDis.innerHTML = 'User denied geolocation request.';
+      setTimeout(
+        () => (weatherDis.innerHTML = 'Please enable location services.'),
+        5000
+      );
+      setTimeout(() => (weatherDis.innerHTML = ''), 25000);
+      return;
+    case error.POSITION_UNAVAILABLE:
+      weatherDis.innerHTML = 'Location info unavailable from current position.';
+      return;
+    case error.TIMEOUT:
+      weatherDis.innerHTML = 'Location request timed out.';
+      return;
+    case error.UNKNOWN_ERROR:
+      weatherDis.innerHTML = 'An unknown error occured.';
+      return;
+    default:
+      weatherDis.innerHTML = 'Something went wrong.';
+  }
+};
+
+getLocation();
 
 // // init weather object
-// const weather = new Weather(curLoc.lat, curLoc.lon);
 
 const getWeather = async () => {
   const res = await fetch(
-    `api.openweathermap.org/data/2.5/weather?lat=${curLoc.lat}&lon=${curLoc.lon}&units=imperial&APPID=${apiKey}`
+    `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
   );
 
   const resData = await res.json();
   return resData;
-}
+};
 
-
-const showError = error => {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      weatherDis.innerHTML = "User denied geolocation request."
-      return;
-    case error.POSITION_UNAVAILABLE:
-      weatherDis.innerHTML = "Location info unavailable from current position."
-      return;
-    case error.TIMEOUT:
-      weatherDis.innerHTML = "Location request timed out."
-      return;
-    case error.UNKNOWN_ERROR:
-      weatherDis.innerHTML = "An unknown error occured."
-      return;
-  }
-}
-
-
-getLocation();
-
-
-
-// getWeather()
-// .then(res = resData)
-// .error(err);
-
-
-
-
-
+getWeather()
+  .then(res => {
+    console.log(res);
+  })
+  .catch(err => console.log(err));
 
 //////////////////////////////////////////////////////////
 

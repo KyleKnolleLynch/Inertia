@@ -79,6 +79,12 @@
   width: 100vw;
 }
 
+#weather-dis {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
 #clock {
   margin: 2rem 0 0 1rem;
   font-size: 8rem;
