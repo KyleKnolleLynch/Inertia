@@ -23,6 +23,9 @@ radClockOff = document.getElementById('rad-clock-off');
 radios = document.querySelectorAll('input[type=radio]');
 saveBtn = document.getElementById('save-btn');
 infoMsg = document.getElementById('info-msg');
+weatherTitle = document.getElementById('weather-title');
+weatherTemp = document.getElementById('weather-temp');
+weatherIcon = document.getElementById('weather-span');
 
 //                    Main Display                //
 const time = () => {
@@ -125,16 +128,26 @@ const getLocation = () => {
   }
 };
 
+const showPos = async position => {
+  try {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    console.log(lat, lon);
+    const res = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
+    );
 
-const showPos = position => {
-   const lat = position.coords.latitude;
-   const lon = position.coords.longitude;
-  console.log(lat, lon);
+    const resData = await res.json();
+    console.log(resData);
+
+    weatherTemp.textContent = `${Math.floor(resData.main.temp)} F`;
+    weatherTitle.textContent = resData.weather[0].description;
+    weatherIcon.textContent = resData.weather[0].icon;
+  } catch (err) {
+    alert('Something went wrong, error retreiving weather data.');
+  }
 };
 
-
-
-// console.log(lat, lon);
 const showError = error => {
   switch (error.code) {
     case error.PERMISSION_DENIED:
@@ -159,24 +172,7 @@ const showError = error => {
   }
 };
 
-getLocation();
-
-// // init weather object
-
-const getWeather = async () => {
-  const res = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
-  );
-
-  const resData = await res.json();
-  return resData;
-};
-
-getWeather()
-  .then(res => {
-    console.log(res);
-  })
-  .catch(err => console.log(err));
+document.addEventListener('DOMContentLoaded', getLocation);
 
 //////////////////////////////////////////////////////////
 
