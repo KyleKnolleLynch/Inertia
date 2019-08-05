@@ -82,17 +82,26 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#weather-title {
+  grid-column: span 3;
 }
 
 #weather-temp {
-  display: inline-flex;
+  justify-self: flex-end;
 }
 
 #deg {
-  font-size: 1rem;
+  justify-self: flex-start;
+  font-size: 0.8rem;
 }
 
 #weather-icon {
+  align-self: flex-start;
+  justify-self: flex-start;
   margin-top: -0.7rem;
 }
 
@@ -382,6 +391,16 @@
   #heading {
     font-size: 1.2rem;
     margin-top: 7vh;
+  }
+
+  #weather-dis {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  #deg {
+    font-size: 0.7rem;
   }
 
   #todos {
