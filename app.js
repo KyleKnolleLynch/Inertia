@@ -25,7 +25,7 @@ saveBtn = document.getElementById('save-btn');
 infoMsg = document.getElementById('info-msg');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
-weatherIcon = document.getElementById('weather-span');
+weatherIcon = document.getElementById('weather-icon');
 
 //                    Main Display                //
 const time = () => {
@@ -132,7 +132,6 @@ const showPos = async position => {
   try {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    console.log(lat, lon);
     const res = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
     );
@@ -140,9 +139,12 @@ const showPos = async position => {
     const resData = await res.json();
     console.log(resData);
 
-    weatherTemp.textContent = `${Math.floor(resData.main.temp)} F`;
-    weatherTitle.textContent = resData.weather[0].description;
-    weatherIcon.textContent = resData.weather[0].icon;
+    weatherTitle.textContent = resData.name;
+    weatherTemp.textContent = Math.floor(resData.main.temp);
+    weatherTemp.insertAdjacentHTML('afterend', '<span id="deg"> &deg;F</span>');
+    weatherIcon.innerHTML = `<img src='http://openweathermap.org/img/wn/${
+      resData.weather[0].icon
+    }.png'></img>`;
   } catch (err) {
     alert('Something went wrong, error retreiving weather data.');
   }

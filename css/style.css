@@ -55,7 +55,6 @@
   align-self: center;
 }
 
-
 #user {
   width: 60vw;
   margin: -0.5rem auto;
@@ -81,8 +80,20 @@
 
 #weather-dis {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
+}
+
+#weather-temp {
+  display: inline-flex;
+}
+
+#deg {
+  font-size: 1rem;
+}
+
+#weather-icon {
+  margin-top: -0.7rem;
 }
 
 #clock {
