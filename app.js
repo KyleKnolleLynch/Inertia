@@ -146,7 +146,7 @@ const showPos = async position => {
       resData.weather[0].icon
     }.png'></img>`;
   } catch (err) {
-    alert('Something went wrong, error retreiving weather data.');
+    alert(`Error!: ${err}`);
   }
 };
 
