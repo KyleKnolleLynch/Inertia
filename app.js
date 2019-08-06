@@ -43,7 +43,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-setInterval(time, 500);
+setInterval(time, 1000);
 
 const setDisplay = () => {
   let today = new Date();
@@ -121,6 +121,7 @@ const setInputFocus = e => {
 const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPos, showError, {
+      enableHighAccuracy: true,
       timeout: 10000
     });
   } else {
