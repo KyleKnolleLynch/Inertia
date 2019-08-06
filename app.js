@@ -392,12 +392,12 @@ const showAltClock = () => {
 
 const showCel = () => {
   weatherDis.style.display = 'none';
-  weatherDisAlt.style.display = 'block';
+  weatherDisAlt.style.display = 'grid';
 };
 
 const showFar = () => {
   weatherDisAlt.style.display = 'none';
-  weatherDis.style.display = 'block';
+  weatherDis.style.display = 'grid';
 };
 
 const load = () => {
