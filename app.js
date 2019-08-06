@@ -5,6 +5,7 @@ focus = document.getElementById('focus');
 inputFocus = document.getElementById('input-focus');
 bgImg = document.getElementById('bg-full-image');
 weatherDis = document.getElementById('weather-dis');
+weatherDisAlt = document.getElementById('weather-dis-alt');
 altClock = document.getElementById('alt-clock');
 settings = document.getElementById('settings');
 cog = document.getElementById('cog');
@@ -20,12 +21,19 @@ radTodoOn = document.getElementById('rad-todo-on');
 radTodoOff = document.getElementById('rad-todo-off');
 radClockOn = document.getElementById('rad-clock-on');
 radClockOff = document.getElementById('rad-clock-off');
+radTempFar = document.getElementById('rad-temp-far');
+radTempCel = document.getElementById('rad-temp-cel');
 radios = document.querySelectorAll('input[type=radio]');
 saveBtn = document.getElementById('save-btn');
 infoMsg = document.getElementById('info-msg');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
+deg = document.getElementById('deg');
 weatherIcon = document.getElementById('weather-icon');
+weatherTitleAlt = document.getElementById('weather-title-alt');
+weatherTempAlt = document.getElementById('weather-temp-alt');
+altDeg = document.getElementById('alt-deg');
+weatherIconAlt = document.getElementById('weather-icon-alt');
 
 //                    Main Display                //
 const time = () => {
@@ -43,7 +51,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-setInterval(time, 1000);
+setInterval(time, 500);
 
 const setDisplay = () => {
   let today = new Date();
@@ -138,13 +146,28 @@ const showPos = async position => {
     );
 
     const resData = await res.json();
-    console.log(resData);
 
     weatherTitle.textContent = resData.name;
     weatherTemp.textContent = Math.floor(resData.main.temp);
     weatherTemp.insertAdjacentHTML('afterend', '<span id="deg"> &deg;F</span>');
     weatherIcon.innerHTML = `<img src='http://openweathermap.org/img/wn/${
       resData.weather[0].icon
+    }.png'></img>`;
+
+    const resAlt = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=7dfba6dc6054d63bddd0e0870501e132`
+    );
+
+    const resDataAlt = await resAlt.json();
+
+    weatherTitleAlt.textContent = resDataAlt.name;
+    weatherTempAlt.textContent = Math.floor(resDataAlt.main.temp);
+    weatherTempAlt.insertAdjacentHTML(
+      'afterend',
+      '<span id="alt-deg"> &deg;C</span>'
+    );
+    weatherIconAlt.innerHTML = `<img src='http://openweathermap.org/img/wn/${
+      resDataAlt.weather[0].icon
     }.png'></img>`;
   } catch (err) {
     alert(`Error!: ${err}`);
@@ -367,11 +390,22 @@ const showAltClock = () => {
   setInterval(altTime, 500);
 };
 
+const showCel = () => {
+  weatherDis.style.display = 'none';
+  weatherDisAlt.style.display = 'block';
+};
+
+const showFar = () => {
+  weatherDisAlt.style.display = 'none';
+  weatherDis.style.display = 'block';
+};
+
 const load = () => {
   radios.forEach(radio => {
     radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
     radClockOn.checked ? showClock() : showAltClock();
     radTodoOff.checked ? showFocus() : hideFocus();
+    radTempFar.checked ? showFar() : showCel();
   });
 };
 
@@ -379,10 +413,12 @@ radios.forEach(radio => {
   if (!localStorage.getItem(radio.id)) {
     radTodoOff.checked;
     radClockOn.checked;
+    radTempFar.checked;
   } else {
     load();
   }
 });
+
 /////////////////////////////////////////////////////////////////
 
 user.addEventListener('keydown', setUser);
@@ -398,6 +434,8 @@ radTodoOn.addEventListener('click', hideFocus);
 radTodoOff.addEventListener('click', showFocus);
 radClockOn.addEventListener('click', showClock);
 radClockOff.addEventListener('click', showAltClock);
+radTempCel.addEventListener('click', showCel);
+radTempFar.addEventListener('click', showFar);
 saveBtn.addEventListener('click', save);
 
 setDisplay();

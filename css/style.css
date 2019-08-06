@@ -14,6 +14,10 @@
   padding: 0.3rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .button {
   display: inline-block;
   cursor: pointer;
@@ -78,7 +82,8 @@
   width: 100vw;
 }
 
-#weather-dis {
+#weather-dis,
+#weather-dis-alt {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -86,20 +91,26 @@
   grid-template-columns: 1fr 1fr;
 }
 
-#weather-title {
+#weather-title,
+#weather-title-alt {
   grid-column: span 3;
 }
 
-#weather-temp {
+#weather-temp,
+#weather-temp-alt {
   justify-self: flex-end;
 }
 
-#deg {
+
+#deg,
+#alt-deg {
   justify-self: flex-start;
   font-size: 0.8rem;
 }
 
-#weather-icon {
+
+#weather-icon,
+#weather-icon-alt {
   align-self: flex-start;
   justify-self: flex-start;
   margin-top: -0.7rem;
@@ -282,7 +293,7 @@
 #settings {
   display: none;
   background: rgba(33, 33, 33);
-  padding: 1rem;
+  padding: 0.5rem;
   width: 16rem;
   height: 14rem;
   position: absolute;
@@ -291,14 +302,18 @@
   z-index: 2;
   opacity: 0.8;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px auto 30px;
+  grid-template-rows: 30px auto auto 30px;
 }
 
 #settings h3 {
   grid-column: span 2;
 }
 
-#radios {
+#settings h4 {
+  margin-bottom: 2px;
+}
+
+#focus-settings {
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -310,9 +325,17 @@
   justify-self: center;
 }
 
+#temp-settings {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
 #settings > div > div {
   display: inline-flex;
   align-items: center;
+  margin-top: 1px;
+  color: #999;
 }
 
 #settings input {
@@ -400,6 +423,10 @@
   }
 
   #deg {
+    font-size: 0.7rem;
+  }
+
+  #alt-deg {
     font-size: 0.7rem;
   }
 
