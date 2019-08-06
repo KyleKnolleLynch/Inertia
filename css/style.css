@@ -139,7 +139,6 @@
 
 #todos {
   background: rgba(33, 33, 33);
-  border: 1px thin #000;
   padding: 1rem;
   width: 25rem;
   max-height: 16rem;
@@ -283,7 +282,6 @@
 #settings {
   display: none;
   background: rgba(33, 33, 33);
-  border: 1px thin #000;
   padding: 1rem;
   width: 16rem;
   height: 14rem;
@@ -341,7 +339,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 550px) {
+@media screen and (max-width: 550px) {
   #heading {
     font-size: 1.5rem;
     margin: 7vh 0 0;
@@ -387,7 +385,7 @@
   }
 }
 
-@media (max-width: 440px) {
+@media screen and (max-width: 440px) {
   #heading {
     font-size: 1.2rem;
     margin-top: 7vh;
@@ -408,7 +406,7 @@
   }
 }
 
-@media (max-height: 500px) {
+@media screen and (max-height: 500px) {
   #heading {
     font-size: 1.2rem;
     margin: 7vh 0 0;
