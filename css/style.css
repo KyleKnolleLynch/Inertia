@@ -75,6 +75,7 @@
 #bg-full-image {
   background-blend-mode: multiply;
   height: 100vh;
+  min-height: 100%;
   width: 100vw;
 }
 

@@ -60,17 +60,17 @@ const setDisplay = () => {
   if (hours < 12) {
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?morning") no-repeat center';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?morning") center no-repeat';
     bgImg.style.backgroundSize = 'cover';
   } else if (hours < 18) {
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") no-repeat center';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center no-repeat';
     bgImg.style.backgroundSize = 'cover';
   } else if (hours < 24) {
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?nature?night") no-repeat center';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?nature?night") center no-repeat';
     bgImg.style.backgroundSize = 'cover';
   }
 };
