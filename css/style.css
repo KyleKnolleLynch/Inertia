@@ -292,15 +292,15 @@
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1.5rem 1rem;
   width: 16rem;
-  height: 14rem;
+  height: 15rem;
   position: absolute;
   bottom: 12vh;
   right: 3vw;
   z-index: 2;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px auto auto 30px;
+  grid-template-rows: 32px auto auto 30px;
 }
 
 #settings h3 {
@@ -315,7 +315,7 @@
 #focus-settings {
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-self: flex-start;
 }
 
 #clock-settings {
@@ -327,7 +327,7 @@
 #temp-settings {
   display: flex;
   flex-direction: column;
-  justify-self: flex-end;
+  justify-self: flex-start;
 }
 
 #settings > div > div {
@@ -366,6 +366,10 @@
     height: 100vh; 
     min-height: 125%; 
 } */
+
+#bg-full-image {
+  min-height: 125%;
+}
 
   #heading {
     font-size: 1.4rem;
@@ -434,9 +438,13 @@
 }
 
 @media screen and (max-height: 500px) {
-  html {
+  /* html {
     height: 100vh; 
     min-height: 125%; 
+} */
+
+#bg-full-image {
+  min-height: 125%;
 }
 
   #heading {
