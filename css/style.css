@@ -309,6 +309,7 @@
 
 #settings h4 {
   margin-bottom: 2px;
+  align-self: flex-start;
 }
 
 #focus-settings {
@@ -351,7 +352,6 @@
   border: 1px solid #999;
   padding: 0 0.5rem;
   border-radius: 10px;
-  font-size: 80%;
 }
 
 #info-msg {
@@ -362,14 +362,14 @@
 }
 
 @media screen and (max-width: 550px) {
-  html {
+  /* html {
     height: 100vh; 
     min-height: 125%; 
-}
+} */
 
-  /* #bg-full-image {
+  #bg-full-image {
     min-height: 125%;
-  } */
+  }
 
   #heading {
     font-size: 1.5rem;
@@ -399,7 +399,6 @@
 
   #todos {
     width: 65vw;
-    font-size: 0.7rem;
   }
 
   .empty-text {
@@ -413,9 +412,6 @@
     opacity: 0.7;
   }
 
-  #settings {
-    font-size: 0.8rem;
-  }
 }
 
 @media screen and (max-width: 440px) {
