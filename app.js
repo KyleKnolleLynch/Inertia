@@ -65,7 +65,7 @@ const setDisplay = () => {
   } else if (hours < 18) {
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center no-repeat';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center/100% no-repeat';
     bgImg.style.backgroundSize = 'cover';
   } else if (hours < 24) {
     title.innerHTML = 'Good evening,';

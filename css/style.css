@@ -75,7 +75,6 @@
 #bg-full-image {
   background-blend-mode: multiply;
   height: 100vh;
-  min-height: 100%;
   width: 100vw;
 }
 
@@ -361,6 +360,10 @@
 }
 
 @media screen and (max-width: 550px) {
+  #bg-full-image {
+    min-height: 125%;
+  }
+
   #heading {
     font-size: 1.5rem;
     margin: 7vh 0 0;
@@ -434,6 +437,10 @@
 }
 
 @media screen and (max-height: 500px) {
+  #bg-full-image {
+    min-height: 125%;
+  }
+
   #heading {
     font-size: 1.2rem;
     margin: 7vh 0 0;
