@@ -142,7 +142,7 @@ const showPos = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
     );
 
     const resData = await res.json();
@@ -155,7 +155,7 @@ const showPos = async position => {
     }.png'></img>`;
 
     const resAlt = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=7dfba6dc6054d63bddd0e0870501e132`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=7dfba6dc6054d63bddd0e0870501e132`
     );
 
     const resDataAlt = await resAlt.json();
@@ -208,7 +208,8 @@ const openTodos = () => {
     todos.className = 'fadeIn';
     todos.style.display = 'block';
   } else {
-    todos.style.display = 'none';
+    todos.className = 'fadeOut';
+    setTimeout(() => (todos.style.display = 'none'), 400);
   }
 
   if (newTodos.length === 0) todoClear.style.display = 'none';
@@ -242,7 +243,7 @@ data.forEach(item => {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark'></label>
   <span id='todo-span'>${item.text}</span>
-  <a class='delete-todo button'><i class='fas fa-trash danger'></i></a> 
+  <a class='delete-todo button'> <i class="danger fas fa-minus"></i></a> 
   </li>`
   );
 });
@@ -262,7 +263,7 @@ const addTodos = text => {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark'></label>
   <span id='todo-span'>${item.text}</span>
-  <a class='delete-todo button'><i class='fas fa-trash danger'></i></a> 
+  <a class='delete-todo button'><i class="danger fas fa-minus"></i></a> 
   </li>`
   );
   todoClear.style.display = 'block';
@@ -316,7 +317,7 @@ todoList.addEventListener('click', e => {
     toggleCheck(itemKey);
   }
 
-  if (e.target.classList.contains('fa-trash')) {
+  if (e.target.classList.contains('fa-minus')) {
     const itemKey = e.target.parentElement.parentElement.dataset.key;
     deleteTodoFunc(itemKey);
   }
