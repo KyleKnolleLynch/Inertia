@@ -362,14 +362,10 @@
 }
 
 @media screen and (max-width: 600px) {
-  /* html {
+  html {
     height: 100vh; 
     min-height: 125%; 
-} */
-
-  #bg-full-image {
-    min-height: 100%;
-  }
+}
 
   #heading {
     font-size: 1.4rem;
@@ -440,6 +436,11 @@
 }
 
 @media screen and (max-height: 500px) {
+  html {
+    height: 100vh; 
+    min-height: 125%; 
+}
+
   #heading {
     font-size: 1.1rem;
     margin: 7vh 0 0;
