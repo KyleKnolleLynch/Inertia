@@ -360,9 +360,14 @@
 }
 
 @media screen and (max-width: 550px) {
-  #bg-full-image {
+  html {
+    height: 100vh; /* set viewport constraint */
+    min-height: 100%; /* enforce height */
+}
+
+  /* #bg-full-image {
     min-height: 125%;
-  }
+  } */
 
   #heading {
     font-size: 1.5rem;
@@ -437,10 +442,6 @@
 }
 
 @media screen and (max-height: 500px) {
-  #bg-full-image {
-    min-height: 125%;
-  }
-
   #heading {
     font-size: 1.2rem;
     margin: 7vh 0 0;
