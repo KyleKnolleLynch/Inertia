@@ -133,8 +133,8 @@
   position: absolute;
   font-size: 1.5rem;
   font-weight: 600;
-  bottom: 3rem;
-  left: 3rem;
+  bottom: 6vh;
+  left: 6vw;
   opacity: 0.4;
   transition: 0.4s ease-out;
 }
@@ -268,8 +268,8 @@
   cursor: pointer;
   position: absolute;
   font-size: 1.4rem;
-  bottom: 3rem;
-  right: 3rem;
+  bottom: 6vh;
+  right: 6vw;
   opacity: 0.4;
   transition: transform 0.5s ease;
   transition: 0.4s ease-out;
@@ -292,7 +292,7 @@
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  padding: 1rem;
+  padding: 0.5rem 0;
   width: 16rem;
   height: 14rem;
   position: absolute;
@@ -315,19 +315,19 @@
 #focus-settings {
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  justify-self: center;
 }
 
 #clock-settings {
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  justify-self: center;
 }
 
 #temp-settings {
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  justify-self: flex-end;
 }
 
 #settings > div > div {
@@ -362,10 +362,10 @@
 }
 
 @media screen and (max-width: 600px) {
-  html {
+  /* html {
     height: 100vh; 
     min-height: 125%; 
-}
+} */
 
   #heading {
     font-size: 1.4rem;
@@ -402,8 +402,6 @@
   }
 
   #cog {
-    bottom: 1.5rem;
-    right: 1.5rem;
     font-size: 1.3rem;
     opacity: 0.7;
   }
@@ -472,8 +470,6 @@
   }
 
   #cog {
-    bottom: 1.5rem;
-    right: 1.5rem;
     font-size: 1.3rem;
     opacity: 0.7;
   }
