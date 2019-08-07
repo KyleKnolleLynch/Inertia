@@ -361,23 +361,23 @@
   font-weight: 600;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   /* html {
     height: 100vh; 
     min-height: 125%; 
 } */
 
   #bg-full-image {
-    min-height: 125%;
+    min-height: 100%;
   }
 
   #heading {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 7vh 0 0;
   }
 
   #focus {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   #clock {
@@ -393,7 +393,7 @@
   }
 
   #todo-open {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.7;
   }
 
@@ -408,7 +408,7 @@
   #cog {
     bottom: 1.5rem;
     right: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.7;
   }
 
@@ -416,7 +416,7 @@
 
 @media screen and (max-width: 440px) {
   #heading {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-top: 7vh;
   }
 
@@ -441,12 +441,12 @@
 
 @media screen and (max-height: 500px) {
   #heading {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 7vh 0 0;
   }
 
   #focus {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   #clock {
@@ -463,18 +463,17 @@
 
   #todos {
     bottom: 10vh;
-    font-size: 0.7rem;
   }
 
   #todo-open {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.7;
   }
 
   #cog {
     bottom: 1.5rem;
     right: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.7;
   }
 }
