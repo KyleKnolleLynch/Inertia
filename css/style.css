@@ -146,6 +146,7 @@
 
 #todos {
   background: rgba(33, 33, 33, 0.9);
+  border-radius: 5px;
   padding: 1rem;
   width: 25rem;
   max-height: 16rem;
@@ -290,6 +291,7 @@
 #settings {
   display: none;
   background: rgba(33, 33, 33, 0.9);
+  border-radius: 5px;
   padding: 1rem;
   width: 16rem;
   height: 14rem;
@@ -360,14 +362,14 @@
 }
 
 @media screen and (max-width: 550px) {
-  /* html {
+  html {
     height: 100vh; 
     min-height: 125%; 
-} */
+}
 
-  #bg-full-image {
+  /* #bg-full-image {
     min-height: 125%;
-  }
+  } */
 
   #heading {
     font-size: 1.5rem;
