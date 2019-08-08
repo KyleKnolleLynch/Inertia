@@ -16,13 +16,15 @@ todoForm = document.getElementById('todo-form');
 todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
-// showTodo = document.getElementById('show-todo-div');
-radTodoOn = document.getElementById('rad-todo-on');
-radTodoOff = document.getElementById('rad-todo-off');
+showTodo = document.getElementById('show-todo-list');
+radFocusOn = document.getElementById('rad-focus-on');
+radFocusOff = document.getElementById('rad-focus-off');
 radClockOn = document.getElementById('rad-clock-on');
 radClockOff = document.getElementById('rad-clock-off');
 radTempFar = document.getElementById('rad-temp-far');
 radTempCel = document.getElementById('rad-temp-cel');
+radTodoHide = document.getElementById('rad-todo-hide');
+radTodoShow = document.getElementById('rad-todo-show');
 radios = document.querySelectorAll('input[type=radio]');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
@@ -361,7 +363,6 @@ const closeSettings = e => {
   load();
 };
 
-
 const hideFocus = () => {
   focus.style.display = 'none';
 };
@@ -402,21 +403,44 @@ const showFar = () => {
   weatherDis.style.display = 'grid';
 };
 
+const showTodoList = () => {
+    showTodo.classList.remove('empty');
+    
+    let newTodos = localStorage.getItem('new-todos')
+  ? JSON.parse(localStorage.getItem('new-todos'))
+  : [];
+  
+if (newTodos === null) {
+  showTodo.innerHTML = '';
+} else {
+  
+  
+  
+  }
+
+};
+
+const hideTodoList = () => {
+  showTodo.textContent = '';
+  showTodo.classList.add('empty');
+};
+
 const load = () => {
   radios.forEach(radio => {
     radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
     radClockOn.checked ? showClock() : showAltClock();
-    radTodoOff.checked ? showFocus() : hideFocus();
+    radFocusOn.checked ? showFocus() : hideFocus();
     radTempFar.checked ? showFar() : showCel();
+    radTodoHide.checked ? hideTodoList() : showTodoList();
   });
 };
 
-
 radios.forEach(radio => {
   if (!localStorage.getItem(radio.id)) {
-    radTodoOff.checked;
+    radFocusOn.checked;
     radClockOn.checked;
     radTempFar.checked;
+    radTodoHide.checked;
   } else {
     load();
   }
@@ -435,12 +459,14 @@ window.addEventListener('click', closeSettings);
 todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
-radTodoOn.addEventListener('click', hideFocus);
-radTodoOff.addEventListener('click', showFocus);
+radFocusOn.addEventListener('click', showFocus);
+radFocusOff.addEventListener('click', hideFocus);
 radClockOn.addEventListener('click', showClock);
 radClockOff.addEventListener('click', showAltClock);
 radTempCel.addEventListener('click', showCel);
 radTempFar.addEventListener('click', showFar);
+radTodoShow.addEventListener('click', showTodoList);
+radTodoHide.addEventListener('click', hideTodoList);
 
 setDisplay();
 setInterval(setDisplay, 21600000);

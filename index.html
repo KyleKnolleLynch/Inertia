@@ -61,27 +61,30 @@
 
       <div id="todo-open"><i class="far fa-list-alt"></i> Todo List</div>
 
-      <div>
-        <ul id="show-todo-div"></ul>
-      </div>
+      <ul id="show-todo-list" class="empty"></ul>
 
       <form id="settings" style="display: none">
         <h3>Settings</h3>
         <div id="focus-settings">
           <h4>Focus</h4>
           <div>
-            <input type="radio" id="rad-todo-on" name="radFocus" value="hide" />
-            <label for="rad-todo-on" class="setLabel">Hide</label>
-          </div>
-          <div>
             <input
               type="radio"
-              id="rad-todo-off"
+              id="rad-focus-on"
               name="radFocus"
               value="show"
               checked
             />
-            <label for="rad-todo-off" class="setLabel">Show</label>
+            <label for="rad-focus-on" class="setLabel">Show</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="rad-focus-off"
+              name="radFocus"
+              value="hide"
+            />
+            <label for="rad-focus-off" class="setLabel">Hide</label>
           </div>
         </div>
         <div id="clock-settings">
@@ -126,6 +129,28 @@
               value="celcius"
             />
             <label for="rad-temp-cel" class="setLabel">Celcius</label>
+          </div>
+        </div>
+        <div id="todo-settings">
+          <h4>Todos</h4>
+          <div>
+            <input
+              type="radio"
+              id="rad-todo-show"
+              name="radTodo"
+              value="show"
+            />
+            <label for="rad-todo-show" class="setLabel">Show</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="rad-todo-hide"
+              name="radTodo"
+              value="hide"
+              checked
+            />
+            <label for="rad-todo-hide" class="setLabel">Hide</label>
           </div>
         </div>
       </form>
