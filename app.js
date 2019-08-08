@@ -60,28 +60,32 @@ const setDisplay = () => {
   if (hours < 4) {
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?nature?night") center/cover no-repeat';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
   } else if (hours < 12) {
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?morning") center/cover no-repeat';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?morning") center/cover no-repeat';
   } else if (hours < 18) {
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center/cover no-repeat';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon") center/cover no-repeat';
   } else if (hours < 24) {
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?night") center/cover no-repeat';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
   }
 };
 
+const clearUser = () => {
+  if (user.textContent === '[Enter Name]') user.textContent = '';
+};
+
 const getUser = () => {
-  if (localStorage.getItem('user') === null) {
-    user.textContent = '[Enter Name]';
-  } else if (localStorage.getItem('user') === '') {
+  if (
+    localStorage.getItem('user') === null ||
+    localStorage.getItem('user') === ''
+  ) {
     localStorage.removeItem('user');
-    location.reload(true);
     user.textContent = '[Enter Name]';
   } else {
     user.textContent = localStorage.getItem('user');
@@ -100,12 +104,17 @@ const setUser = e => {
   }
 };
 
+const clearFocus = () => {
+  if (inputFocus.textContent === "[Enter Today's Focus]")
+    inputFocus.textContent = '';
+};
+
 const getInputFocus = () => {
-  if (localStorage.getItem('input-focus') === null) {
-    inputFocus.textContent = "[Enter Today's Focus]";
-  } else if (localStorage.getItem('input-focus') === '') {
+  if (
+    localStorage.getItem('input-focus') === null ||
+    localStorage.getItem('input-focus') === ''
+  ) {
     localStorage.removeItem('input-focus');
-    location.reload(true);
     inputFocus.textContent = "[Enter Today's Focus]";
   } else {
     inputFocus.textContent = localStorage.getItem('input-focus');
@@ -423,8 +432,10 @@ radios.forEach(radio => {
 
 /////////////////////////////////////////////////////////////////
 
+user.addEventListener('click', clearUser);
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);
+inputFocus.addEventListener('click', clearFocus);
 inputFocus.addEventListener('keydown', setInputFocus);
 inputFocus.addEventListener('blur', setInputFocus);
 cog.addEventListener('click', openSettings);
