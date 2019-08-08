@@ -57,21 +57,22 @@ const setDisplay = () => {
   let today = new Date();
   hours = today.getHours();
 
-  if (hours < 12) {
+  if (hours < 4) {
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?morning") center no-repeat';
-    bgImg.style.backgroundSize = 'cover';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?nature?night") center/cover no-repeat';
+  } else if (hours < 12) {
+    title.innerHTML = 'Good morning,';
+    bgImg.style.background =
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?morning") center/cover no-repeat';
   } else if (hours < 18) {
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center/100% no-repeat';
-    bgImg.style.backgroundSize = 'cover';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?afternoon") center/cover no-repeat';
   } else if (hours < 24) {
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?nature?night") center no-repeat';
-    bgImg.style.backgroundSize = 'cover';
+      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?night") center/cover no-repeat';
   }
 };
 
