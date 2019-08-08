@@ -24,8 +24,6 @@ radClockOff = document.getElementById('rad-clock-off');
 radTempFar = document.getElementById('rad-temp-far');
 radTempCel = document.getElementById('rad-temp-cel');
 radios = document.querySelectorAll('input[type=radio]');
-saveBtn = document.getElementById('save-btn');
-infoMsg = document.getElementById('info-msg');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
 deg = document.getElementById('deg');
@@ -356,20 +354,13 @@ const closeSettings = e => {
     setTimeout(() => (settings.style.display = 'none'), 400);
     cog.classList.toggle('rotate');
   }
-};
-
-const save = e => {
-  e.preventDefault();
   radios.forEach(radio => {
     localStorage.setItem(radio.id, radio.checked);
   });
 
   load();
-  saveBtn.style.display = 'none';
-  infoMsg.style.display = 'inline-flex';
-  setTimeout(() => (infoMsg.style.display = 'none'), 2000);
-  setTimeout(() => (saveBtn.style.display = 'inline-block'), 2000);
 };
+
 
 const hideFocus = () => {
   focus.style.display = 'none';
@@ -420,6 +411,7 @@ const load = () => {
   });
 };
 
+
 radios.forEach(radio => {
   if (!localStorage.getItem(radio.id)) {
     radTodoOff.checked;
@@ -449,7 +441,6 @@ radClockOn.addEventListener('click', showClock);
 radClockOff.addEventListener('click', showAltClock);
 radTempCel.addEventListener('click', showCel);
 radTempFar.addEventListener('click', showFar);
-saveBtn.addEventListener('click', save);
 
 setDisplay();
 setInterval(setDisplay, 21600000);
