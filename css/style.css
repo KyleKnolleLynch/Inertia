@@ -110,12 +110,7 @@
   margin-top: -0.7rem;
 }
 
-#clock {
-  margin: 2rem 0 0 1rem;
-  font-size: 8rem;
-  font-weight: 600;
-}
-
+#clock,
 #alt-clock {
   margin: 2rem 0 0 1rem;
   font-size: 8rem;
@@ -333,25 +328,7 @@
   align-self: flex-start;
 }
 
-#focus-settings {
-  display: flex;
-  flex-direction: column;
-  justify-self: flex-start;
-}
-
-#clock-settings {
-  display: flex;
-  flex-direction: column;
-  justify-self: flex-start;
-}
-
-#temp-settings {
-  display: flex;
-  flex-direction: column;
-  justify-self: flex-start;
-}
-
-#todo-settings {
+#settings > div {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
