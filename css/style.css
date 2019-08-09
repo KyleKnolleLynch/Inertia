@@ -22,11 +22,10 @@
   outline: none;
   background: transparent;
   color: inherit;
-  font-size: 100%;
 }
 
 .button:hover {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .fadeIn {
@@ -147,16 +146,17 @@
 
 #todos {
   font-family: 'Nanum Gothic', sans-serif;
+  display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  padding: 1rem;
-  width: 25rem;
-  max-height: 16rem;
+  border-bottom: 0.9rem solid rgba(33, 33, 33, 0);
+  padding: 0 1rem;
+  width: 30rem;
+  height: 12rem;
   position: absolute;
   left: 3vw;
   bottom: 16vh;
   z-index: 1;
-  display: none;
   overflow-y: scroll;
   scrollbar-width: none;
 }
@@ -181,9 +181,8 @@
 
 #todo-clear {
   font-family: 'Nanum Gothic', sans-serif;
-  margin: 1rem auto 0;
   display: none;
-  font-size: 80%;
+  margin: 2rem auto 0;
 }
 
 #todo-list {
@@ -213,7 +212,8 @@
   color: #999;
 }
 
-#todo-list input[type='checkbox'] {
+#todo-list input[type='checkbox'],
+.todo-list:empty {
   display: none;
 }
 
@@ -231,6 +231,7 @@
   font-size: 20px;
   display: none;
   align-self: center;
+  margin: 0 0 0.3rem -0.3rem;
 }
 
 .done .checkmark::before {
@@ -256,10 +257,6 @@
   margin: 0.5rem 2rem 0;
 }
 
-.todo-list:empty {
-  display: none;
-}
-
 .todo-list:empty + .empty {
   display: flex;
 }
@@ -267,11 +264,24 @@
 #show-todo-list {
   list-style: none;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 25rem;
+  height: 11rem;
+  margin-left: 1rem;
+  overflow-y: scroll;
   word-break: break-all;
-  /* max-width: 30rem;  */
-  /* height: 30rem; */
+  line-height: 2ch;
+}
+#show-todo-list span {
+  color: lavenderblush;
+}
+
+#show-todo-list .checkmark,
+#show-todo-list a,
+#show-todo-list input[type='checkbox'] {
+  display: none;
 }
 
 #cog {
@@ -366,7 +376,7 @@
 @media screen and (max-width: 600px) {
   html {
     height: 100vh;
-    min-height: 120%;
+    min-height: 100%;
   }
 
   #heading {
@@ -382,10 +392,7 @@
     font-size: 0.8rem;
   }
 
-  #clock {
-    font-size: 5rem;
-  }
-
+  #clock,
   #alt-clock {
     font-size: 5rem;
   }
@@ -394,22 +401,25 @@
     font-size: 2rem;
   }
 
-  #todo-open {
+  #todo-open,
+  #cog {
     font-size: 1.3rem;
     opacity: 0.7;
   }
 
   #todos {
-    width: 65vw;
+    width: 70vw;
+    height: 10rem;
   }
 
   .empty-text {
     font-size: 1rem;
   }
 
-  #cog {
-    font-size: 1.3rem;
-    opacity: 0.7;
+  #show-todo-list {
+    width: 16rem;
+    height: 8rem;
+    margin: 2rem 0 0;
   }
 }
 
@@ -419,29 +429,33 @@
     margin-top: 7vh;
   }
 
-  #weather-dis {
+  #weather-dis,
+  #weather-dis-alt {
     top: 0.5rem;
     right: 0.5rem;
     font-size: 0.8rem;
   }
 
-  #deg {
-    font-size: 0.7rem;
-  }
-
+  #deg,
   #alt-deg {
     font-size: 0.7rem;
   }
 
   #todos {
-    left: 1rem;
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  #show-todo-list {
+    height: 5rem;
   }
 }
 
 @media screen and (max-height: 500px) {
   html {
     height: 100vh;
-    min-height: 120%;
+    min-height: 100%;
   }
 
   #heading {
@@ -457,10 +471,7 @@
     font-size: 0.8rem;
   }
 
-  #clock {
-    font-size: 5rem;
-  }
-
+  #clock,
   #alt-clock {
     font-size: 5rem;
   }
@@ -470,17 +481,20 @@
   }
 
   #todos {
-    bottom: 10vh;
+    height: 10rem;
+    bottom: 14vh;
   }
 
-  #todo-open {
-    font-size: 1.3rem;
-    opacity: 0.7;
-  }
-
+  #todo-open,
   #cog {
     font-size: 1.3rem;
     opacity: 0.7;
+  }
+
+  #show-todo-list {
+    width: 14rem;
+    height: 6rem;
+    margin: -10rem 0 0;
   }
 }
 

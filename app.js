@@ -240,7 +240,7 @@ let newTodos = localStorage.getItem('new-todos')
 if (newTodos.length === 0) {
   todoList.innerHTML = '';
 } else {
-  todoClear.style.display = 'block';
+  todoClear.style.display = 'inline-block';
 }
 
 localStorage.setItem('new-todos', JSON.stringify(newTodos));
@@ -251,7 +251,7 @@ data.forEach(item => {
     'afterbegin',
     `<li id='todo-item' data-key='${item.id}' class=${item.checked && 'done'}>
   <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark'></label>
+  <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
   <a class='delete-todo button'> <i class="danger fas fa-minus"></i></a> 
   </li>`
@@ -271,7 +271,7 @@ const addTodos = text => {
     'afterbegin',
     `<li id='todo-item' data-key='${item.id}'>
   <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark'></label>
+  <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
   <a class='delete-todo button'><i class="danger fas fa-minus"></i></a> 
   </li>`
@@ -404,24 +404,14 @@ const showFar = () => {
 };
 
 const showTodoList = () => {
-    showTodo.classList.remove('empty');
-    
-    let newTodos = localStorage.getItem('new-todos')
-  ? JSON.parse(localStorage.getItem('new-todos'))
-  : [];
-  
-if (newTodos === null) {
-  showTodo.innerHTML = '';
-} else {
-  
-  
-  
-  }
-
+  showTodo.classList.remove('empty');
+  todoList
+    ? (showTodo.innerHTML = todoList.innerHTML)
+    : (showTodo.innerHTML = '');
 };
 
 const hideTodoList = () => {
-  showTodo.textContent = '';
+  showTodo.innerHTML = '';
   showTodo.classList.add('empty');
 };
 
