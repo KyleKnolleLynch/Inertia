@@ -1,12 +1,12 @@
 const clock = document.getElementById('clock');
+altClock = document.getElementById('alt-clock');
+weatherDis = document.getElementById('weather-dis');
+weatherDisAlt = document.getElementById('weather-dis-alt');
+bgImg = document.getElementById('bg-full-image');
 title = document.getElementById('title');
 user = document.getElementById('user');
 focus = document.getElementById('focus');
 inputFocus = document.getElementById('input-focus');
-bgImg = document.getElementById('bg-full-image');
-weatherDis = document.getElementById('weather-dis');
-weatherDisAlt = document.getElementById('weather-dis-alt');
-altClock = document.getElementById('alt-clock');
 settings = document.getElementById('settings');
 cog = document.getElementById('cog');
 todos = document.getElementById('todos');
@@ -35,7 +35,7 @@ weatherTempAlt = document.getElementById('weather-temp-alt');
 altDeg = document.getElementById('alt-deg');
 weatherIconAlt = document.getElementById('weather-icon-alt');
 
-//                    Main Display                //
+//             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
   const today = new Date();
   let hours = today.getHours();
@@ -50,8 +50,6 @@ const time = () => {
   clock.innerHTML = `
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
-
-setInterval(time, 500);
 
 const setDisplay = () => {
   let today = new Date();
@@ -75,66 +73,8 @@ const setDisplay = () => {
       'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
   }
 };
-
-const clearUser = () => {
-  if (user.textContent === '[Enter Name]') user.textContent = '';
-};
-
-const getUser = () => {
-  if (
-    localStorage.getItem('user') === null ||
-    localStorage.getItem('user') === ''
-  ) {
-    localStorage.removeItem('user');
-    user.textContent = '[Enter Name]';
-  } else {
-    user.textContent = localStorage.getItem('user');
-  }
-};
-
-const setUser = e => {
-  if (e.type === 'keydown') {
-    if (e.keyCode == 13) {
-      localStorage.setItem('user', e.target.innerText);
-      user.blur();
-    }
-  } else {
-    localStorage.setItem('user', e.target.innerText);
-    location.reload();
-  }
-};
-
-const clearFocus = () => {
-  if (inputFocus.textContent === "[Enter Today's Focus]")
-    inputFocus.textContent = '';
-};
-
-const getInputFocus = () => {
-  if (
-    localStorage.getItem('input-focus') === null ||
-    localStorage.getItem('input-focus') === ''
-  ) {
-    localStorage.removeItem('input-focus');
-    inputFocus.textContent = "[Enter Today's Focus]";
-  } else {
-    inputFocus.textContent = localStorage.getItem('input-focus');
-  }
-};
-
-const setInputFocus = e => {
-  if (e.type === 'keydown') {
-    if (e.keyCode == 13) {
-      localStorage.setItem('input-focus', e.target.innerText);
-      inputFocus.blur();
-    }
-  } else {
-    localStorage.setItem('input-focus', e.target.innerText);
-    location.reload();
-  }
-};
 //////////////////////////////////////////////////////////
-
-//                        Weather                       //
+//                     WEATHER DISPLAY                  //
 
 const getLocation = () => {
   if (navigator.geolocation) {
@@ -211,7 +151,65 @@ const showError = error => {
 document.addEventListener('DOMContentLoaded', getLocation);
 
 //////////////////////////////////////////////////////////
+//                USER/FOCUS DISPLAY                    //
 
+const clearUser = () => {
+  if (user.textContent === '[Enter Name]') user.textContent = '';
+};
+
+const getUser = () => {
+  if (
+    localStorage.getItem('user') === null ||
+    localStorage.getItem('user') === ''
+  ) {
+    localStorage.removeItem('user');
+    user.textContent = '[Enter Name]';
+  } else {
+    user.textContent = localStorage.getItem('user');
+  }
+};
+
+const setUser = e => {
+  if (e.type === 'keydown') {
+    if (e.keyCode == 13) {
+      localStorage.setItem('user', e.target.innerText);
+      user.blur();
+    }
+  } else {
+    localStorage.setItem('user', e.target.innerText);
+    location.reload();
+  }
+};
+
+const clearFocus = () => {
+  if (inputFocus.textContent === "[Enter Today's Focus]")
+    inputFocus.textContent = '';
+};
+
+const getInputFocus = () => {
+  if (
+    localStorage.getItem('input-focus') === null ||
+    localStorage.getItem('input-focus') === ''
+  ) {
+    localStorage.removeItem('input-focus');
+    inputFocus.textContent = "[Enter Today's Focus]";
+  } else {
+    inputFocus.textContent = localStorage.getItem('input-focus');
+  }
+};
+
+const setInputFocus = e => {
+  if (e.type === 'keydown') {
+    if (e.keyCode == 13) {
+      localStorage.setItem('input-focus', e.target.innerText);
+      inputFocus.blur();
+    }
+  } else {
+    localStorage.setItem('input-focus', e.target.innerText);
+    location.reload();
+  }
+};
+///////////////////////////////////////////////////////////
 //                        TODO LIST                     //
 const openTodos = () => {
   if (todos.style.display === 'none') {
@@ -276,7 +274,7 @@ const addTodos = text => {
   <a class='delete-todo button'><i class="danger fas fa-minus"></i></a> 
   </li>`
   );
-  todoClear.style.display = 'block';
+  todoClear.style.display = 'inline-block';
 };
 
 todoForm.addEventListener('submit', e => {
@@ -333,8 +331,7 @@ todoList.addEventListener('click', e => {
   }
 });
 //////////////////////////////////////////////////////////////
-//                       Settings                           //
-
+//                       SETTINGS                           //
 const openSettings = () => {
   if (settings.style.display === 'none') {
     settings.className = 'fadeIn';
@@ -458,6 +455,7 @@ radTempFar.addEventListener('click', showFar);
 radTodoShow.addEventListener('click', showTodoList);
 radTodoHide.addEventListener('click', hideTodoList);
 
+setInterval(time, 500);
 setDisplay();
 setInterval(setDisplay, 21600000);
 getUser();
