@@ -77,7 +77,7 @@ const setDisplay = async () => {
 
 
 
-  const client_id = "f0f19f504d9cc70dd11cd928939131148ac1566a16145a14c3aa7653261721ae";
+  // const client_id = ;
 
   // const resOne = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,morning`, {method: 'get'});
   // const resMorning = await resOne.json();
@@ -145,7 +145,7 @@ const showPos = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=7dfba6dc6054d63bddd0e0870501e132`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=`
     );
 
     const resData = await res.json();
@@ -158,7 +158,7 @@ const showPos = async position => {
     }.png'></img>`;
 
     const resAlt = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=7dfba6dc6054d63bddd0e0870501e132`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=`
     );
 
     const resDataAlt = await resAlt.json();
