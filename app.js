@@ -34,6 +34,7 @@ weatherTitleAlt = document.getElementById('weather-title-alt');
 weatherTempAlt = document.getElementById('weather-temp-alt');
 altDeg = document.getElementById('alt-deg');
 weatherIconAlt = document.getElementById('weather-icon-alt');
+attr = document.getElementById('attribute');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
@@ -51,56 +52,79 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
-const setDisplay = () => {
+const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
+
+  //  if (hours < 4) {
+  //   title.innerHTML = 'Good morning,';
+  //   bgImg.style.background =
+  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?night/1600x900") center/cover no-repeat';
+  // } else if (hours < 12) {
+  //   title.innerHTML = 'Good morning,';
+  //   bgImg.style.background =
+  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?morning/1600x900") center/cover no-repeat';
+  // } else if (hours < 18) {
+  //   title.innerHTML = 'Good afternoon,';
+  //   bgImg.style.background = 
+  //     `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon/1600x900") center/cover no-repeat`;
+  // } else if (hours < 24) {
+  //   title.innerHTML = 'Good evening,';
+  //   bgImg.style.background =
+  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night/1600x900") center/cover no-repeat';
+  // }
+
+
+
+  const client_id = "f0f19f504d9cc70dd11cd928939131148ac1566a16145a14c3aa7653261721ae";
+
+  // const resOne = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,morning`, {method: 'get'});
+  // const resMorning = await resOne.json();
+
+  // const resTwo = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,afternoon`, {method: 'get'});
+  // const resAfternoon = await resTwo.json();
+
+  // const resThree = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
+  // const resNight = await resThree.json();
+
+
+
   if (hours < 4) {
+    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
+    const resData = await res.json();
+
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
+      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
   } else if (hours < 12) {
+    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,morning`, {method: 'get'});
+    const resData = await res.json();
+
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?morning") center/cover no-repeat';
+      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
   } else if (hours < 18) {
+    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,afternoon`, {method: 'get'});
+    const resData = await res.json();
+
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background = 
-      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon/1600x900") center/cover no-repeat`;
+      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
   } else if (hours < 24) {
+    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
+    const resData = await res.json();
+
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
+      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+
+      attr.innerHTML = `
+      Photo by <a href="https://unsplash.com/@${resData.id}?utm_source=Inertia&utm_medium=referral">${resData.id}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
+      `;
   }
+console.log(resData);
 };
-
-// const client_id = "f0f19f504d9cc70dd11cd928939131148ac1566a16145a14c3aa7653261721ae";
-
-// const getBg = async () => {
-//   const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=afternoon`, {method: 'get'});
-
-//   const resData = await res.json();
-// console.log(resData.photo.urls.raw);
-
-//  bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${resData.urls.raw}') center/cover no-repeat`;
-
-// console.log(resData);
-// }
-
-
-// document.addEventListener('DOMContentLoaded', getBg);
-
-
-
-
-
-
-
-
-
-
-
-
 
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
