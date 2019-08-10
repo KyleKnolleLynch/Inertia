@@ -65,14 +65,43 @@ const setDisplay = () => {
       'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?morning") center/cover no-repeat';
   } else if (hours < 18) {
     title.innerHTML = 'Good afternoon,';
-    bgImg.style.background =
-      'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon") center/cover no-repeat';
+    bgImg.style.background = 
+      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon/1600x900") center/cover no-repeat`;
   } else if (hours < 24) {
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
       'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night") center/cover no-repeat';
   }
 };
+
+// const client_id = "f0f19f504d9cc70dd11cd928939131148ac1566a16145a14c3aa7653261721ae";
+
+// const getBg = async () => {
+//   const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=afternoon`, {method: 'get'});
+
+//   const resData = await res.json();
+// console.log(resData.photo.urls.raw);
+
+//  bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${resData.urls.raw}') center/cover no-repeat`;
+
+// console.log(resData);
+// }
+
+
+// document.addEventListener('DOMContentLoaded', getBg);
+
+
+
+
+
+
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
 
@@ -98,7 +127,7 @@ const showPos = async position => {
     const resData = await res.json();
 
     weatherTitle.textContent = resData.name;
-    weatherTemp.textContent = Math.floor(resData.main.temp);
+    weatherTemp.textContent = Math.round(resData.main.temp);
     weatherTemp.insertAdjacentHTML('afterend', '<span id="deg"> &deg;F</span>');
     weatherIcon.innerHTML = `<img src='http://openweathermap.org/img/wn/${
       resData.weather[0].icon
@@ -111,7 +140,7 @@ const showPos = async position => {
     const resDataAlt = await resAlt.json();
 
     weatherTitleAlt.textContent = resDataAlt.name;
-    weatherTempAlt.textContent = Math.floor(resDataAlt.main.temp);
+    weatherTempAlt.textContent = Math.round(resDataAlt.main.temp);
     weatherTempAlt.insertAdjacentHTML(
       'afterend',
       '<span id="alt-deg"> &deg;C</span>'
