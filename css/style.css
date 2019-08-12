@@ -128,7 +128,7 @@
   position: absolute;
   font-size: 1.5rem;
   font-weight: 600;
-  bottom: 6vh;
+  bottom: 10vh;
   left: 6vw;
   opacity: 0.4;
   transition: 0.4s ease-out;
@@ -348,6 +348,34 @@
 .setLabel {
   cursor: pointer;
   margin-left: 0.3rem;
+}
+
+#attribute {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: #999;
+}
+
+#attribute > :nth-child(1) {
+  font-size: 1.2rem;
+
+}
+
+#attribute  :nth-child(2) {
+  font-size: 0.8rem;
+}
+
+#attribute a {
+  color: lavenderblush;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#attribute a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #999;
 }
 
 @media screen and (max-width: 600px) {

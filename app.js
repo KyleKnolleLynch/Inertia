@@ -77,53 +77,75 @@ const setDisplay = async () => {
 
 
 
-  // const client_id = ;
-
-  // const resOne = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,morning`, {method: 'get'});
-  // const resMorning = await resOne.json();
-
-  // const resTwo = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,afternoon`, {method: 'get'});
-  // const resAfternoon = await resTwo.json();
-
-  // const resThree = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
-  // const resNight = await resThree.json();
-
+  const client_id = "";
+  const url = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
+  
+  
 
 
   if (hours < 4) {
-    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
+    const res = await fetch(`${url}&query=nature,night`, {method: 'get'});
     const resData = await res.json();
 
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
       `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+
+      attr.innerHTML = `
+      <p>${resData.location.title}</p>
+      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      `;
+
   } else if (hours < 12) {
-    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,morning`, {method: 'get'});
+    const res = await fetch(`${url}&query=nature,morning`, {method: 'get'});
     const resData = await res.json();
-
+    
     title.innerHTML = 'Good morning,';
     bgImg.style.background =
       `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+
+      attr.innerHTML = `
+      <p>${resData.location.title}</p>
+      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      `;
+
   } else if (hours < 18) {
-    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,afternoon`, {method: 'get'});
+    const res = await fetch(`${url}&query=nature,afternoon`, {method: 'get'});
     const resData = await res.json();
 
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background = 
       `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
-  } else if (hours < 24) {
-    const res = await fetch(`https://api.unsplash.com/photos/random?client_id=${client_id}&query=nature,night`, {method: 'get'});
-    const resData = await res.json();
+      console.log(resData);
+      const desc = resData.location.title  ? resData.location.title  
+      : resData.location.position.title ? resData.location.position.title
+      : resData.location.city && resData.location.country ? resData.location.city + ',' + ' ' + resData.location.country
+      : resData.alt_description ? resData.alt_description
+      : resData.title === undefined ? location.reload()  
+      : 'Location undefined.'
+ console.log(resData);
+      attr.innerHTML = `
+      <p id='desc'>${desc}</p>
+      <p>Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
+      `;
 
+  } else if (hours < 24) {
+    const res = await fetch(`${url}&query=nature,night`, {method: 'get'});
+    const resData = await res.json();
+    
     title.innerHTML = 'Good evening,';
     bgImg.style.background =
       `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
 
       attr.innerHTML = `
-      Photo by <a href="https://unsplash.com/@${resData.id}?utm_source=Inertia&utm_medium=referral">${resData.id}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
+      <p>${resData.location.title}</p>
+      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+     
   }
-console.log(resData);
+
+
+
 };
 
 //////////////////////////////////////////////////////////
