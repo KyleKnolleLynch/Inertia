@@ -148,7 +148,8 @@
   border-bottom: 0.9rem solid rgba(33, 33, 33, 0);
   padding: 0 1rem;
   width: 30rem;
-  height: 12rem;
+  min-height: 10rem;
+  max-height: 20rem;
   position: absolute;
   left: 3vw;
   bottom: 16vh;
@@ -409,7 +410,6 @@
 
   #todos {
     width: 70vw;
-    height: 10rem;
   }
 
   .empty-text {
@@ -481,7 +481,7 @@
   }
 
   #todos {
-    height: 10rem;
+    max-height: 12rem;
     bottom: 14vh;
   }
 
