@@ -56,100 +56,140 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-
-  //  if (hours < 4) {
-  //   title.innerHTML = 'Good morning,';
-  //   bgImg.style.background =
-  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?night/1600x900") center/cover no-repeat';
-  // } else if (hours < 12) {
-  //   title.innerHTML = 'Good morning,';
-  //   bgImg.style.background =
-  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?morning/1600x900") center/cover no-repeat';
-  // } else if (hours < 18) {
-  //   title.innerHTML = 'Good afternoon,';
-  //   bgImg.style.background = 
-  //     `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url("https://source.unsplash.com/daily?landscape?nature?afternoon/1600x900") center/cover no-repeat`;
-  // } else if (hours < 24) {
-  //   title.innerHTML = 'Good evening,';
-  //   bgImg.style.background =
-  //     'linear-gradient(0deg,  #555, transparent 20%, #555 90%),url("https://source.unsplash.com/daily?landscape?nature?night/1600x900") center/cover no-repeat';
-  // }
-
-
-
-  const client_id = "";
-  const url = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
-  
-  
-
+  const client_id =
+    '';
+  const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
-    const res = await fetch(`${url}&query=nature,night`, {method: 'get'});
+    const res = await fetch(`${urlU}&query=night&query=nature`, {
+      method: 'get'
+    });
     const resData = await res.json();
+    const desc =
+      resData.location === undefined
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : 'Location undefined';
 
     title.innerHTML = 'Good morning,';
-    bgImg.style.background =
-      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+      resData.urls.regular
+    }') center/cover no-repeat`;
 
-      attr.innerHTML = `
-      <p>${resData.location.title}</p>
-      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+    attr.innerHTML = `
+      <p>${desc}</p>
+      Photo by <a href="${
+        resData.links.html
+      }?utm_source=your_app_name&utm_medium=referral">${
+      resData.user.first_name
+    } ${
+      resData.user.last_name
+    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
-
   } else if (hours < 12) {
-    const res = await fetch(`${url}&query=nature,morning`, {method: 'get'});
+    const res = await fetch(`${urlU}&query=morning&query=nature`, {
+      method: 'get'
+    });
     const resData = await res.json();
-    
+    const desc =
+      resData.location === undefined
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : 'Location undefined';
+
     title.innerHTML = 'Good morning,';
-    bgImg.style.background =
-      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+      resData.urls.regular
+    }') center/cover no-repeat`;
 
-      attr.innerHTML = `
-      <p>${resData.location.title}</p>
-      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+    attr.innerHTML = `
+      <p>${desc}</p>
+      Photo by <a href="${
+        resData.links.html
+      }?utm_source=your_app_name&utm_medium=referral">${
+      resData.user.first_name
+    } ${
+      resData.user.last_name
+    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
-
   } else if (hours < 18) {
-    const res = await fetch(`${url}&query=nature,afternoon`, {method: 'get'});
+    const res = await fetch(`${urlU}&query=afternoon&query=nature`, {
+      method: 'get'
+    });
     const resData = await res.json();
+    const desc =
+      resData.location === undefined
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : 'Location undefined';
 
     title.innerHTML = 'Good afternoon,';
-    bgImg.style.background = 
-      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
-      console.log(resData);
-      const desc = resData.location.title  ? resData.location.title  
-      : resData.location.position.title ? resData.location.position.title
-      : resData.location.city && resData.location.country ? resData.location.city + ',' + ' ' + resData.location.country
-      : resData.alt_description ? resData.alt_description
-      : resData.title === undefined ? location.reload()  
-      : 'Location undefined.'
- console.log(resData);
-      attr.innerHTML = `
+    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+      resData.urls.regular
+    }') center/cover no-repeat`;
+
+    attr.innerHTML = `
       <p id='desc'>${desc}</p>
-      <p>Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
+      <p>Photo by <a href="${
+        resData.links.html
+      }?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${
+      resData.user.last_name
+    }</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
       `;
-
   } else if (hours < 24) {
-    const res = await fetch(`${url}&query=nature,night`, {method: 'get'});
+    const res = await fetch(`${urlU}&query=night&query=nature`, {
+      method: 'get'
+    });
     const resData = await res.json();
-    
+    const desc =
+      resData.location === undefined
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : 'Location undefined';
+
     title.innerHTML = 'Good evening,';
-    bgImg.style.background =
-      `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${resData.urls.regular}') center/cover no-repeat`;
+    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+      resData.urls.regular
+    }') center/cover no-repeat`;
 
-      attr.innerHTML = `
-      <p>${resData.location.title}</p>
-      Photo by <a href="https://unsplash.com/@${resData.links.html}?utm_source=your_app_name&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+    attr.innerHTML = `
+      <p>${desc}</p>
+      Photo by <a href="${
+        resData.links.html
+      }?utm_source=your_app_name&utm_medium=referral">${
+      resData.user.first_name
+    } ${
+      resData.user.last_name
+    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
-     
   }
-
-
-
 };
 
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
+
+const weatherKey = '';
+const urlW = `https://api.openweathermap.org/data/2.5/weather`;
 
 const getLocation = () => {
   if (navigator.geolocation) {
@@ -167,7 +207,7 @@ const showPos = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=`
+      `${urlW}?lat=${lat}&lon=${lon}&units=imperial&APPID=${weatherKey}`
     );
 
     const resData = await res.json();
@@ -180,7 +220,7 @@ const showPos = async position => {
     }.png'></img>`;
 
     const resAlt = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=`
+      `${urlW}?lat=${lat}&lon=${lon}&units=metric&APPID=${weatherKey}`
     );
 
     const resDataAlt = await resAlt.json();

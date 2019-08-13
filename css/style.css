@@ -128,14 +128,15 @@
   position: absolute;
   font-size: 1.5rem;
   font-weight: 600;
-  bottom: 10vh;
-  left: 6vw;
-  opacity: 0.4;
+  bottom: 15vh;
+  left: 3vw;
+  opacity: 0.6;
   transition: 0.4s ease-out;
 }
 
-#todo-open:hover {
-  opacity: 0.7;
+#todo-open:hover,
+#cog:hover {
+  opacity: 0.9;
   transition: 0.4s ease-in;
 }
 
@@ -286,7 +287,7 @@
   font-size: 1.4rem;
   bottom: 6vh;
   right: 6vw;
-  opacity: 0.4;
+  opacity: 0.6;
   transition: transform 0.5s ease;
   transition: 0.4s ease-out;
 }
@@ -297,11 +298,6 @@
 
 .rotate-close {
   transform: rotate(0);
-}
-
-#cog:hover {
-  opacity: 0.7;
-  transition: 0.4s ease-in;
 }
 
 #settings {
@@ -359,11 +355,10 @@
 
 #attribute > :nth-child(1) {
   font-size: 1.2rem;
-
 }
 
-#attribute  :nth-child(2) {
-  font-size: 0.8rem;
+#attribute :nth-child(n + 2) {
+  font-size: 0.7rem;
 }
 
 #attribute a {
@@ -488,6 +483,10 @@
   #todos {
     height: 10rem;
     bottom: 14vh;
+  }
+
+  #todo-open {
+    bottom: 25vh;
   }
 
   #todo-open,
