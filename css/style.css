@@ -15,6 +15,10 @@
   padding: 0.3rem;
 }
 
+.m {
+  margin: 0 0.3rem;
+}
+
 .button {
   display: inline-block;
   cursor: pointer;
@@ -152,14 +156,10 @@
   max-height: 20rem;
   position: absolute;
   left: 3vw;
-  bottom: 16vh;
+  bottom: 20vh;
   z-index: 1;
   overflow-y: scroll;
   scrollbar-width: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 #todo-input {
@@ -167,7 +167,6 @@
   display: block;
   width: 100%;
   margin: 1rem 0;
-  padding: 0.4rem;
   font-size: 1.2rem;
   border: 0;
   border-bottom: 1px solid #ccc;
@@ -210,7 +209,8 @@
 }
 
 #todo-list input[type='checkbox'],
-.todo-list:empty {
+#todo-list:empty,
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -254,7 +254,7 @@
   margin: 0.5rem 2rem 0;
 }
 
-.todo-list:empty + .empty {
+#todo-list:empty + .empty {
   display: flex;
 }
 
@@ -305,7 +305,7 @@
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  padding: 0.5rem 1.5rem 1rem;
+  padding: 0.5rem 0.5rem 1rem;
   width: 16rem;
   height: 15rem;
   position: absolute;
@@ -313,7 +313,7 @@
   right: 3vw;
   z-index: 2;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 32px auto auto 30px;
+  grid-template-rows: 32px auto auto;
 }
 
 #settings h3 {
@@ -322,29 +322,65 @@
 
 #settings h4 {
   margin-bottom: 2px;
-  align-self: flex-start;
+  align-self: center;
 }
 
 #settings > div {
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  justify-self: center;
 }
 
 #settings > div > div {
+  margin-top: 0.3rem;
   display: inline-flex;
-  align-items: center;
-  margin-top: 1px;
-  color: #999;
-}
-
-#settings input {
-  cursor: pointer;
 }
 
 .setLabel {
   cursor: pointer;
-  margin-left: 0.3rem;
+  position: relative;
+  display: block;
+  height: 20px;
+  width: 44px;
+  background: #898989;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.setLabel:after {
+  position: absolute;
+  left: -2px;
+  top: -3px;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
+  background: #fff;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  content: '';
+  transition: all 0.3s ease;
+}
+
+.setLabel:active:after {
+  transform: scale(1.15, 0.85);
+}
+
+.cbx:checked ~ label {
+  background: #6fbeb5;
+}
+
+.cbx:checked ~ label:after {
+  left: 20px;
+  background: #179588;
+}
+
+.cbx:disabled ~ label {
+  background: #d5d5d5;
+  pointer-events: none;
+}
+
+.cbx:disabled ~ label:after {
+  background: #bcbdbc;
 }
 
 #attribute {

@@ -43,13 +43,14 @@
         <form id="todo-form">
           <label for="todo-input"
             ><input
+              class="p"
               type="text"
               id="todo-input"
               placeholder="Add Todo.."
               required
           /></label>
         </form>
-        <ul id="todo-list" class="todo-list"></ul>
+        <ul id="todo-list"></ul>
         <div class="empty container">
           <i class="fas fa-chalkboard-teacher fa-2x"></i>
           <p class="empty-text">No Todos Yet..</p>
@@ -69,88 +70,60 @@
           <h4>Focus</h4>
           <div>
             <input
-              type="radio"
-              id="rad-focus-on"
+              class="cbx empty"
+              type="checkbox"
+              id="rad-focus-off"
               name="radFocus"
               value="show"
               checked
             />
-            <label for="rad-focus-on" class="setLabel">Show</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="rad-focus-off"
-              name="radFocus"
-              value="hide"
-            />
-            <label for="rad-focus-off" class="setLabel">Hide</label>
+            <span>Off</span
+            ><label for="rad-focus-off" class="setLabel m"></label
+            ><span>On</span>
           </div>
         </div>
         <div id="clock-settings">
-          <h4>Clock toggle</h4>
+          <h4>Clock</h4>
           <div>
             <input
-              type="radio"
-              id="rad-clock-on"
+              class="cbx empty"
+              type="checkbox"
+              id="rad-clock-alt"
               name="radClock"
               value="regClock"
-              checked
             />
-            <label for="rad-clock-on" class="setLabel">12hour</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="rad-clock-off"
-              name="radClock"
-              value="altClock"
-            />
-            <label for="rad-clock-off" class="setLabel">24hour</label>
+            <span>12</span><label for="rad-clock-alt" class="setLabel m"></label
+            ><span>24</span>
           </div>
         </div>
         <div id="temp-settings">
           <h4>Temp</h4>
           <div>
             <input
-              type="radio"
-              id="rad-temp-far"
-              name="radTemp"
-              value="farenheit"
-              checked
-            />
-            <label for="rad-temp-far" class="setLabel">Farenheit</label>
-          </div>
-          <div>
-            <input
-              type="radio"
+              class="cbx empty"
+              type="checkbox"
               id="rad-temp-cel"
               name="radTemp"
-              value="celcius"
+              value="farenheit"
             />
-            <label for="rad-temp-cel" class="setLabel">Celcius</label>
+            <span>&deg;F</span
+            ><label for="rad-temp-cel" class="setLabel m"></label
+            ><span>&deg;C</span>
           </div>
         </div>
         <div id="todo-settings">
           <h4>Todos</h4>
           <div>
             <input
-              type="radio"
+              class="cbx empty"
+              type="checkbox"
               id="rad-todo-show"
               name="radTodo"
-              value="show"
-            />
-            <label for="rad-todo-show" class="setLabel">Show</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="rad-todo-hide"
-              name="radTodo"
               value="hide"
-              checked
             />
-            <label for="rad-todo-hide" class="setLabel">Hide</label>
+            <span>Hide</span
+            ><label for="rad-todo-show" class="setLabel m"></label
+            ><span>Show</span>
           </div>
         </div>
       </form>

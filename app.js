@@ -17,15 +17,11 @@ todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
 showTodo = document.getElementById('show-todo-list');
-radFocusOn = document.getElementById('rad-focus-on');
 radFocusOff = document.getElementById('rad-focus-off');
-radClockOn = document.getElementById('rad-clock-on');
-radClockOff = document.getElementById('rad-clock-off');
-radTempFar = document.getElementById('rad-temp-far');
+radClockAlt = document.getElementById('rad-clock-alt');
 radTempCel = document.getElementById('rad-temp-cel');
-radTodoHide = document.getElementById('rad-todo-hide');
 radTodoShow = document.getElementById('rad-todo-show');
-radios = document.querySelectorAll('input[type=radio]');
+checkboxes = document.querySelectorAll('input[type=checkbox]');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
 deg = document.getElementById('deg');
@@ -66,14 +62,16 @@ const setDisplay = async () => {
     });
     const resData = await res.json();
     const desc =
-      resData.location === undefined
+      resData.location === undefined || null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null
+        : resData.location.title === null || ''
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
+        : resData.alt_description === null
+        ? 'Location Undefined'
         : 'Location undefined';
 
     title.innerHTML = 'Good morning,';
@@ -97,15 +95,17 @@ const setDisplay = async () => {
     });
     const resData = await res.json();
     const desc =
-      resData.location === undefined
+      resData.location === undefined || null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null
+        : resData.location.title === null || ''
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
-        : 'Location undefined';
+        : resData.alt_description === null
+        ? 'Location Undefined'
+        : 'Location Undefined';
 
     title.innerHTML = 'Good morning,';
     bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
@@ -127,15 +127,18 @@ const setDisplay = async () => {
       method: 'get'
     });
     const resData = await res.json();
+    console.log(resData);
     const desc =
-      resData.location === undefined
+      resData.location === undefined || null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null
+        : resData.location.title === null || ''
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
+        : resData.alt_description === null
+        ? 'Location Undefined'
         : 'Location undefined';
 
     title.innerHTML = 'Good afternoon,';
@@ -157,14 +160,16 @@ const setDisplay = async () => {
     });
     const resData = await res.json();
     const desc =
-      resData.location === undefined
+      resData.location === undefined || null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null
+        : resData.location.title === null || ''
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
+        : resData.alt_description === null
+        ? 'Location Undefined'
         : 'Location undefined';
 
     title.innerHTML = 'Good evening,';
@@ -406,9 +411,8 @@ todoForm.addEventListener('submit', e => {
 
 const toggleCheck = key => {
   const index = newTodos.findIndex(item => item.id === Number(key));
-  newTodos[index].checked = !newTodos[index].checked;
-
   const item = document.querySelector(`[data-key='${key}']`);
+  newTodos[index].checked = !newTodos[index].checked;
 
   if (newTodos[index].checked) {
     item.classList.add('done');
@@ -468,8 +472,8 @@ const closeSettings = e => {
     setTimeout(() => (settings.style.display = 'none'), 400);
     cog.classList.toggle('rotate');
   }
-  radios.forEach(radio => {
-    localStorage.setItem(radio.id, radio.checked);
+  checkboxes.forEach(box => {
+    localStorage.setItem(box.id, box.checked);
   });
 
   load();
@@ -528,21 +532,21 @@ const hideTodoList = () => {
 };
 
 const load = () => {
-  radios.forEach(radio => {
-    radio.checked = localStorage.getItem(radio.id) === 'true' ? true : false;
-    radClockOn.checked ? showClock() : showAltClock();
-    radFocusOn.checked ? showFocus() : hideFocus();
-    radTempFar.checked ? showFar() : showCel();
-    radTodoHide.checked ? hideTodoList() : showTodoList();
+  checkboxes.forEach(box => {
+    box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
+    radClockAlt.checked ? showAltClock() : showClock();
+    radFocusOff.checked ? showFocus() : hideFocus();
+    radTempCel.checked ? showCel() : showFar();
+    radTodoShow.checked ? showTodoList() : hideTodoList();
   });
 };
 
-radios.forEach(radio => {
-  if (!localStorage.getItem(radio.id)) {
-    radFocusOn.checked;
-    radClockOn.checked;
-    radTempFar.checked;
-    radTodoHide.checked;
+checkboxes.forEach(box => {
+  if (!localStorage.getItem(box.id)) {
+    radFocusOff.checked;
+    radClockAlt;
+    radTempCel;
+    radTodoShow;
   } else {
     load();
   }
@@ -561,14 +565,6 @@ window.addEventListener('click', closeSettings);
 todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
-radFocusOn.addEventListener('click', showFocus);
-radFocusOff.addEventListener('click', hideFocus);
-radClockOn.addEventListener('click', showClock);
-radClockOff.addEventListener('click', showAltClock);
-radTempCel.addEventListener('click', showCel);
-radTempFar.addEventListener('click', showFar);
-radTodoShow.addEventListener('click', showTodoList);
-radTodoHide.addEventListener('click', hideTodoList);
 
 setInterval(time, 500);
 setDisplay();
