@@ -63,6 +63,7 @@
   width: 60vw;
   margin: -0.5rem auto;
   outline-color: #999;
+  cursor: pointer;
 }
 
 #focus {
@@ -74,6 +75,7 @@
   width: 50vw;
   outline-color: #999;
   margin: auto;
+  cursor: pointer;
 }
 
 #bg-full-image {
@@ -292,7 +294,6 @@
   right: 3vw;
   opacity: 0.6;
   transition: transform 0.5s ease;
-  transition: 0.4s ease-out;
 }
 
 .rotate {
@@ -307,7 +308,6 @@
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  padding: 0.5rem 0.5rem 1rem;
   width: 16rem;
   height: 15rem;
   position: absolute;
@@ -315,16 +315,16 @@
   right: 3vw;
   z-index: 2;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 32px auto auto;
+  grid-template-rows: 3rem auto auto;
 }
 
 #settings h3 {
   grid-column: span 2;
+  align-self: center;
 }
 
 #settings h4 {
   margin-bottom: 2px;
-  align-self: center;
 }
 
 #settings > div {
@@ -335,7 +335,6 @@
 
 #settings > div > div {
   display: inline-flex;
-  margin-top: 0.3rem;
   font-size: 0.8rem;
 }
 
@@ -375,7 +374,8 @@
 
 .cbx:checked ~ label:after {
   left: 15px;
-  background: #545454;
+  background: #4495a0;
+  border-left: 1px solid #fff;
 }
 
 #attribute {

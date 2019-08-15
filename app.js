@@ -52,7 +52,8 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id = '';
+  const client_id =
+    '';
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
@@ -128,7 +129,6 @@ const setDisplay = async () => {
       method: 'get'
     });
     const resData = await res.json();
-    console.log(resData);
     const desc = !resData.location
       ? resData.alt_description
       : resData.location.title
@@ -203,16 +203,17 @@ const urlW = `https://api.openweathermap.org/data/2.5/weather`;
 
 const getLocation = () => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPos, showError, {
+    navigator.geolocation.getCurrentPosition(showWeather, showError, {
       enableHighAccuracy: true,
       timeout: 10000
     });
   } else {
-    weatherDis.innerHTML = 'Geolocation not supported on this device';
+    weatherDis.innerHTML =
+      '<span>Geolocation not supported on this device</span>';
   }
 };
 
-const showPos = async position => {
+const showWeather = async position => {
   try {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
@@ -272,8 +273,6 @@ const showError = error => {
       weatherDis.innerHTML = 'Something went wrong.';
   }
 };
-
-document.addEventListener('DOMContentLoaded', getLocation);
 
 //////////////////////////////////////////////////////////
 //                USER/FOCUS DISPLAY                    //
@@ -558,7 +557,7 @@ checkboxes.forEach(box => {
 });
 
 /////////////////////////////////////////////////////////////////
-
+document.addEventListener('DOMContentLoaded', getLocation);
 user.addEventListener('click', clearUser);
 user.addEventListener('keydown', setUser);
 user.addEventListener('blur', setUser);
