@@ -16,7 +16,5 @@
     "url": "https://github.com/KyleKnolleLynch/Inertia/issues"
   },
   "homepage": "https://github.com/KyleKnolleLynch/Inertia",
-  "dependencies": {
-    "dotenv": "^8.0.0"
-  }
+  "dependencies": {}
 }

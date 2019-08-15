@@ -8,7 +8,7 @@
 }
 
 .danger {
-  color: red;
+  color: #ff0000;
 }
 
 .p {
@@ -48,7 +48,7 @@
   justify-content: 'center';
   align-content: 'center';
   text-align: center;
-  color: lavenderblush;
+  color: #fff0f5;
   font-family: 'Exo', sans-serif;
   overflow: hidden;
 }
@@ -132,7 +132,7 @@
   position: absolute;
   font-size: 1.5rem;
   font-weight: 600;
-  bottom: 15vh;
+  bottom: 10vh;
   left: 3vw;
   opacity: 0.6;
   transition: 0.4s ease-out;
@@ -233,7 +233,7 @@
 
 .done .checkmark::before {
   display: inline-block;
-  color: rgb(34, 240, 188);
+  color: #22f0bc;
 }
 
 .delete-todo {
@@ -259,20 +259,22 @@
 }
 
 #show-todo-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 25rem;
+  list-style: none;
+  position: absolute;
+  bottom: 12rem;
+  left: 0.5rem;
+  width: 22rem;
   height: 11rem;
-  margin-left: 1rem;
   overflow-y: scroll;
   word-break: break-all;
   line-height: 2ch;
 }
 #show-todo-list span {
-  color: lavenderblush;
+  color: #fff0f5;
 }
 
 #show-todo-list .checkmark,
@@ -286,8 +288,8 @@
   cursor: pointer;
   position: absolute;
   font-size: 1.4rem;
-  bottom: 6vh;
-  right: 6vw;
+  bottom: 3vh;
+  right: 3vw;
   opacity: 0.6;
   transition: transform 0.5s ease;
   transition: 0.4s ease-out;
@@ -332,30 +334,31 @@
 }
 
 #settings > div > div {
-  margin-top: 0.3rem;
   display: inline-flex;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
 }
 
 .setLabel {
   cursor: pointer;
   position: relative;
   display: block;
-  height: 20px;
-  width: 44px;
+  width: 33px;
+  height: 17px;
   background: #898989;
   border-radius: 100px;
   transition: all 0.3s ease;
+  border: solid 1px #888;
 }
 
 .setLabel:after {
   position: absolute;
   left: -2px;
-  top: -3px;
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 15px;
+  height: 15px;
   border-radius: 100px;
-  background: #fff;
+  background: #fff0f5;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
   content: '';
   transition: all 0.3s ease;
@@ -366,21 +369,13 @@
 }
 
 .cbx:checked ~ label {
-  background: #6fbeb5;
+  background: #777;
+  border: solid 1px #ccc;
 }
 
 .cbx:checked ~ label:after {
-  left: 20px;
-  background: #179588;
-}
-
-.cbx:disabled ~ label {
-  background: #d5d5d5;
-  pointer-events: none;
-}
-
-.cbx:disabled ~ label:after {
-  background: #bcbdbc;
+  left: 15px;
+  background: #545454;
 }
 
 #attribute {
@@ -388,18 +383,20 @@
   bottom: 1rem;
   left: 1rem;
   color: #999;
+  text-align: start;
 }
 
-#attribute > :nth-child(1) {
+#attribute :nth-child(1) {
   font-size: 1.2rem;
 }
 
+#attribute,
 #attribute :nth-child(n + 2) {
   font-size: 0.7rem;
 }
 
 #attribute a {
-  color: lavenderblush;
+  color: #fff0f5;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -455,7 +452,15 @@
   #show-todo-list {
     width: 16rem;
     height: 8rem;
-    margin: 2rem 0 0;
+  }
+
+  #attribute :nth-child(1) {
+    font-size: 0.8rem;
+  }
+
+  #attribute,
+  #attribute :nth-child(n + 2) {
+    font-size: 0.5rem;
   }
 }
 
@@ -522,7 +527,7 @@
   }
 
   #todo-open {
-    bottom: 25vh;
+    bottom: 20vh;
   }
 
   #todo-open,
@@ -534,7 +539,16 @@
   #show-todo-list {
     width: 14rem;
     height: 6rem;
-    margin: -10rem 0 0;
+    bottom: 8rem;
+  }
+
+  #attribute :nth-child(1) {
+    font-size: 0.8rem;
+  }
+
+  #attribute,
+  #attribute :nth-child(n + 2) {
+    font-size: 0.5rem;
   }
 }
 

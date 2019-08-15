@@ -52,8 +52,7 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id =
-    '';
+  const client_id = '';
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
@@ -61,18 +60,19 @@ const setDisplay = async () => {
       method: 'get'
     });
     const resData = await res.json();
-    const desc =
-      resData.location === undefined || null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+    const desc = !resData.location
+      ? resData.alt_description
+      : resData.location.title
+      ? resData.location.title
+      : resData.location.title === null || ''
+      ? resData.location.position.title
+      : resData.location.position.title === null
+      ? resData.location.city + ', ' + resData.location.country
+      : resData.location.city === null && resData.location.country === null
+      ? resData.alt_description
+      : resData.alt_description === null
+      ? 'Location Undefined'
+      : 'Location undefined';
 
     title.innerHTML = 'Good morning,';
     bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
@@ -94,18 +94,19 @@ const setDisplay = async () => {
       method: 'get'
     });
     const resData = await res.json();
-    const desc =
-      resData.location === undefined || null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location Undefined';
+    const desc = !resData.location
+      ? resData.alt_description
+      : resData.location.title
+      ? resData.location.title
+      : resData.location.title === null || ''
+      ? resData.location.position.title
+      : resData.location.position.title === null
+      ? resData.location.city + ', ' + resData.location.country
+      : resData.location.city === null && resData.location.country === null
+      ? resData.alt_description
+      : resData.alt_description === null
+      ? 'Location Undefined'
+      : 'Location undefined';
 
     title.innerHTML = 'Good morning,';
     bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
@@ -128,18 +129,19 @@ const setDisplay = async () => {
     });
     const resData = await res.json();
     console.log(resData);
-    const desc =
-      resData.location === undefined || null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+    const desc = !resData.location
+      ? resData.alt_description
+      : resData.location.title
+      ? resData.location.title
+      : resData.location.title === null || ''
+      ? resData.location.position.title
+      : resData.location.position.title === null
+      ? resData.location.city + ', ' + resData.location.country
+      : resData.location.city === null && resData.location.country === null
+      ? resData.alt_description
+      : resData.alt_description === null
+      ? 'Location Undefined'
+      : 'Location undefined';
 
     title.innerHTML = 'Good afternoon,';
     bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
@@ -147,30 +149,33 @@ const setDisplay = async () => {
     }') center/cover no-repeat`;
 
     attr.innerHTML = `
-      <p id='desc'>${desc}</p>
-      <p>Photo by <a href="${
-        resData.links.html
-      }?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${
+      <p>${desc}</p>
+        Photo by <a href="${
+          resData.links.html
+        }?utm_source=your_app_name&utm_medium=referral">${
+      resData.user.first_name
+    } ${
       resData.user.last_name
-    }</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
+    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
       `;
   } else if (hours < 24) {
     const res = await fetch(`${urlU}&query=night&query=nature`, {
       method: 'get'
     });
     const resData = await res.json();
-    const desc =
-      resData.location === undefined || null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+    const desc = !resData.location
+      ? resData.alt_description
+      : resData.location.title
+      ? resData.location.title
+      : resData.location.title === null || ''
+      ? resData.location.position.title
+      : resData.location.position.title === null
+      ? resData.location.city + ', ' + resData.location.country
+      : resData.location.city === null && resData.location.country === null
+      ? resData.alt_description
+      : resData.alt_description === null
+      ? 'Location Undefined'
+      : 'Location undefined';
 
     title.innerHTML = 'Good evening,';
     bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
