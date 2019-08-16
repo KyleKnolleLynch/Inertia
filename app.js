@@ -57,125 +57,128 @@ const setDisplay = async () => {
 
   if (hours < 4) {
     try {
-    const res = await fetch(`${urlU}&query=night&query=nature`, {
-      method: 'get'
-    });
-    const resData = await res.json();
-    const desc = !resData.location
-      ? resData.alt_description
-      : resData.location.title
-      ? resData.location.title
-      : resData.location.title === null || ''
-      ? resData.location.position.title
-      : resData.location.position.title === null
-      ? resData.location.city + ', ' + resData.location.country
-      : resData.location.city === null && resData.location.country === null
-      ? resData.alt_description
-      : resData.alt_description === null
-      ? 'Location Undefined'
-      : 'Location undefined';
+      const res = await fetch(`${urlU}&query=night&query=nature`, {
+        method: 'get'
+      });
+      const resData = await res.json();
+      const desc = !resData.location
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null || ''
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : resData.location.city === null && resData.location.country === null
+        ? resData.alt_description
+        : resData.alt_description === null
+        ? 'Location Undefined'
+        : 'Location undefined';
 
-    title.innerHTML = 'Good morning,';
-    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
-      resData.urls.regular
-    }') center/cover no-repeat`;
+      title.innerHTML = 'Good morning,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-    attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-      resData.user.first_name
-    } ${
-      resData.user.last_name
-    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
-      title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
-      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      title.innerHTML = 'Good morning,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 12) {
     try {
-    const res = await fetch(`${urlU}&query=morning&query=nature`, {
-      method: 'get'
-    });
-    const resData = await res.json();
-    const desc = !resData.location
-      ? resData.alt_description
-      : resData.location.title
-      ? resData.location.title
-      : resData.location.title === null || ''
-      ? resData.location.position.title
-      : resData.location.position.title === null
-      ? resData.location.city + ', ' + resData.location.country
-      : resData.location.city === null && resData.location.country === null
-      ? resData.alt_description
-      : resData.alt_description === null
-      ? 'Location Undefined'
-      : 'Location undefined';
+      const res = await fetch(`${urlU}&query=morning&query=nature`, {
+        method: 'get'
+      });
+      const resData = await res.json();
+      const desc = !resData.location
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null || ''
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : resData.location.city === null && resData.location.country === null
+        ? resData.alt_description
+        : resData.alt_description === null
+        ? 'Location Undefined'
+        : 'Location undefined';
 
-    title.innerHTML = 'Good morning,';
-    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
-      resData.urls.regular
-    }') center/cover no-repeat`;
+      title.innerHTML = 'Good morning,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-    attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-      resData.user.first_name
-    } ${
-      resData.user.last_name
-    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
-      title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
-      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      title.innerHTML = 'Good morning,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #999 90%), url(./images/default-morning.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 18) {
     try {
-    const res = await fetch(`${urlU}&query=afternoon&query=nature`, {
-      method: 'get'
-    });
-    const resData = await res.json();
-    const desc = !resData.location
-      ? resData.alt_description
-      : resData.location.title
-      ? resData.location.title
-      : resData.location.title === null || ''
-      ? resData.location.position.title
-      : resData.location.position.title === null
-      ? resData.location.city + ', ' + resData.location.country
-      : resData.location.city === null && resData.location.country === null
-      ? resData.alt_description
-      : resData.alt_description === null
-      ? 'Location Undefined'
-      : 'Location undefined';
+      const res = await fetch(`${urlU}&query=afternoon&query=nature`, {
+        method: 'get'
+      });
+      const resData = await res.json();
+      const desc = !resData.location
+        ? resData.alt_description
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null || ''
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : resData.location.city === null && resData.location.country === null
+        ? resData.alt_description
+        : resData.alt_description === null
+        ? 'Location Undefined'
+        : 'Location undefined';
 
-    title.innerHTML = 'Good afternoon,';
-    bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
-      resData.urls.regular
-    }') center/cover no-repeat`;
+      title.innerHTML = 'Good afternoon,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-    attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
         Photo by <a href="${
           resData.links.html
         }?utm_source=your_app_name&utm_medium=referral">${
-      resData.user.first_name
-    } ${
-      resData.user.last_name
-    }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
       `;
     } catch (err) {
-      title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
-      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      title.innerHTML = 'Good afternoon,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
       console.log(err);
     }
   } else if (hours < 24) {
@@ -215,8 +218,9 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
-      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/default-night.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   }
