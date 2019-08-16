@@ -56,6 +56,7 @@ const setDisplay = async () => {
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
+    try {
     const res = await fetch(`${urlU}&query=night&query=nature`, {
       method: 'get'
     });
@@ -89,7 +90,14 @@ const setDisplay = async () => {
       resData.user.last_name
     }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+    } catch (err) {
+      title.innerHTML = 'Good evening,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
+      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      console.log(err);
+    }
   } else if (hours < 12) {
+    try {
     const res = await fetch(`${urlU}&query=morning&query=nature`, {
       method: 'get'
     });
@@ -123,7 +131,14 @@ const setDisplay = async () => {
       resData.user.last_name
     }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+    } catch (err) {
+      title.innerHTML = 'Good evening,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
+      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      console.log(err);
+    }
   } else if (hours < 18) {
+    try {
     const res = await fetch(`${urlU}&query=afternoon&query=nature`, {
       method: 'get'
     });
@@ -157,6 +172,12 @@ const setDisplay = async () => {
       resData.user.last_name
     }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
       `;
+    } catch (err) {
+      title.innerHTML = 'Good evening,';
+      bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
+      attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      console.log(err);
+    }
   } else if (hours < 24) {
     try {
       const res = await fetch(`${urlU}&query=night&query=nature`, {
