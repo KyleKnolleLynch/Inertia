@@ -284,24 +284,27 @@ const showWeather = async position => {
 const showError = error => {
   switch (error.code) {
     case error.PERMISSION_DENIED:
-      weatherDis.innerHTML = 'User denied geolocation request.';
+      weatherDis.innerHTML = '<span>User denied geolocation request.</span>';
       setTimeout(
-        () => (weatherDis.innerHTML = 'Please enable location services.'),
+        () =>
+          (weatherDis.innerHTML =
+            '<span>Please enable location services.</span>'),
         5000
       );
       setTimeout(() => (weatherDis.innerHTML = ''), 25000);
       return;
     case error.POSITION_UNAVAILABLE:
-      weatherDis.innerHTML = 'Location info unavailable from current position.';
+      weatherDis.innerHTML =
+        '<span>Location info unavailable from current position.</span>';
       return;
     case error.TIMEOUT:
-      weatherDis.innerHTML = 'Location request timed out.';
+      weatherDis.innerHTML = '<span>Location request timed out.</span>';
       return;
     case error.UNKNOWN_ERROR:
-      weatherDis.innerHTML = 'An unknown error occured.';
+      weatherDis.innerHTML = '<span>An unknown error occured.</span>';
       return;
     default:
-      weatherDis.innerHTML = 'Something went wrong.';
+      weatherDis.innerHTML = '<span>Something went wrong.</span>';
   }
 };
 
