@@ -192,9 +192,11 @@ const setDisplay = async () => {
         resData.user.last_name
       }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
-    } catch {
+    } catch (err) {
+      title.innerHTML = 'Good evening,';
       bgImg.style.background = `linear-gradient(0deg,  #555, transparent 20%, #555 90%), url(./images/bg-default-noon.jpg) center/cover no-repeat`;
       attr.innerHTML = '<p>Roxborough Park, Colorado</p> Photo by Kyle Lynch';
+      console.log(err);
     }
   }
 };
@@ -250,7 +252,7 @@ const showWeather = async position => {
       resDataAlt.weather[0].icon
     }.png'></img>`;
   } catch (err) {
-    alert(`Error!: ${err}`);
+    console.log(`Error!: ${err}`);
   }
 };
 
