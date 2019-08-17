@@ -50,7 +50,6 @@
   text-align: center;
   color: #fff0f5;
   font-family: 'Exo', sans-serif;
-  overflow-y: scroll;
 }
 
 #heading {
@@ -453,6 +452,7 @@
     width: 14rem;
     height: 7.2rem;
     bottom: 7rem;
+    overflow-y: scroll;
   }
 
   #attribute :nth-child(1) {
