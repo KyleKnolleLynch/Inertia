@@ -266,6 +266,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-content: flex-start;
   list-style: none;
   position: absolute;
   bottom: 10rem;
@@ -452,7 +453,6 @@
     width: 14rem;
     height: 7.2rem;
     bottom: 7rem;
-    overflow-y: scroll;
   }
 
   #attribute :nth-child(1) {
