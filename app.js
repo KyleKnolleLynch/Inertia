@@ -77,7 +77,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -93,7 +93,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
@@ -119,7 +119,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -135,7 +135,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url(./images/default-morning.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
@@ -161,7 +161,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -177,7 +177,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #888 90%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
       console.log(err);
@@ -203,7 +203,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -219,7 +219,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 20%, #555 90%), url(./images/default-night.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-night.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
