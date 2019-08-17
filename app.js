@@ -16,6 +16,7 @@ todoForm = document.getElementById('todo-form');
 todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
+todoDelete = document.querySelector('delete-todo');
 showTodo = document.getElementById('show-todo-list');
 radFocusOff = document.getElementById('rad-focus-off');
 radClockAlt = document.getElementById('rad-clock-alt');
@@ -375,7 +376,7 @@ const openTodos = () => {
     todos.style.display = 'block';
   } else {
     todos.className = 'fadeOut';
-    setTimeout(() => (todos.style.display = 'none'), 400);
+    setTimeout(() => (todos.style.display = 'none'), 300);
   }
 
   if (newTodos.length === 0) todoClear.style.display = 'none';
@@ -384,9 +385,8 @@ const openTodos = () => {
 const closeTodos = e => {
   if (!todos.contains(e.target) && !todoOpen.contains(e.target)) {
     todos.className = 'fadeOut';
-    setTimeout(() => (todos.style.display = 'none'), 400);
-    todoOpen.style.display = 'inline-block';
-  }
+    setTimeout(() => (todos.style.display = 'none'), 300);
+  } 
 };
 
 let newTodos = localStorage.getItem('new-todos')
@@ -495,7 +495,7 @@ const openSettings = () => {
     settings.style.display = 'grid';
   } else {
     settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 400);
+    setTimeout(() => (settings.style.display = 'none'), 300);
   }
   cog.classList.toggle('rotate');
 };
@@ -507,7 +507,7 @@ const closeSettings = e => {
     settings.style.display === 'grid'
   ) {
     settings.className = 'fadeOut';
-    setTimeout(() => (settings.style.display = 'none'), 400);
+    setTimeout(() => (settings.style.display = 'none'), 300);
     cog.classList.toggle('rotate');
   }
   checkboxes.forEach(box => {
