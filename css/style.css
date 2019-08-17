@@ -407,10 +407,10 @@
 }
 
 @media screen and (max-width: 600px) {
-  html {
+  /* html {
     height: 100vh;
     min-height: 120%;
-  }
+  } */
 
   #heading {
     font-size: 1.3rem;
@@ -495,10 +495,10 @@
 }
 
 @media screen and (max-height: 500px) {
-  html {
+  /* html {
     height: 100vh;
     min-height: 120%;
-  }
+  } */
 
   #heading {
     font-size: 1.1rem;
