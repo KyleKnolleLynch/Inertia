@@ -540,8 +540,7 @@ const showAltClock = () => {
       minute: 'numeric',
       hour12: false
     });
-    const amPm = t > '12' ? 'PM' : 'AM';
-    altClock.innerHTML = `${t}<span id="clockSpan">${amPm}</span>`;
+    altClock.innerHTML = t;
   };
   altClock.style.display = 'block';
   setInterval(altTime, 500);

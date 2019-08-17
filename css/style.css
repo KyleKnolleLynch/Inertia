@@ -44,6 +44,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  min-height: 120%;
   width: 100vw;
   justify-content: 'center';
   align-content: 'center';
@@ -453,8 +454,9 @@
   }
 
   #show-todo-list {
-    width: 16rem;
-    height: 8rem;
+    width: 14rem;
+    height: 7.2rem;
+    bottom: 7rem;
   }
 
   #attribute :nth-child(1) {
@@ -493,6 +495,7 @@
 @media screen and (max-width: 330px) {
   #show-todo-list {
     height: 5rem;
+    line-height: 1.8ch;
   }
 }
 
@@ -526,6 +529,7 @@
 
   #todos {
     max-height: 12rem;
+    width: 22rem;
     bottom: 14vh;
   }
 
@@ -542,7 +546,7 @@
   #show-todo-list {
     width: 14rem;
     height: 6rem;
-    bottom: 8rem;
+    bottom: 6rem;
   }
 
   #attribute :nth-child(1) {
