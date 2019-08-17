@@ -407,10 +407,14 @@
 }
 
 @media screen and (max-width: 600px) {
-  /* html {
+  html {
     height: 100vh;
     min-height: 120%;
-  } */
+  }
+
+  .container {
+    min-height: 100%;
+  }
 
   #heading {
     font-size: 1.3rem;
