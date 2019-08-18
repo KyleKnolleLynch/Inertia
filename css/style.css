@@ -409,7 +409,7 @@
 @media screen and (max-width: 600px) {
   html {
     height: 100vh;
-    min-height: 110%;
+    min-height: 120%;
   }
 
   #heading {
@@ -497,7 +497,7 @@
 @media screen and (max-height: 500px) {
   html {
     height: 100vh;
-    min-height: 110%;
+    min-height: 120%;
   }
 
   #heading {

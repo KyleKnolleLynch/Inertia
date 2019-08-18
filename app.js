@@ -53,7 +53,8 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id = '';
+  const client_id =
+    '';
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
@@ -77,7 +78,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -93,7 +94,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
@@ -119,7 +120,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -135,7 +136,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
@@ -161,7 +162,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -177,7 +178,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
       console.log(err);
@@ -203,7 +204,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url('${
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
 
@@ -219,7 +220,7 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, transparent 80%, #555 100%), url(./images/default-night.jpg) center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #555, transparent 30%, 80%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
       attr.innerHTML =
         '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
@@ -379,7 +380,7 @@ const openTodos = () => {
     setTimeout(() => (todos.style.display = 'none'), 300);
   }
 
-  if (newTodos.length === 0) todoClear.style.display = 'none';
+  if (todoList.innerHTML === '') todoClear.style.display = 'none';
 };
 
 const closeTodos = e => {
@@ -393,26 +394,23 @@ let newTodos = localStorage.getItem('new-todos')
   ? JSON.parse(localStorage.getItem('new-todos'))
   : [];
 
-if (newTodos.length === 0) {
-  todoList.innerHTML = '';
-} else {
-  todoClear.style.display = 'inline-block';
-}
+newTodos.length === 0
+  ? (todoList.innerHTML = '')
+  : (todoClear.style.display = 'inline-block');
 
-localStorage.setItem('new-todos', JSON.stringify(newTodos));
-const data = JSON.parse(localStorage.getItem('new-todos'));
-
-data.forEach(item => {
-  todoList.insertAdjacentHTML(
-    'afterbegin',
-    `<li id='todo-item' data-key='${item.id}' class=${item.checked && 'done'}>
+if (newTodos) {
+  newTodos.forEach(item => {
+    todoList.insertAdjacentHTML(
+      'afterbegin',
+      `<li id='todo-item' data-key='${item.id}' class=${item.checked && 'done'}>
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
   <a class='delete-todo button'> <i class="danger fas fa-minus"></i></a> 
   </li>`
-  );
-});
+    );
+  });
+}
 
 const addTodos = text => {
   const item = {
@@ -557,15 +555,13 @@ const showFar = () => {
 };
 
 const showTodoList = () => {
-  showTodo.classList.remove('empty');
-  todoList
-    ? (showTodo.innerHTML = todoList.innerHTML)
-    : (showTodo.innerHTML = '');
+  const clone = Object.assign(todoList);
+  todoList ? (showTodo.innerHTML = clone.innerHTML) : (showTodo.innerHTML = '');
+  if (showTodo) return;
 };
 
 const hideTodoList = () => {
   showTodo.innerHTML = '';
-  showTodo.classList.add('empty');
 };
 
 const load = () => {
