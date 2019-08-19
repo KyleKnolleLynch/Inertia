@@ -273,6 +273,7 @@
   width: 22rem;
   height: 11rem;
   overflow-y: scroll;
+  scrollbar-width: none;
   word-break: break-all;
   line-height: 2ch;
 }
