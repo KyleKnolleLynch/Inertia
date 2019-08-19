@@ -4,7 +4,8 @@
   "description": "Welcome page app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,7 @@
     "url": "https://github.com/KyleKnolleLynch/Inertia/issues"
   },
   "homepage": "https://github.com/KyleKnolleLynch/Inertia",
-  "dependencies": {}
+  "dependencies": {
+    "netlify-lambda": "^1.6.2"
+  }
 }

@@ -16,7 +16,6 @@ todoForm = document.getElementById('todo-form');
 todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
-// todoDelete = document.querySelector('delete-todo');
 showTodo = document.getElementById('show-todo-list');
 radFocusOff = document.getElementById('rad-focus-off');
 radClockAlt = document.getElementById('rad-clock-alt');
@@ -53,8 +52,7 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id =
-    '';
+  const client_id = CLIENT_ID;
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
@@ -231,7 +229,7 @@ const setDisplay = async () => {
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
 
-const weatherKey = '';
+const weatherKey = WEATHER_API;
 const urlW = `https://api.openweathermap.org/data/2.5/weather`;
 
 const getLocation = () => {
