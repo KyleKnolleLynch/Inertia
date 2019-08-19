@@ -52,7 +52,7 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id = CLIENT_ID;
+  const client_id = '';
   const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
 
   if (hours < 4) {
@@ -229,7 +229,7 @@ const setDisplay = async () => {
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
 
-const weatherKey = WEATHER_API;
+const weatherKey = '';
 const urlW = `https://api.openweathermap.org/data/2.5/weather`;
 
 const getLocation = () => {
