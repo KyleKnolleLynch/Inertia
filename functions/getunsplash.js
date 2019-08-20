@@ -16,7 +16,7 @@ exports.handler = function(event, context, callback) {
     : (query = '&query=nature');
 
   const { UNSPLASH_CLIENT_ID } = process.env;
-  const API_URL = `https://api.unsplash.com/photos/random?client_id=${UNSPLASH_CLIENT_ID}${query}`;
+  const API_URL = `https://api.unsplash.com/photos/random${query}?client_id=${UNSPLASH_CLIENT_ID}`;
 
   const send = body => {
     callback(null, {
