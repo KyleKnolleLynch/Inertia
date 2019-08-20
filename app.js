@@ -141,9 +141,12 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      const res = await fetch(`http://localhost:9000/getunsplash&query=afternoon&query=nature`, {
-        method: 'get'
-      });
+      const res = await fetch(
+        `http://localhost:9000/getunsplash&query=afternoon&query=nature`,
+        {
+          method: 'get'
+        }
+      );
       const resData = await res.json();
       const desc = !resData.location
         ? resData.alt_description
@@ -183,7 +186,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 24) {
     try {
-      const res = await fetch(`http://localhost:9000/getunsplash&query=night&query=nature`, {
+      const res = await fetch(`${urlU}&query=night&query=nature`, {
         method: 'get'
       });
       const resData = await res.json();
