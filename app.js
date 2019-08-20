@@ -343,8 +343,8 @@ const setUser = e => {
 };
 
 const clearFocus = () => {
-  if (inputFocus.textContent === "[Enter Today's Focus]")
-    inputFocus.textContent = '';
+  if ((inputFocus.style.borderBottom = '2px solid #ccc'))
+    inputFocus.style.borderBottom = 'none';
 };
 
 const getInputFocus = () => {
@@ -353,7 +353,7 @@ const getInputFocus = () => {
     localStorage.getItem('input-focus') === ''
   ) {
     localStorage.removeItem('input-focus');
-    inputFocus.textContent = "[Enter Today's Focus]";
+    inputFocus.style.borderBottom = '2px solid #ccc';
   } else {
     inputFocus.textContent = localStorage.getItem('input-focus');
   }
@@ -542,7 +542,7 @@ const showAltClock = () => {
     altClock.innerHTML = t;
   };
   altClock.style.display = 'block';
-  setInterval(altTime, 500);
+  setInterval(altTime, 1000);
 };
 
 const showCel = () => {
@@ -600,7 +600,7 @@ todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
-setInterval(time, 500);
+setInterval(time, 1000);
 setDisplay();
 setInterval(setDisplay, 21600000);
 getUser();
