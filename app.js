@@ -52,12 +52,9 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  const client_id = '';
-  const urlU = `https://api.unsplash.com/photos/random?client_id=${client_id}`;
-
   if (hours < 4) {
     try {
-      const res = await fetch(`${urlU}&query=night&query=nature`, {
+      const res = await fetch('/.netlify/functions/getunsplash', {
         method: 'get'
       });
       const resData = await res.json();
@@ -99,7 +96,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 12) {
     try {
-      const res = await fetch(`${urlU}&query=morning&query=nature`, {
+      const res = await fetch('/.netlify/functions/getunsplash', {
         method: 'get'
       });
       const resData = await res.json();
@@ -141,12 +138,9 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      const res = await fetch(
-        `http://localhost:9000/getunsplash&query=afternoon&query=nature`,
-        {
-          method: 'get'
-        }
-      );
+      const res = await fetch('/.netlify/functions/getunsplash', {
+        method: 'get'
+      });
       const resData = await res.json();
       const desc = !resData.location
         ? resData.alt_description
@@ -186,7 +180,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 24) {
     try {
-      const res = await fetch(`${urlU}&query=night&query=nature`, {
+      const res = await fetch('/.netlify/functions/getunsplash', {
         method: 'get'
       });
       const resData = await res.json();
@@ -232,9 +226,6 @@ const setDisplay = async () => {
 //////////////////////////////////////////////////////////
 //                     WEATHER DISPLAY                  //
 
-const weatherKey = '';
-const urlW = `https://api.openweathermap.org/data/2.5/weather`;
-
 const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showWeather, showError, {
@@ -252,7 +243,7 @@ const showWeather = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      `${urlW}?lat=${lat}&lon=${lon}&units=imperial&APPID=${weatherKey}`
+      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
     );
 
     const resData = await res.json();
@@ -265,7 +256,7 @@ const showWeather = async position => {
     }.png'></img>`;
 
     const resAlt = await fetch(
-      `${urlW}?lat=${lat}&lon=${lon}&units=metric&APPID=${weatherKey}`
+      `/.netlify/functions/getweathercelc?lat=${lat}&lon=${lon}`
     );
 
     const resDataAlt = await resAlt.json();

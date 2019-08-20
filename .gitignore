@@ -1,2 +1,2 @@
-/node_modules
-.env # This contains secrets, don't store in source control
+node_modules
+functions
