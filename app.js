@@ -180,7 +180,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 24) {
     try {
-      const res = await fetch('/.netlify/functions/getunsplash', {
+      const res = await fetch('/.netlify/functions/getUnsplash', {
         method: 'get'
       });
       const resData = await res.json();
