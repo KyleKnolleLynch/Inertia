@@ -4,6 +4,7 @@ exports.handler = function(event, context, callback) {
   let today = new Date();
   let hours = today.getHours();
   let query;
+  let querytwo;
 
   hours < 4
     ? (query = '&query=nature&query=night')
