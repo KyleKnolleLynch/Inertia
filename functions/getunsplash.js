@@ -12,11 +12,11 @@ exports.handler = function(event, context, callback) {
     : hours < 18
     ? (query = '&query=nature&query=afternoon')
     : hours < 24
-    ? (query = '&query=nature&query=night')
+    ? (query = 'night')
     : (query = '&query=nature');
 
   const { UNSPLASH_CLIENT_ID } = process.env;
-  const API_URL = `https://api.unsplash.com/photos/random?client_id=${UNSPLASH_CLIENT_ID}${query}`;
+  const API_URL = `https://api.unsplash.com/photos/random&query=${query}?client_id=${UNSPLASH_CLIENT_ID}`;
 
   const send = body => {
     callback(null, {
