@@ -6,14 +6,14 @@ exports.handler = function(event, context, callback) {
   let query;
 
   hours < 4
-    ? (query = '&query=nature&query=night')
+    ? (query = 'night')
     : hours < 12
-    ? (query = '&query=nature&query=morning')
+    ? (query = 'morning')
     : hours < 18
-    ? (query = '&query=nature&query=afternoon')
+    ? (query = 'afternoon')
     : hours < 24
     ? (query = 'night')
-    : (query = 'dog');
+    : (query = 'nature');
 
   const { UNSPLASH_CLIENT_ID } = process.env;
   const BASE_URL = 'https://api.unsplash.com/photos/random';
