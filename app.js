@@ -54,7 +54,7 @@ const setDisplay = async () => {
 
   if (hours < 4) {
     try {
-      const res = await fetch('/.netlify/functions/getUnsplash', {
+      const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
       });
       const resData = await res.json();
@@ -96,7 +96,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 12) {
     try {
-      const res = await fetch('/.netlify/functions/getUnsplash', {
+      const res = await fetch('/.netlify/functions/getmorningpics', {
         method: 'get'
       });
       const resData = await res.json();
@@ -138,7 +138,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      const res = await fetch('/.netlify/functions/getUnsplash', {
+      const res = await fetch('/.netlify/functions/getnoonpics', {
         method: 'get'
       });
       const resData = await res.json();
@@ -180,7 +180,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 24) {
     try {
-      const res = await fetch('/.netlify/functions/getUnsplash', {
+      const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
       });
       const resData = await res.json();
