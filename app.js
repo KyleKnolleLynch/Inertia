@@ -54,7 +54,7 @@ const setDisplay = async () => {
 
   if (hours < 4) {
     try {
-      const res = await fetch('/.netlify/functions/getunsplash', {
+      const res = await fetch('/.netlify/functions/getUnsplash', {
         method: 'get'
       });
       const resData = await res.json();
@@ -96,7 +96,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 12) {
     try {
-      const res = await fetch('/.netlify/functions/getunsplash', {
+      const res = await fetch('/.netlify/functions/getUnsplash', {
         method: 'get'
       });
       const resData = await res.json();
@@ -138,7 +138,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      const res = await fetch('/.netlify/functions/getunsplash', {
+      const res = await fetch('/.netlify/functions/getUnsplash', {
         method: 'get'
       });
       const resData = await res.json();
