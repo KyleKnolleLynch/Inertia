@@ -598,10 +598,8 @@ const load = () => {
 };
 
 checkboxes.forEach(box => {
-  if (!localStorage.getItem(box.id)) {
-    setDisplay();
-  } else {
-    load();
+  if (localStorage.getItem(box.id)) {
+   load();
   }
 });
 
@@ -620,5 +618,6 @@ window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
 setInterval(time, 1000);
+setDisplay();
 getUser();
 getInputFocus();
