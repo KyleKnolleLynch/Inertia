@@ -56,40 +56,41 @@ const setDisplay = async () => {
 
   if (hours < 4) {
     try {
-      const res = await fetch('/.netlify/functions/getnightpics', {
-        method: 'get'
-      });
-      const resData = await res.json();
-      const desc = !resData.location
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
-
-      title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+        const res = await fetch('/.netlify/functions/getnightpics', {
+          method: 'get'
+        });
+        const resData = await res.json();
+        const desc = !resData.location
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null || ''
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
-      attr.innerHTML = `
+        title.innerHTML = 'Good morning,';
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+          resData.urls.regular
+        }') center/cover no-repeat`;
+
+        attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;}
+          resData.user.first_name
+        } ${
+          resData.user.last_name
+        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      `;
+      }
     } catch (err) {
       title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
@@ -101,40 +102,41 @@ const setDisplay = async () => {
     }
   } else if (hours < 12) {
     try {
-      const res = await fetch('/.netlify/functions/getmorningpics', {
-        method: 'get'
-      });
-      const resData = await res.json();
-      const desc = !resData.location
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
-
-      title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+        const res = await fetch('/.netlify/functions/getmorningpics', {
+          method: 'get'
+        });
+        const resData = await res.json();
+        const desc = !resData.location
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null || ''
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
-      attr.innerHTML = `
+        title.innerHTML = 'Good morning,';
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+          resData.urls.regular
+        }') center/cover no-repeat`;
+
+        attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;}
+          resData.user.first_name
+        } ${
+          resData.user.last_name
+        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      `;
+      }
     } catch (err) {
       title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
@@ -146,40 +148,41 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      const res = await fetch('/.netlify/functions/getnoonpics', {
-        method: 'get'
-      });
-      const resData = await res.json();
-      const desc = !resData.location
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
-
-      title.innerHTML = 'Good afternoon,';
       if (!radBgAlt.checked) {
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+        const res = await fetch('/.netlify/functions/getnoonpics', {
+          method: 'get'
+        });
+        const resData = await res.json();
+        const desc = !resData.location
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null || ''
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
-      attr.innerHTML = `
+        title.innerHTML = 'Good afternoon,';
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+          resData.urls.regular
+        }') center/cover no-repeat`;
+
+        attr.innerHTML = `
       <p>${desc}</p>
         Photo by <a href="${
           resData.links.html
         }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
-      `;}
+          resData.user.first_name
+        } ${
+          resData.user.last_name
+        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
+      `;
+      }
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
       if (!radBgAlt.checked) {
@@ -191,40 +194,41 @@ const setDisplay = async () => {
     }
   } else if (hours < 24) {
     try {
-      const res = await fetch('/.netlify/functions/getnightpics', {
-        method: 'get'
-      });
-      const resData = await res.json();
-      const desc = !resData.location
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null || ''
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
-
-      title.innerHTML = 'Good evening,';
       if (!radBgAlt.checked) {
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+        const res = await fetch('/.netlify/functions/getnightpics', {
+          method: 'get'
+        });
+        const resData = await res.json();
+        const desc = !resData.location
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null || ''
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
-      attr.innerHTML = `
+        title.innerHTML = 'Good evening,';
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+          resData.urls.regular
+        }') center/cover no-repeat`;
+
+        attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;}
+          resData.user.first_name
+        } ${
+          resData.user.last_name
+        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      `;
+      }
     } catch (err) {
       title.innerHTML = 'Good evening,';
       if (!radBgAlt.checked) {
@@ -595,11 +599,12 @@ const load = () => {
     radTodoShow.checked ? showTodoList() : hideTodoList();
     radBgAlt.checked ? showBgAlt() : setDisplay();
   });
+  
 };
 
 checkboxes.forEach(box => {
   if (localStorage.getItem(box.id)) {
-   load();
+    load();
   }
 });
 
