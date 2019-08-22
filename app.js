@@ -54,7 +54,7 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  if (hours < 4 && !radBgAlt.checked) {
+  if (hours < 4) {
     try {
       const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
@@ -75,6 +75,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
+      if (!radBgAlt.checked) {
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
@@ -88,7 +89,7 @@ const setDisplay = async () => {
       } ${
         resData.user.last_name
       }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;
+      `;}
     } catch (err) {
       title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
@@ -98,7 +99,7 @@ const setDisplay = async () => {
       }
       console.log(err);
     }
-  } else if (hours < 12 && !radBgAlt.checked) {
+  } else if (hours < 12) {
     try {
       const res = await fetch('/.netlify/functions/getmorningpics', {
         method: 'get'
@@ -119,6 +120,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
+      if (!radBgAlt.checked) {
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
@@ -132,7 +134,7 @@ const setDisplay = async () => {
       } ${
         resData.user.last_name
       }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;
+      `;}
     } catch (err) {
       title.innerHTML = 'Good morning,';
       if (!radBgAlt.checked) {
@@ -142,7 +144,7 @@ const setDisplay = async () => {
       }
       console.log(err);
     }
-  } else if (hours < 18 && !radBgAlt.checked) {
+  } else if (hours < 18) {
     try {
       const res = await fetch('/.netlify/functions/getnoonpics', {
         method: 'get'
@@ -163,6 +165,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
+      if (!radBgAlt.checked) {
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
@@ -176,7 +179,7 @@ const setDisplay = async () => {
       } ${
         resData.user.last_name
       }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
-      `;
+      `;}
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
       if (!radBgAlt.checked) {
@@ -186,7 +189,7 @@ const setDisplay = async () => {
       }
       console.log(err);
     }
-  } else if (hours < 24 && !radBgAlt.checked) {
+  } else if (hours < 24) {
     try {
       const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
@@ -207,6 +210,7 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
+      if (!radBgAlt.checked) {
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
         resData.urls.regular
       }') center/cover no-repeat`;
@@ -220,7 +224,7 @@ const setDisplay = async () => {
       } ${
         resData.user.last_name
       }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-      `;
+      `;}
     } catch (err) {
       title.innerHTML = 'Good evening,';
       if (!radBgAlt.checked) {
