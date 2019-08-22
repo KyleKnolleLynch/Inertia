@@ -578,15 +578,15 @@ const showBgAlt = () => {
   const today = new Date();
   let hours = today.getHours();
   hours < 4
-    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
+    ? (bgImg.style.background = 'linear-gradient(#999FBD, #656A7D)')
     : hours < 12
-    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
+    ? (bgImg.style.background = 'linear-gradient(#E8AC07, #FF6208)')
     : hours < 18
     ? (bgImg.style.background =
-        'linear-gradient(to bottom left, #22ccc4, #e11dd0)')
+        'linear-gradient(to bottom left, #E8AC07, #FF6208)')
     : hours < 24
-    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
-    : (bgImg.style.background = 'linear-gradient(#22ccc4, teal)');
+    ? (bgImg.style.background = 'linear-gradient(#22ccc4, #285385)')
+    : (bgImg.style.background = 'linear-gradient(#4D66BD, #33437D)');
   attr.innerHTML = '';
 };
 
@@ -599,7 +599,7 @@ const load = () => {
     radTodoShow.checked ? showTodoList() : hideTodoList();
     radBgAlt.checked ? showBgAlt() : setDisplay();
   });
-  
+  return;
 };
 
 checkboxes.forEach(box => {
