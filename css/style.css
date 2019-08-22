@@ -314,7 +314,7 @@
   right: 3vw;
   z-index: 2;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3rem auto auto;
+  grid-template-rows: 3rem;
 }
 
 #settings h3 {
@@ -332,9 +332,17 @@
   justify-self: center;
 }
 
+#background-alt {
+  grid-column: span 2;
+}
+
 #settings > div > div {
   display: inline-flex;
   font-size: 0.8rem;
+}
+
+div #background-alt div {
+  justify-content: center;
 }
 
 .setLabel {

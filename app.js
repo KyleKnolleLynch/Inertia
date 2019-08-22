@@ -17,10 +17,11 @@ todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
 todoEmpty = document.querySelector('.empty');
 showTodo = document.getElementById('show-todo-list');
-radFocusOff = document.getElementById('rad-focus-off');
+radFocusOn = document.getElementById('rad-focus-on');
 radClockAlt = document.getElementById('rad-clock-alt');
 radTempCel = document.getElementById('rad-temp-cel');
 radTodoShow = document.getElementById('rad-todo-show');
+radBgAlt = document.getElementById('rad-bg-alt');
 checkboxes = document.querySelectorAll('input[type=checkbox]');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
@@ -31,6 +32,7 @@ weatherTempAlt = document.getElementById('weather-temp-alt');
 altDeg = document.getElementById('alt-deg');
 weatherIconAlt = document.getElementById('weather-icon-alt');
 attr = document.getElementById('attribute');
+overlay = document.getElementById('overlay');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
@@ -52,7 +54,7 @@ const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
 
-  if (hours < 4) {
+  if (hours < 4 && !radBgAlt.checked) {
     try {
       const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
@@ -89,12 +91,14 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
-      attr.innerHTML =
-        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      if (!radBgAlt.checked) {
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+        attr.innerHTML =
+          '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      }
       console.log(err);
     }
-  } else if (hours < 12) {
+  } else if (hours < 12 && !radBgAlt.checked) {
     try {
       const res = await fetch('/.netlify/functions/getmorningpics', {
         method: 'get'
@@ -131,12 +135,14 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
-      attr.innerHTML =
-        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      if (!radBgAlt.checked) {
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
+        attr.innerHTML =
+          '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      }
       console.log(err);
     }
-  } else if (hours < 18) {
+  } else if (hours < 18 && !radBgAlt.checked) {
     try {
       const res = await fetch('/.netlify/functions/getnoonpics', {
         method: 'get'
@@ -173,12 +179,14 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
-      attr.innerHTML =
-        '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
+      if (!radBgAlt.checked) {
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+        attr.innerHTML =
+          '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
+      }
       console.log(err);
     }
-  } else if (hours < 24) {
+  } else if (hours < 24 && !radBgAlt.checked) {
     try {
       const res = await fetch('/.netlify/functions/getnightpics', {
         method: 'get'
@@ -215,9 +223,11 @@ const setDisplay = async () => {
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
-      attr.innerHTML =
-        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      if (!radBgAlt.checked) {
+        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
+        attr.innerHTML =
+          '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+      }
       console.log(err);
     }
   }
@@ -556,22 +566,36 @@ const hideTodoList = () => {
   showTodo.innerHTML = '';
 };
 
+const showBgAlt = () => {
+  const today = new Date();
+  let hours = today.getHours();
+  hours < 4
+    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
+    : hours < 12
+    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
+    : hours < 18
+    ? (bgImg.style.background =
+        'linear-gradient(to bottom left, #22ccc4, #e11dd0)')
+    : hours < 24
+    ? (bgImg.style.background = 'linear-gradient(#22ccc4, teal)')
+    : (bgImg.style.background = 'linear-gradient(#22ccc4, teal)');
+  attr.innerHTML = '';
+};
+
 const load = () => {
   checkboxes.forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
     radClockAlt.checked ? showAltClock() : showClock();
-    radFocusOff.checked ? showFocus() : hideFocus();
+    radFocusOn.checked ? showFocus() : hideFocus();
     radTempCel.checked ? showCel() : showFar();
     radTodoShow.checked ? showTodoList() : hideTodoList();
+    radBgAlt.checked ? showBgAlt() : setDisplay();
   });
 };
 
 checkboxes.forEach(box => {
   if (!localStorage.getItem(box.id)) {
-    radFocusOff.checked;
-    radClockAlt;
-    radTempCel;
-    radTodoShow;
+    setDisplay();
   } else {
     load();
   }
@@ -592,7 +616,5 @@ window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
 setInterval(time, 1000);
-setDisplay();
-setInterval(setDisplay, 21600000);
 getUser();
 getInputFocus();
