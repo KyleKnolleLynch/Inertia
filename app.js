@@ -99,6 +99,8 @@ const setDisplay = async () => {
         }
         console.log(err);
       }
+    } else {
+      showBgAlt();
     }
   } else if (hours < 12) {
     if (!radBgAlt.checked) {
@@ -145,6 +147,8 @@ const setDisplay = async () => {
         }
         console.log(err);
       }
+    } else {
+      showBgAlt();
     }
   } else if (hours < 18) {
     if (!radBgAlt.checked) {
@@ -191,6 +195,8 @@ const setDisplay = async () => {
         }
         console.log(err);
       }
+    } else {
+      showBgAlt();
     }
   } else if (hours < 24) {
     if (!radBgAlt.checked) {
@@ -237,6 +243,8 @@ const setDisplay = async () => {
         }
         console.log(err);
       }
+    } else {
+      showBgAlt();
     }
   }
 };
