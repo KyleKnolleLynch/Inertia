@@ -599,11 +599,12 @@ const load = () => {
     radTodoShow.checked ? showTodoList() : hideTodoList();
     radBgAlt.checked ? showBgAlt() : setDisplay();
   });
-  return;
 };
 
 checkboxes.forEach(box => {
-  if (localStorage.getItem(box.id)) {
+  if (!localStorage.getItem(box.id)) {
+    setDisplay();
+  } else {
     load();
   }
 });
@@ -623,6 +624,5 @@ window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
 setInterval(time, 1000);
-setDisplay();
 getUser();
 getInputFocus();
