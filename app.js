@@ -55,8 +55,8 @@ const setDisplay = async () => {
   hours = today.getHours();
 
   if (hours < 4) {
-    try {
-      if (!radBgAlt.checked) {
+    if (!radBgAlt.checked) {
+      try {
         const res = await fetch('/.netlify/functions/getnightpics', {
           method: 'get'
         });
@@ -90,19 +90,19 @@ const setDisplay = async () => {
           resData.user.last_name
         }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+      } catch (err) {
+        title.innerHTML = 'Good morning,';
+        if (!radBgAlt.checked) {
+          bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+          attr.innerHTML =
+            '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        }
+        console.log(err);
       }
-    } catch (err) {
-      title.innerHTML = 'Good morning,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
-      console.log(err);
     }
   } else if (hours < 12) {
-    try {
-      if (!radBgAlt.checked) {
+    if (!radBgAlt.checked) {
+      try {
         const res = await fetch('/.netlify/functions/getmorningpics', {
           method: 'get'
         });
@@ -136,19 +136,19 @@ const setDisplay = async () => {
           resData.user.last_name
         }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+      } catch (err) {
+        title.innerHTML = 'Good morning,';
+        if (!radBgAlt.checked) {
+          bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
+          attr.innerHTML =
+            '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        }
+        console.log(err);
       }
-    } catch (err) {
-      title.innerHTML = 'Good morning,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
-      console.log(err);
     }
   } else if (hours < 18) {
-    try {
-      if (!radBgAlt.checked) {
+    if (!radBgAlt.checked) {
+      try {
         const res = await fetch('/.netlify/functions/getnoonpics', {
           method: 'get'
         });
@@ -182,19 +182,19 @@ const setDisplay = async () => {
           resData.user.last_name
         }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
       `;
+      } catch (err) {
+        title.innerHTML = 'Good afternoon,';
+        if (!radBgAlt.checked) {
+          bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+          attr.innerHTML =
+            '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
+        }
+        console.log(err);
       }
-    } catch (err) {
-      title.innerHTML = 'Good afternoon,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
-      }
-      console.log(err);
     }
   } else if (hours < 24) {
-    try {
-      if (!radBgAlt.checked) {
+    if (!radBgAlt.checked) {
+      try {
         const res = await fetch('/.netlify/functions/getnightpics', {
           method: 'get'
         });
@@ -228,15 +228,15 @@ const setDisplay = async () => {
           resData.user.last_name
         }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
+      } catch (err) {
+        title.innerHTML = 'Good evening,';
+        if (!radBgAlt.checked) {
+          bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
+          attr.innerHTML =
+            '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        }
+        console.log(err);
       }
-    } catch (err) {
-      title.innerHTML = 'Good evening,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
-      console.log(err);
     }
   }
 };
