@@ -21,7 +21,6 @@ radFocusOn = document.getElementById('rad-focus-on');
 radClockAlt = document.getElementById('rad-clock-alt');
 radTempCel = document.getElementById('rad-temp-cel');
 radTodoShow = document.getElementById('rad-todo-show');
-radBgAlt = document.getElementById('rad-bg-alt');
 checkboxes = document.querySelectorAll('input[type=checkbox]');
 weatherTitle = document.getElementById('weather-title');
 weatherTemp = document.getElementById('weather-temp');
@@ -32,7 +31,6 @@ weatherTempAlt = document.getElementById('weather-temp-alt');
 altDeg = document.getElementById('alt-deg');
 weatherIconAlt = document.getElementById('weather-icon-alt');
 attr = document.getElementById('attribute');
-overlay = document.getElementById('overlay');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
@@ -53,10 +51,6 @@ const time = () => {
 const setDisplay = async () => {
   let today = new Date();
   hours = today.getHours();
-
- if (radBgAlt.checked) { 
-   showBgAlt() 
- } else { 
 
   if (hours < 4) {
     try {
@@ -79,32 +73,31 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-          resData.urls.regular
-        }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-        attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-          resData.user.first_name
-        } ${
-          resData.user.last_name
-        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 12) {
     try {
-      const res = await fetch('/.netlify/functions/getmorningpics', {
+      // const res = await fetch('/.netlify/functions/getmorningpics', {
+      const res = await fetch('http://localhost:9000/getmorningpics', {
         method: 'get'
       });
       const resData = await res.json();
@@ -123,27 +116,25 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-          resData.urls.regular
-        }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-        attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-          resData.user.first_name
-        } ${
-          resData.user.last_name
-        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 18) {
@@ -167,27 +158,25 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-          resData.urls.regular
-        }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-        attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
         Photo by <a href="${
           resData.links.html
         }?utm_source=your_app_name&utm_medium=referral">${
-          resData.user.first_name
-        } ${
-          resData.user.last_name
-        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
-      }
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
       console.log(err);
     }
   } else if (hours < 24) {
@@ -211,31 +200,28 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-          resData.urls.regular
-        }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
+        resData.urls.regular
+      }') center/cover no-repeat`;
 
-        attr.innerHTML = `
+      attr.innerHTML = `
       <p>${desc}</p>
       Photo by <a href="${
         resData.links.html
       }?utm_source=your_app_name&utm_medium=referral">${
-          resData.user.first_name
-        } ${
-          resData.user.last_name
-        }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+        resData.user.first_name
+      } ${
+        resData.user.last_name
+      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
-      if (!radBgAlt.checked) {
-        bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
-        attr.innerHTML =
-          '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
-      }
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
+      attr.innerHTML =
+        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   }
-}
 };
 
 //////////////////////////////////////////////////////////
@@ -571,22 +557,6 @@ const hideTodoList = () => {
   showTodo.innerHTML = '';
 };
 
-const showBgAlt = () => {
-  const today = new Date();
-  let hours = today.getHours();
-  hours < 4
-    ? (bgImg.style.background = 'linear-gradient(#999FBD, #656A7D)')
-    : hours < 12
-    ? (bgImg.style.background = 'linear-gradient(#E8AC07, #FF6208)')
-    : hours < 18
-    ? (bgImg.style.background =
-        'linear-gradient(to bottom left, #E8AC07, #FF6208)')
-    : hours < 24
-    ? (bgImg.style.background = 'linear-gradient(#22ccc4, #285385)')
-    : (bgImg.style.background = 'linear-gradient(#4D66BD, #33437D)');
-  attr.innerHTML = '';
-};
-
 const load = () => {
   checkboxes.forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
@@ -594,14 +564,11 @@ const load = () => {
     radFocusOn.checked ? showFocus() : hideFocus();
     radTempCel.checked ? showCel() : showFar();
     radTodoShow.checked ? showTodoList() : hideTodoList();
-    radBgAlt.checked ? showBgAlt() : setDisplay();
   });
 };
 
 checkboxes.forEach(box => {
-  if (!localStorage.getItem(box.id)) {
-    setDisplay();
-  } else {
+  if (localStorage.getItem(box.id)) {
     load();
   }
 });
@@ -621,5 +588,6 @@ window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
 
 setInterval(time, 1000);
+setDisplay();
 getUser();
 getInputFocus();
