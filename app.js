@@ -96,8 +96,7 @@ const setDisplay = async () => {
     }
   } else if (hours < 12) {
     try {
-      // const res = await fetch('/.netlify/functions/getmorningpics', {
-      const res = await fetch('http://localhost:9000/getmorningpics', {
+      const res = await fetch('/.netlify/functions/getmorningpics', {
         method: 'get'
       });
       const resData = await res.json();

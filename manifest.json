@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Inertia",
+  "description": "Welcome Page",
+  "version": "1.0.0",
+  "icons": { "128": "icon128.png" },
+  "browser_action": {
+    "default_icon": "icon19.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "geolocation",
+    "http://*/*",
+    "webNavigation",
+    "history",
+    "storage"
+  ],"background": {
+    "scripts": ["app.js"],
+    "persistent": false
+  }
+}
