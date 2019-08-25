@@ -57,7 +57,7 @@
 }
 
 #user {
-  width: 60vw;
+  max-width: 60vw;
   margin: -0.5rem auto;
   outline-color: #999;
   cursor: pointer;
@@ -84,10 +84,11 @@
 #weather-dis,
 #weather-dis-alt {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.4rem;
+  right: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  cursor: pointer;
 }
 
 #weather-title,
@@ -97,20 +98,62 @@
 
 #weather-temp,
 #weather-temp-alt {
-  justify-self: flex-end;
+  grid-column: 2 / 4;
+  font-size: 1.6rem;
 }
 
-#deg,
-#alt-deg {
-  justify-self: flex-start;
-  font-size: 0.8rem;
+#f,
+#c {
+  font-size: 1rem;
 }
 
 #weather-icon,
 #weather-icon-alt {
-  align-self: flex-start;
-  justify-self: flex-start;
-  margin-top: -0.7rem;
+  margin: -0.7rem -0.6rem 0 0;
+}
+
+#five-day {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr;
+  width: 22rem;
+  height: 15rem;
+  background: rgba(33, 33, 33, 0.9);
+  border-radius: 5px;
+}
+
+#dayone {
+  grid-column: span 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 1.3rem;
+}
+
+#dayone h4 {
+  grid-column: span 2;
+  font-size: 1.6rem;
+}
+
+#dayone :nth-child(2) {
+  font-size: 3rem;
+  grid-column: 1 / 2;
+}
+
+#dayone h5:nth-child(3) {
+  align-self: center;
+  font-size: 1.3rem;
+}
+
+#five-day div h5:nth-child(1) {
+  padding-top: 5px;
+}
+
+#five-day div:nth-child(n + 2) {
+  font-size: 0.8rem;
+  border-top: 0.5px solid #fff0f5;
 }
 
 #clock,
@@ -298,7 +341,7 @@
 }
 
 .rotate {
-  transform: rotate(90deg);
+  transform: scale(1.2) rotate(65deg);
 }
 
 #settings {
@@ -471,14 +514,7 @@
 
   #weather-dis,
   #weather-dis-alt {
-    top: 0.5rem;
-    right: 0.5rem;
     font-size: 0.8rem;
-  }
-
-  #deg,
-  #alt-deg {
-    font-size: 0.7rem;
   }
 
   #todos {

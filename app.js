@@ -1,5 +1,6 @@
 const clock = document.getElementById('clock');
 altClock = document.getElementById('alt-clock');
+weatherDiv = document.getElementById('weather-div');
 weatherDis = document.getElementById('weather-dis');
 weatherDisAlt = document.getElementById('weather-dis-alt');
 bgImg = document.getElementById('bg-full-image');
@@ -22,14 +23,7 @@ radClockAlt = document.getElementById('rad-clock-alt');
 radTempCel = document.getElementById('rad-temp-cel');
 radTodoShow = document.getElementById('rad-todo-show');
 checkboxes = document.querySelectorAll('input[type=checkbox]');
-weatherTitle = document.getElementById('weather-title');
-weatherTemp = document.getElementById('weather-temp');
-deg = document.getElementById('deg');
-weatherIcon = document.getElementById('weather-icon');
-weatherTitleAlt = document.getElementById('weather-title-alt');
-weatherTempAlt = document.getElementById('weather-temp-alt');
-altDeg = document.getElementById('alt-deg');
-weatherIconAlt = document.getElementById('weather-icon-alt');
+fiveDay = document.getElementById('five-day');
 attr = document.getElementById('attribute');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
@@ -73,25 +67,17 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${
-        resData.links.html
-      }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 12) {
@@ -115,25 +101,17 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${
-        resData.links.html
-      }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   } else if (hours < 18) {
@@ -157,19 +135,11 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
 
       attr.innerHTML = `
       <p>${desc}</p>
-        Photo by <a href="${
-          resData.links.html
-        }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a></p>
+        Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
@@ -199,25 +169,17 @@ const setDisplay = async () => {
         : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${
-        resData.urls.regular
-      }') center/cover no-repeat`;
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${
-        resData.links.html
-      }?utm_source=your_app_name&utm_medium=referral">${
-        resData.user.first_name
-      } ${
-        resData.user.last_name
-      }</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
+      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>';
+        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
   }
@@ -243,33 +205,112 @@ const showWeather = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
+      // `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
+      `http://localhost:9000/getweatherfaren?lat=${lat}&lon=${lon}`
     );
-
     const resData = await res.json();
+    weatherDis.innerHTML = `
+      <h4 id="weather-title">${resData.name}</h4>
+      <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
+        resData.weather[0].icon
+      }.png'></img></p>
+      <h4 id="weather-temp">${Math.round(
+        resData.main.temp
+      )}<span>&deg;</span><span id="f">F</span></h4>
+    `;
 
-    weatherTitle.textContent = resData.name;
-    weatherTemp.textContent = Math.round(resData.main.temp);
-    weatherTemp.insertAdjacentHTML('afterend', '<span id="deg"> &deg;F</span>');
-    weatherIcon.innerHTML = `<img src='http://openweathermap.org/img/wn/${
+    document.getElementById('dayone').innerHTML = `
+    <h4>${resData.name}</h4>
+    <h5>${Math.round(resData.main.temp)}<span>&deg;</span></h5>
+    <h5>${resData.weather[0].description}</h5>
+    <img src='http://openweathermap.org/img/wn/${
       resData.weather[0].icon
-    }.png'></img>`;
+    }.png'></img>
+    `;
 
     const resAlt = await fetch(
       `/.netlify/functions/getweathercelc?lat=${lat}&lon=${lon}`
     );
-
     const resDataAlt = await resAlt.json();
 
-    weatherTitleAlt.textContent = resDataAlt.name;
-    weatherTempAlt.textContent = Math.round(resDataAlt.main.temp);
-    weatherTempAlt.insertAdjacentHTML(
-      'afterend',
-      '<span id="alt-deg"> &deg;C</span>'
-    );
-    weatherIconAlt.innerHTML = `<img src='http://openweathermap.org/img/wn/${
+    weatherDisAlt.innerHTML = `
+    <h4 id="weather-title">${resDataAlt.name}</h4>
+    <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
       resDataAlt.weather[0].icon
-    }.png'></img>`;
+    }.png'></img></p>
+    <h4 id="weather-temp">${Math.round(
+      resDataAlt.main.temp
+    )}<span>&deg;</span><span id="c">C</span></h4>
+  `;
+
+    //              Weekly Forecast                     //
+
+    const resWeeklyFar = await fetch(
+      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
+    );
+    const resWkFa = await resWeeklyFar.json();
+
+    let d;
+    let t;
+    d = new Date(resWkFa.list[6].dt_txt).toDateString().slice(0, -11);
+    t = new Date(resWkFa.list[6].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
+    });
+    document.getElementById('daytwo').innerHTML = `
+      <h5>${d}</h5>
+      <h5>${t} ${Math.round(resWkFa.list[6].main.temp)}<span>&deg;</span></h5>
+      <h5>${resWkFa.list[6].weather[0].main}</h5>
+      <img src='http://openweathermap.org/img/wn/${
+        resWkFa.list[6].weather[0].icon
+      }.png'></img>`;
+
+    d = new Date(resWkFa.list[14].dt_txt).toDateString().slice(0, -11);
+    t = new Date(resWkFa.list[14].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
+    });
+    document.getElementById('daythree').innerHTML = `
+      <h5>${d}</h5>
+      <h5>${t} ${Math.round(resWkFa.list[14].main.temp)}<span>&deg;</span></h5>
+      <h5>${resWkFa.list[14].weather[0].main}</h5>
+      <img src='http://openweathermap.org/img/wn/${
+        resWkFa.list[14].weather[0].icon
+      }.png'></img>`;
+
+    d = new Date(resWkFa.list[22].dt_txt).toDateString().slice(0, -11);
+    t = new Date(resWkFa.list[22].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
+    });
+    document.getElementById('dayfour').innerHTML = `
+      <h5>${d}</h5>
+      <h5>${t} ${Math.round(resWkFa.list[22].main.temp)}<span>&deg;</span></h5>
+      <h5>${resWkFa.list[22].weather[0].main}</h5>
+      <img src='http://openweathermap.org/img/wn/${
+        resWkFa.list[22].weather[0].icon
+      }.png'></img>`;
+
+    d = new Date(resWkFa.list[30].dt_txt).toDateString().slice(0, -11);
+    t = new Date(resWkFa.list[30].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
+    });
+    document.getElementById('dayfive').innerHTML = `
+      <h5>${d}</h5>
+      <h5>${t} ${Math.round(resWkFa.list[30].main.temp)}<span>&deg;</span></h5>
+      <h5>${resWkFa.list[30].weather[0].main}</h5>
+      <img src='http://openweathermap.org/img/wn/${
+        resWkFa.list[30].weather[0].icon
+      }.png'></img>`;
+
+    d = new Date(resWkFa.list[38].dt_txt).toDateString().slice(0, -11);
+    t = new Date(resWkFa.list[38].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
+    });
+    document.getElementById('daysix').innerHTML = `
+      <h5>${d}</h5>
+      <h5>${t} ${Math.round(resWkFa.list[38].main.temp)}<span>&deg;</span></h5>
+      <h5>${resWkFa.list[38].weather[0].main}</h5>
+      <img src='http://openweathermap.org/img/wn/${
+        resWkFa.list[38].weather[0].icon
+      }.png'></img>`;
   } catch (err) {
     console.log(`Error!: ${err}`);
   }
@@ -524,13 +565,12 @@ const showClock = () => {
 const showAltClock = () => {
   clock.style.display = 'none';
   const altTime = () => {
-    const d = new Date();
-    const t = d.toLocaleTimeString('default', {
+    const d = new Date().toLocaleTimeString('default', {
       hour: 'numeric',
       minute: 'numeric',
       hour12: false
     });
-    altClock.innerHTML = t;
+    altClock.innerHTML = d;
   };
   altClock.style.display = 'block';
   setInterval(altTime, 1000);
@@ -554,6 +594,18 @@ const showTodoList = () => {
 
 const hideTodoList = () => {
   showTodo.innerHTML = '';
+};
+
+const showWeekly = () => {
+  weatherDiv.style.display = 'none';
+  fiveDay.style.display = 'grid';
+};
+
+const hideWeekly = e => {
+  if (!weatherDiv.contains(e.target) && !fiveDay.contains(e.target)) {
+    fiveDay.style.display = 'none';
+    weatherDiv.style.display = 'block';
+  }
 };
 
 const load = () => {
@@ -585,6 +637,8 @@ window.addEventListener('click', closeSettings);
 todoOpen.addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
+weatherDiv.addEventListener('click', showWeekly);
+window.addEventListener('click', hideWeekly);
 
 setInterval(time, 1000);
 setDisplay();

@@ -25,15 +25,17 @@
         <h2>My Focus Is</h2>
         <h2 id="input-focus" contenteditable="true"></h2>
       </div>
-      <div id="weather-dis">
-        <h4 id="weather-title"></h4>
-        <h4 id="weather-temp"></h4>
-        <p id="weather-icon"></p>
+      <div id="weather-div">
+        <div id="weather-dis"></div>
+        <div id="weather-dis-alt" style="display: none"></div>
       </div>
-      <div id="weather-dis-alt" style="display: none">
-        <h4 id="weather-title-alt"></h4>
-        <h4 id="weather-temp-alt"></h4>
-        <p id="weather-icon-alt"></p>
+      <div id="five-day" class="p" style="display: none">
+        <div id="dayone"></div>
+        <div id="daytwo"></div>
+        <div id="daythree"></div>
+        <div id="dayfour"></div>
+        <div id="dayfive"></div>
+        <div id="daysix"></div>
       </div>
       <time id="clock"></time>
       <time id="alt-clock"></time>
@@ -72,8 +74,7 @@
               value="show"
               checked
             />
-            <span>Off</span
-            ><label for="rad-focus-on" class="setLabel m"></label
+            <span>Off</span><label for="rad-focus-on" class="setLabel m"></label
             ><span>On</span>
           </div>
         </div>
