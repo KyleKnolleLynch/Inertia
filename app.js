@@ -205,8 +205,7 @@ const showWeather = async position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const res = await fetch(
-      // `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
-      `http://localhost:9000/getweatherfaren?lat=${lat}&lon=${lon}`
+      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
     );
     const resData = await res.json();
     weatherDis.innerHTML = `
