@@ -245,7 +245,7 @@ const showWeather = async position => {
     //              Weekly Forecast                     //
 
     const resWeeklyFar = await fetch(
-      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
+      `/.netlify/functions/getweeklyfaren?lat=${lat}&lon=${lon}`
     );
     const resWkFa = await resWeeklyFar.json();
 
