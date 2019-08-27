@@ -461,7 +461,7 @@ const load = () => {
   checkboxes.forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
     radClockAlt.checked ? showAltClock() : showClock();
-    document.getElementById('rad-temp-far').checked ? showFar() : showCel();
+    document.getElementById('rad-temp-far').checked ? showCel() : showFar();
     radFocusOn.checked ? showFocus() : hideFocus();
     radTodoShow.checked ? showTodoList() : hideTodoList();
   });
