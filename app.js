@@ -20,10 +20,10 @@ todoEmpty = document.querySelector('.empty');
 showTodo = document.getElementById('show-todo-list');
 radFocusOn = document.getElementById('rad-focus-on');
 radClockAlt = document.getElementById('rad-clock-alt');
-radTempCel = document.getElementById('rad-temp-cel');
 radTodoShow = document.getElementById('rad-todo-show');
 checkboxes = document.querySelectorAll('input[type=checkbox]');
 fiveDay = document.getElementById('five-day');
+altFiveDay = document.getElementById('alt-five-day');
 attr = document.getElementById('attribute');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
@@ -182,163 +182,6 @@ const setDisplay = async () => {
         '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
       console.log(err);
     }
-  }
-};
-
-//////////////////////////////////////////////////////////
-//                     WEATHER DISPLAY                  //
-
-const getLocation = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showWeather, showError, {
-      enableHighAccuracy: true,
-      timeout: 10000
-    });
-  } else {
-    weatherDis.innerHTML =
-      '<span>Geolocation not supported on this device</span>';
-  }
-};
-
-const showWeather = async position => {
-  try {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    const res = await fetch(
-      `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
-    );
-    const resData = await res.json();
-    weatherDis.innerHTML = `
-      <h4 id="weather-title">${resData.name}</h4>
-      <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
-        resData.weather[0].icon
-      }.png'></img></p>
-      <h4 id="weather-temp">${Math.round(
-        resData.main.temp
-      )}<span>&deg;</span><span id="f">F</span></h4>
-    `;
-
-    document.getElementById('dayone').innerHTML = `
-    <h4>${resData.name}</h4>
-    <h5>${Math.round(resData.main.temp)}<span>&deg;</span></h5>
-    <h5>${resData.weather[0].description}</h5>
-    <img src='http://openweathermap.org/img/wn/${
-      resData.weather[0].icon
-    }.png'></img>
-    `;
-
-    const resAlt = await fetch(
-      `/.netlify/functions/getweathercelc?lat=${lat}&lon=${lon}`
-    );
-    const resDataAlt = await resAlt.json();
-
-    weatherDisAlt.innerHTML = `
-    <h4 id="weather-title">${resDataAlt.name}</h4>
-    <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
-      resDataAlt.weather[0].icon
-    }.png'></img></p>
-    <h4 id="weather-temp">${Math.round(
-      resDataAlt.main.temp
-    )}<span>&deg;</span><span id="c">C</span></h4>
-  `;
-
-    //              Weekly Forecast                     //
-
-    const resWeeklyFar = await fetch(
-      `/.netlify/functions/getweeklyfaren?lat=${lat}&lon=${lon}`
-    );
-    const resWkFa = await resWeeklyFar.json();
-
-    let d;
-    let t;
-    d = new Date(resWkFa.list[6].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[6].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric'
-    });
-    document.getElementById('daytwo').innerHTML = `
-      <h5>${d}</h5>
-      <h5>${t} ${Math.round(resWkFa.list[6].main.temp)}<span>&deg;</span></h5>
-      <h5>${resWkFa.list[6].weather[0].main}</h5>
-      <img src='http://openweathermap.org/img/wn/${
-        resWkFa.list[6].weather[0].icon
-      }.png'></img>`;
-
-    d = new Date(resWkFa.list[14].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[14].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric'
-    });
-    document.getElementById('daythree').innerHTML = `
-      <h5>${d}</h5>
-      <h5>${t} ${Math.round(resWkFa.list[14].main.temp)}<span>&deg;</span></h5>
-      <h5>${resWkFa.list[14].weather[0].main}</h5>
-      <img src='http://openweathermap.org/img/wn/${
-        resWkFa.list[14].weather[0].icon
-      }.png'></img>`;
-
-    d = new Date(resWkFa.list[22].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[22].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric'
-    });
-    document.getElementById('dayfour').innerHTML = `
-      <h5>${d}</h5>
-      <h5>${t} ${Math.round(resWkFa.list[22].main.temp)}<span>&deg;</span></h5>
-      <h5>${resWkFa.list[22].weather[0].main}</h5>
-      <img src='http://openweathermap.org/img/wn/${
-        resWkFa.list[22].weather[0].icon
-      }.png'></img>`;
-
-    d = new Date(resWkFa.list[30].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[30].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric'
-    });
-    document.getElementById('dayfive').innerHTML = `
-      <h5>${d}</h5>
-      <h5>${t} ${Math.round(resWkFa.list[30].main.temp)}<span>&deg;</span></h5>
-      <h5>${resWkFa.list[30].weather[0].main}</h5>
-      <img src='http://openweathermap.org/img/wn/${
-        resWkFa.list[30].weather[0].icon
-      }.png'></img>`;
-
-    d = new Date(resWkFa.list[38].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[38].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric'
-    });
-    document.getElementById('daysix').innerHTML = `
-      <h5>${d}</h5>
-      <h5>${t} ${Math.round(resWkFa.list[38].main.temp)}<span>&deg;</span></h5>
-      <h5>${resWkFa.list[38].weather[0].main}</h5>
-      <img src='http://openweathermap.org/img/wn/${
-        resWkFa.list[38].weather[0].icon
-      }.png'></img>`;
-  } catch (err) {
-    console.log(`Error!: ${err}`);
-  }
-};
-
-const showError = error => {
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      weatherDis.innerHTML = '<span>User denied geolocation request.</span>';
-      setTimeout(
-        () =>
-          (weatherDis.innerHTML =
-            '<span>Please enable location services.</span>'),
-        5000
-      );
-      setTimeout(() => (weatherDis.innerHTML = ''), 25000);
-      return;
-    case error.POSITION_UNAVAILABLE:
-      weatherDis.innerHTML =
-        '<span>Location info unavailable from current position.</span>';
-      return;
-    case error.TIMEOUT:
-      weatherDis.innerHTML = '<span>Location request timed out.</span>';
-      return;
-    case error.UNKNOWN_ERROR:
-      weatherDis.innerHTML = '<span>An unknown error occured.</span>';
-      return;
-    default:
-      weatherDis.innerHTML = '<span>Something went wrong.</span>';
   }
 };
 
@@ -575,16 +418,6 @@ const showAltClock = () => {
   setInterval(altTime, 1000);
 };
 
-const showCel = () => {
-  weatherDis.style.display = 'none';
-  weatherDisAlt.style.display = 'grid';
-};
-
-const showFar = () => {
-  weatherDisAlt.style.display = 'none';
-  weatherDis.style.display = 'grid';
-};
-
 const showTodoList = () => {
   const clone = Object.assign(todoList);
   todoList ? (showTodo.innerHTML = clone.innerHTML) : (showTodo.innerHTML = '');
@@ -595,14 +428,31 @@ const hideTodoList = () => {
   showTodo.innerHTML = '';
 };
 
+const showCel = () => {
+  weatherDis.style.display = 'none';
+  weatherDisAlt.style.display = 'grid';
+};
+
+const showFar = () => {
+  weatherDisAlt.style.display = 'none';
+  weatherDis.style.display = 'grid';
+};
+
 const showWeekly = () => {
   weatherDiv.style.display = 'none';
-  fiveDay.style.display = 'grid';
+  document.getElementById('rad-temp-far').checked
+    ? (fiveDay.style.display = 'grid')
+    : (altFiveDay.style.display = 'grid');
 };
 
 const hideWeekly = e => {
-  if (!weatherDiv.contains(e.target) && !fiveDay.contains(e.target)) {
+  if (
+    !weatherDiv.contains(e.target) &&
+    !fiveDay.contains(e.target) &&
+    !altFiveDay.contains(e.target)
+  ) {
     fiveDay.style.display = 'none';
+    altFiveDay.style.display = 'none';
     weatherDiv.style.display = 'block';
   }
 };
@@ -611,8 +461,8 @@ const load = () => {
   checkboxes.forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
     radClockAlt.checked ? showAltClock() : showClock();
+    document.getElementById('rad-temp-far').checked ? showFar() : showCel();
     radFocusOn.checked ? showFocus() : hideFocus();
-    radTempCel.checked ? showCel() : showFar();
     radTodoShow.checked ? showTodoList() : hideTodoList();
   });
 };

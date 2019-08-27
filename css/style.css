@@ -102,8 +102,7 @@
   font-size: 1.6rem;
 }
 
-#f,
-#c {
+#deg {
   font-size: 1rem;
 }
 
@@ -112,7 +111,8 @@
   margin: -0.7rem -0.6rem 0 0;
 }
 
-#five-day {
+#five-day,
+#alt-five-day {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -125,35 +125,54 @@
   border-radius: 5px;
 }
 
-#dayone {
+#dayone,
+#alt-dayone {
   grid-column: span 5;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   font-size: 1.3rem;
+  margin-left: 10px;
 }
 
-#dayone h4 {
-  grid-column: span 2;
+#dayone h4,
+#alt-dayone h4 {
+  grid-column: span 3;
   font-size: 1.6rem;
 }
 
-#dayone :nth-child(2) {
+#dayone h5:nth-child(2),
+#alt-dayone h5:nth-child(2) {
   font-size: 3rem;
   grid-column: 1 / 2;
+  align-self: flex-end;
 }
 
-#dayone h5:nth-child(3) {
+#dayone h5:nth-child(3),
+#alt-dayone h5:nth-child(3) {
+  grid-column: span 2;
   align-self: center;
   font-size: 1.3rem;
 }
 
-#five-day div h5:nth-child(1) {
-  padding-top: 5px;
+#dayone img,
+#alt-dayone img {
+  justify-self: flex-end;
 }
 
-#five-day div:nth-child(n + 2) {
+.days {
+  padding-top: 5px;
+  font-size: 1rem;
+}
+
+#five-day div:nth-child(n + 2),
+#alt-five-day div:nth-child(n + 2) {
   font-size: 0.8rem;
   border-top: 0.5px solid #fff0f5;
+}
+
+#five-day div:nth-child(n + 3),
+#alt-five-day div:nth-child(n + 3) {
+  border-left: 0.5px dotted #fff0f5;
 }
 
 #clock,

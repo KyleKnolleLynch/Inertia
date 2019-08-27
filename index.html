@@ -37,6 +37,14 @@
         <div id="dayfive"></div>
         <div id="daysix"></div>
       </div>
+      <div id="alt-five-day" class="p" style="display: none">
+        <div id="alt-dayone"></div>
+        <div id="alt-daytwo"></div>
+        <div id="alt-daythree"></div>
+        <div id="alt-dayfour"></div>
+        <div id="alt-dayfive"></div>
+        <div id="alt-daysix"></div>
+      </div>
       <time id="clock"></time>
       <time id="alt-clock"></time>
       <div id="todos" style="display: none">
@@ -98,13 +106,14 @@
             <input
               class="cbx empty"
               type="checkbox"
-              id="rad-temp-cel"
+              id="rad-temp-far"
               name="radTemp"
               value="farenheit"
+              checked
             />
-            <span>&deg;F</span
-            ><label for="rad-temp-cel" class="setLabel m"></label
-            ><span>&deg;C</span>
+            <span>&deg;C</span
+            ><label for="rad-temp-far" class="setLabel m"></label
+            ><span>&deg;F</span>
           </div>
         </div>
         <div id="todo-settings">
@@ -127,6 +136,7 @@
       <div id="attribute"></div>
     </div>
 
+    <script src="weather.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
