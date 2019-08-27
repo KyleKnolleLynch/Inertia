@@ -442,7 +442,7 @@ const showWeekly = () => {
   weatherDiv.style.display = 'none';
   document.getElementById('rad-temp-far').checked
     ? (altFiveDay.style.display = 'grid')
-    : (FiveDay.style.display = 'grid');
+    : (fiveDay.style.display = 'grid');
 };
 
 const hideWeekly = e => {
