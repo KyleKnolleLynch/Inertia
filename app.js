@@ -1,30 +1,7 @@
-const clock = document.getElementById('clock');
-altClock = document.getElementById('alt-clock');
-weatherDiv = document.getElementById('weather-div');
-weatherDis = document.getElementById('weather-dis');
-weatherDisAlt = document.getElementById('weather-dis-alt');
-bgImg = document.getElementById('bg-full-image');
-title = document.getElementById('title');
-user = document.getElementById('user');
-focus = document.getElementById('focus');
+const user = document.getElementById('user');
 inputFocus = document.getElementById('input-focus');
-settings = document.getElementById('settings');
-cog = document.getElementById('cog');
-todos = document.getElementById('todos');
-todoOpen = document.getElementById('todo-open');
 todoClear = document.getElementById('todo-clear');
-todoForm = document.getElementById('todo-form');
-todoInput = document.getElementById('todo-input');
 todoList = document.getElementById('todo-list');
-todoEmpty = document.querySelector('.empty');
-showTodo = document.getElementById('show-todo-list');
-radFocusOn = document.getElementById('rad-focus-on');
-radClockAlt = document.getElementById('rad-clock-alt');
-radTodoShow = document.getElementById('rad-todo-show');
-checkboxes = document.querySelectorAll('input[type=checkbox]');
-fiveDay = document.getElementById('five-day');
-altFiveDay = document.getElementById('alt-five-day');
-attr = document.getElementById('attribute');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
@@ -38,11 +15,14 @@ const time = () => {
     return (parseInt(num, 10) < 10 ? '0' : '') + num;
   };
 
-  clock.innerHTML = `
+  document.getElementById('clock').innerHTML = `
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`;
 };
 
 const setDisplay = async () => {
+  const bgImg = document.getElementById('bg-full-image');
+  const title = document.getElementById('title');
+  const attr = document.getElementById('attribute');
   let today = new Date();
   hours = today.getHours();
 
@@ -247,6 +227,7 @@ const setInputFocus = e => {
 ///////////////////////////////////////////////////////////
 //                        TODO LIST                     //
 const openTodos = () => {
+  const todos = document.getElementById('todos');
   if (todos.style.display === 'none') {
     todos.className = 'fadeIn';
     todos.style.display = 'block';
@@ -259,7 +240,11 @@ const openTodos = () => {
 };
 
 const closeTodos = e => {
-  if (!todos.contains(e.target) && !todoOpen.contains(e.target)) {
+  const todos = document.getElementById('todos');
+  if (
+    !todos.contains(e.target) &&
+    !document.getElementById('todo-open').contains(e.target)
+  ) {
     todos.className = 'fadeOut';
     setTimeout(() => (todos.style.display = 'none'), 300);
   }
@@ -308,8 +293,9 @@ const addTodos = text => {
   todoClear.style.display = 'inline-block';
 };
 
-todoForm.addEventListener('submit', e => {
+document.getElementById('todo-form').addEventListener('submit', e => {
   e.preventDefault();
+  const todoInput = document.getElementById('todo-input');
   const text = todoInput.value.trim();
 
   if (text !== '') {
@@ -363,6 +349,7 @@ todoList.addEventListener('click', e => {
 //////////////////////////////////////////////////////////////
 //                       SETTINGS                           //
 const openSettings = () => {
+  const settings = document.getElementById('settings');
   if (settings.style.display === 'none') {
     settings.className = 'fadeIn';
     settings.style.display = 'grid';
@@ -370,10 +357,12 @@ const openSettings = () => {
     settings.className = 'fadeOut';
     setTimeout(() => (settings.style.display = 'none'), 300);
   }
-  cog.classList.toggle('rotate');
+  document.getElementById('cog').classList.toggle('rotate');
 };
 
 const closeSettings = e => {
+  const settings = document.getElementById('settings');
+  const cog = document.getElementById('cog');
   if (
     !settings.contains(e.target) &&
     !cog.contains(e.target) &&
@@ -383,7 +372,7 @@ const closeSettings = e => {
     setTimeout(() => (settings.style.display = 'none'), 300);
     cog.classList.toggle('rotate');
   }
-  checkboxes.forEach(box => {
+  document.querySelectorAll('input[type=checkbox]').forEach(box => {
     localStorage.setItem(box.id, box.checked);
   });
 
@@ -391,21 +380,22 @@ const closeSettings = e => {
 };
 
 const hideFocus = () => {
-  focus.style.display = 'none';
+  document.getElementById('focus').style.display = 'none';
 };
 
 const showFocus = () => {
-  focus.style.display = 'block';
+  document.getElementById('focus').style.display = 'block';
 };
 
 const showClock = () => {
-  altClock.style.display = 'none';
-  clock.style.display = 'block';
+  document.getElementById('alt-clock').style.display = 'none';
+  document.getElementById('clock').style.display = 'block';
   setInterval(time, 1000);
 };
 
 const showAltClock = () => {
-  clock.style.display = 'none';
+  const altClock = document.getElementById('alt-clock');
+  document.getElementById('clock').style.display = 'none';
   const altTime = () => {
     const d = new Date().toLocaleTimeString('default', {
       hour: 'numeric',
@@ -419,33 +409,37 @@ const showAltClock = () => {
 };
 
 const showTodoList = () => {
+  const showTodo = document.getElementById('show-todo-list');
   const clone = Object.assign(todoList);
   todoList ? (showTodo.innerHTML = clone.innerHTML) : (showTodo.innerHTML = '');
   if (showTodo) return;
 };
 
 const hideTodoList = () => {
-  showTodo.innerHTML = '';
+  document.getElementById('show-todo-list').innerHTML = '';
 };
 
 const showCel = () => {
-  weatherDis.style.display = 'none';
-  weatherDisAlt.style.display = 'grid';
+  document.getElementById('weather-dis').style.display = 'none';
+  document.getElementById('weather-dis-alt').style.display = 'grid';
 };
 
 const showFar = () => {
-  weatherDisAlt.style.display = 'none';
-  weatherDis.style.display = 'grid';
+  document.getElementById('weather-dis-alt').style.display = 'none';
+  document.getElementById('weather-dis').style.display = 'grid';
 };
 
 const showWeekly = () => {
-  weatherDiv.style.display = 'none';
+  document.getElementById('weather-div').style.display = 'none';
   document.getElementById('rad-temp-far').checked
-    ? (altFiveDay.style.display = 'grid')
-    : (fiveDay.style.display = 'grid');
+    ? (document.getElementById('alt-five-day').style.display = 'grid')
+    : (document.getElementById('five-day').style.display = 'grid');
 };
 
 const hideWeekly = e => {
+  const weatherDiv = document.getElementById('weather-div');
+  const fiveDay = document.getElementById('five-day');
+  const altFiveDay = document.getElementById('alt-five-day');
   if (
     !weatherDiv.contains(e.target) &&
     !fiveDay.contains(e.target) &&
@@ -458,16 +452,20 @@ const hideWeekly = e => {
 };
 
 const load = () => {
-  checkboxes.forEach(box => {
+  document.querySelectorAll('input[type=checkbox]').forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
-    radClockAlt.checked ? showAltClock() : showClock();
+    document.getElementById('rad-clock-alt').checked
+      ? showAltClock()
+      : showClock();
     document.getElementById('rad-temp-far').checked ? showCel() : showFar();
-    radFocusOn.checked ? showFocus() : hideFocus();
-    radTodoShow.checked ? showTodoList() : hideTodoList();
+    document.getElementById('rad-focus-on').checked ? showFocus() : hideFocus();
+    document.getElementById('rad-todo-show').checked
+      ? showTodoList()
+      : hideTodoList();
   });
 };
 
-checkboxes.forEach(box => {
+document.querySelectorAll('input[type=checkbox]').forEach(box => {
   if (localStorage.getItem(box.id)) {
     load();
   }
@@ -481,12 +479,12 @@ user.addEventListener('blur', setUser);
 inputFocus.addEventListener('click', clearFocus);
 inputFocus.addEventListener('keydown', setInputFocus);
 inputFocus.addEventListener('blur', setInputFocus);
-cog.addEventListener('click', openSettings);
+document.getElementById('cog').addEventListener('click', openSettings);
 window.addEventListener('click', closeSettings);
-todoOpen.addEventListener('click', openTodos);
+document.getElementById('todo-open').addEventListener('click', openTodos);
 window.addEventListener('click', closeTodos);
 todoClear.addEventListener('click', clearAll);
-weatherDiv.addEventListener('click', showWeekly);
+document.getElementById('weather-div').addEventListener('click', showWeekly);
 window.addEventListener('click', hideWeekly);
 
 setInterval(time, 1000);
