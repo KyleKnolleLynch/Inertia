@@ -2,6 +2,7 @@ const user = document.getElementById('user');
 inputFocus = document.getElementById('input-focus');
 todoClear = document.getElementById('todo-clear');
 todoList = document.getElementById('todo-list');
+settings = document.getElementById('settings');
 
 //             TIME/BACKGROUND IMAGE DISPLAY                //
 const time = () => {
@@ -346,10 +347,32 @@ todoList.addEventListener('click', e => {
     deleteTodoFunc(itemKey);
   }
 });
+
+//                     Daily Quote                        //
+const getQuote = async () => {
+  try {
+    const res = await fetch('http://quotes.rest/qod.json?category=inspire', {
+      method: 'get'
+    });
+    const resData = await res.json();
+    document.getElementById('quote').insertAdjacentHTML(
+      'afterbegin',
+      `<h4>${resData.contents.quotes[0].quote}</h4>
+      <h5 class='p'>- ${resData.contents.quotes[0].author}</h5>`
+    );
+  } catch (err) {
+    document.getElementById('quote').insertAdjacentHTML(
+      'afterbegin',
+      `<h4>It does not require many words to speak the truth.</h4>
+     <h5 class='p'>- Chief Joseph ~ Nez Perce </h5>`
+    );
+    document.querySelector('#quote span').style.display = 'none';
+  }
+};
+
 //////////////////////////////////////////////////////////////
 //                       SETTINGS                           //
 const openSettings = () => {
-  const settings = document.getElementById('settings');
   if (settings.style.display === 'none') {
     settings.className = 'fadeIn';
     settings.style.display = 'grid';
@@ -361,7 +384,6 @@ const openSettings = () => {
 };
 
 const closeSettings = e => {
-  const settings = document.getElementById('settings');
   const cog = document.getElementById('cog');
   if (
     !settings.contains(e.target) &&
@@ -377,14 +399,6 @@ const closeSettings = e => {
   });
 
   load();
-};
-
-const hideFocus = () => {
-  document.getElementById('focus').style.display = 'none';
-};
-
-const showFocus = () => {
-  document.getElementById('focus').style.display = 'block';
 };
 
 const showClock = () => {
@@ -452,16 +466,23 @@ const hideWeekly = e => {
 };
 
 const load = () => {
+  const focus = document.getElementById('focus');
+  const quote = document.getElementById('quote');
   document.querySelectorAll('input[type=checkbox]').forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
     document.getElementById('rad-clock-alt').checked
       ? showAltClock()
       : showClock();
     document.getElementById('rad-temp-far').checked ? showCel() : showFar();
-    document.getElementById('rad-focus-on').checked ? showFocus() : hideFocus();
+    document.getElementById('rad-focus-on').checked
+      ? focus.classList.remove('empty')
+      : focus.classList.add('empty');
     document.getElementById('rad-todo-show').checked
       ? showTodoList()
       : hideTodoList();
+    document.getElementById('rad-quote-show').checked
+      ? quote.classList.remove('empty')
+      : quote.classList.add('empty');
   });
 };
 
@@ -491,3 +512,4 @@ setInterval(time, 1000);
 setDisplay();
 getUser();
 getInputFocus();
+getQuote();

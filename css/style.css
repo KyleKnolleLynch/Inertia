@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Exo:300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 
 * {
   box-sizing: border-box;
@@ -349,6 +350,35 @@
   display: none;
 }
 
+#quote {
+  width: 35rem;
+  position: absolute;
+  bottom: 6rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#quote > h4 {
+  font-family: 'EB Garamond', serif;
+}
+
+#quote h5 {
+  font-style: italic;
+}
+
+#quote a {
+  text-decoration: none;
+  color: #fff0f5;
+  font-size: 0.7rem;
+}
+
+#quote a:hover {
+  text-decoration: underline;
+  color: #999;
+}
+
 #cog {
   display: block;
   cursor: pointer;
@@ -392,6 +422,10 @@
   display: flex;
   flex-direction: column;
   justify-self: center;
+}
+
+#quote-settings {
+  grid-column: span 2;
 }
 
 #settings > div > div {
@@ -521,6 +555,15 @@
     font-size: 0.8rem;
   }
 
+  #quote {
+    width: 18rem;
+    font-size: 0.8rem;
+  }
+
+  #quote a {
+    font-size: 0.6rem;
+  }
+
   #attribute,
   #attribute :nth-child(n + 2) {
     font-size: 0.5rem;
@@ -599,6 +642,10 @@
     width: 14rem;
     height: 6rem;
     bottom: 6rem;
+  }
+
+  #quote {
+    display: none;
   }
 
   #attribute :nth-child(1) {
