@@ -352,6 +352,7 @@
 
 #quote {
   width: 35rem;
+  height: 6rem;
   position: absolute;
   bottom: 6rem;
   left: 0;
@@ -368,10 +369,41 @@
   font-style: italic;
 }
 
+#quote span {
+  font-size: 0.7rem;
+}
+
+.slider-div {
+  height: 6rem;
+  overflow: hidden;
+}
+
+.slider {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -ms-transition: -ms-transform 0.4s ease;
+  transition: transform 0.4s ease;
+}
+
+#quote:hover .slider {
+  -webkit-transform: translate(0, 0%);
+  -moz-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  transform: translate(0, 0%);
+}
+
+#quote .slider {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+
 #quote a {
   text-decoration: none;
   color: #fff0f5;
-  font-size: 0.7rem;
 }
 
 #quote a:hover {
@@ -475,7 +507,7 @@
 
 #attribute {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0;
   left: 1rem;
   color: #999;
   text-align: start;
@@ -485,8 +517,8 @@
   font-size: 1.2rem;
 }
 
-#attribute,
-#attribute :nth-child(n + 2) {
+#attribute .slider span,
+#attribute .slider a {
   font-size: 0.7rem;
 }
 
@@ -500,6 +532,26 @@
   cursor: pointer;
   text-decoration: underline;
   color: #999;
+}
+
+.slider-attr-div {
+  height: 2rem;
+  overflow: hidden;
+  margin-top: -0.3rem;
+}
+
+#attribute:hover .slider {
+  -webkit-transform: translate(0, 0%);
+  -moz-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  transform: translate(0, 0%);
+}
+
+#attribute .slider {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
 }
 
 @media screen and (max-width: 600px) {
@@ -551,10 +603,6 @@
     bottom: 7rem;
   }
 
-  #attribute :nth-child(1) {
-    font-size: 0.8rem;
-  }
-
   #quote {
     width: 18rem;
     font-size: 0.8rem;
@@ -564,9 +612,27 @@
     font-size: 0.6rem;
   }
 
-  #attribute,
-  #attribute :nth-child(n + 2) {
-    font-size: 0.5rem;
+  #quote .slider {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  #attribute :nth-child(1) {
+    font-size: 1rem;
+  }
+
+  #attribute .slider span,
+  #attribute .slider a {
+    font-size: 0.6rem;
+  }
+
+  #attribute .slider {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 
@@ -601,7 +667,7 @@
 
   #heading {
     font-size: 1.1rem;
-    margin: 7vh 0 0;
+    margin: 1vh 0 0;
   }
 
   #user {
@@ -614,6 +680,7 @@
 
   #clock,
   #alt-clock {
+    margin: 0 0 0 1rem;
     font-size: 5rem;
   }
 
@@ -649,12 +716,19 @@
   }
 
   #attribute :nth-child(1) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
-  #attribute,
-  #attribute :nth-child(n + 2) {
-    font-size: 0.5rem;
+  #attribute .slider span,
+  #attribute .slider a {
+    font-size: 0.6rem;
+  }
+
+  #attribute .slider {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 

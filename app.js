@@ -52,14 +52,14 @@ const setDisplay = async () => {
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
+      <div class="slider-attr-div"><div class="slider">
+      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Silverthorne, United States</p><span>Photo by</span> <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> <span>on</span> <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
-      console.log(err);
+        '<p>Silverthorne, United States</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>';
     }
   } else if (hours < 12) {
     try {
@@ -86,14 +86,14 @@ const setDisplay = async () => {
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
+      <div class="slider-attr-div"><div class="slider">
+      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Hopeful horizons</p><span>Photo by</span> <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> <span>on</span> <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
-      console.log(err);
+        '<p>Hopeful horizons</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>';
     }
   } else if (hours < 18) {
     try {
@@ -120,14 +120,14 @@ const setDisplay = async () => {
 
       attr.innerHTML = `
       <p>${desc}</p>
-        Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></p>
+      <div class="slider-attr-div"><div class="slider">
+        <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Roxborough Park, Colorado</p><span>Photo by</span> <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a>';
-      console.log(err);
+        '<p>Roxborough Park, Colorado</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a></span></div></div>';
     }
   } else if (hours < 24) {
     try {
@@ -154,14 +154,14 @@ const setDisplay = async () => {
 
       attr.innerHTML = `
       <p>${desc}</p>
-      Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>
+      <div class="slider-attr-div"><div class="slider">
+      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>river beside mountain under full moon</p><span>Photo by</span> <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a>';
-      console.log(err);
+        '<p>river beside mountain under full moon</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>';
     }
   }
 };
@@ -351,14 +351,18 @@ todoList.addEventListener('click', e => {
 //                     Daily Quote                        //
 const getQuote = async () => {
   try {
-    const res = await fetch('http://quotes.rest/qod.json?category=inspire', {
+    const res = await fetch('https://favqs.com/api/qotd', {
       method: 'get'
     });
     const resData = await res.json();
     document.getElementById('quote').insertAdjacentHTML(
       'afterbegin',
-      `<h4>${resData.contents.quotes[0].quote}</h4>
-      <h5 class='p'>- ${resData.contents.quotes[0].author}</h5>`
+      `<h4>${resData.quote.body}</h4>
+      <div class='slider-div'>
+      <div class='slider'>
+      <h5 class='p' id='quote-author'>- ${resData.quote.author}</h5>
+      <span id="quote-span">Quotes source:<a href="https://favqs.com/"> FavQs</a></span>
+      </div></div>`
     );
   } catch (err) {
     document.getElementById('quote').insertAdjacentHTML(
