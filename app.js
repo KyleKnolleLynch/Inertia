@@ -361,7 +361,7 @@ const getQuote = async () => {
       <div class='slider-div'>
       <div class='slider'>
       <h5 class='p' id='quote-author'>- ${resData.quote.author}</h5>
-      <span id="quote-span">Quotes source:<a href="https://favqs.com/"> FavQs</a></span>
+      <span id="quote-span">Quote source:<a href="https://favqs.com/"> FavQs</a></span>
       </div></div>`
     );
   } catch (err) {
