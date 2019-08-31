@@ -53,7 +53,7 @@
 
 #heading {
   font-size: 1.7rem;
-  margin: 6vh 0 1rem;
+  margin: 3vh 0 1rem;
   align-self: center;
 }
 
@@ -179,7 +179,7 @@
 
 #clock,
 #alt-clock {
-  margin: 2rem 0 0 1rem;
+  margin: 6rem 0 0 1rem;
   font-size: 8rem;
   font-weight: 600;
 }
@@ -572,7 +572,7 @@
 
   #heading {
     font-size: 1.3rem;
-    margin: 7vh 0 0;
+    margin-bottom: 0.5rem;
   }
 
   #user {
@@ -652,7 +652,6 @@
 @media screen and (max-width: 440px) {
   #heading {
     font-size: 1.1rem;
-    margin-top: 7vh;
   }
 
   #weather-dis,
@@ -666,6 +665,10 @@
 }
 
 @media screen and (max-width: 330px) {
+  #clock {
+    margin: 0 0 0 1rem;
+  }
+
   #show-todo-list {
     height: 5rem;
     line-height: 1.8ch;
@@ -680,7 +683,7 @@
 
   #heading {
     font-size: 1.1rem;
-    margin: 1vh 0 0;
+    margin-bottom: 0;
   }
 
   #user {
