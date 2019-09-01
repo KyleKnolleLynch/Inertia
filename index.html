@@ -18,6 +18,10 @@
   </head>
   <body>
     <div class="container" id="bg-full-image">
+      <div id="weather-div">
+        <div id="weather-dis"></div>
+        <div id="weather-dis-alt" style="display: none"></div>
+      </div>
       <div id="heading">
         <h1 id="title"></h1>
         <h1 id="user" contenteditable="true"></h1>
@@ -25,10 +29,6 @@
       <div id="focus">
         <h2>My Focus Is</h2>
         <h2 id="input-focus" contenteditable="true"></h2>
-      </div>
-      <div id="weather-div">
-        <div id="weather-dis"></div>
-        <div id="weather-dis-alt" style="display: none"></div>
       </div>
       <div id="five-day" class="p" style="display: none">
         <div id="dayone"></div>
@@ -68,7 +68,9 @@
           <i class="fas fa-times p danger"></i>Clear All
         </button>
       </div>
-      <div id="todo-open"><i class="far fa-list-alt"></i> Todo List</div>
+      <div id="todo-open">
+        <i class="far fa-list-alt"></i> <span>Todos</span>
+      </div>
       <ul id="show-todo-list"></ul>
       <div id="quote"></div>
       <form id="settings" style="display: none">

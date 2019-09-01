@@ -592,6 +592,10 @@
     font-size: 2rem;
   }
 
+  .weather-err {
+    font-size: 0.6rem;
+  }
+
   #todo-open,
   #cog {
     font-size: 1.3rem;
@@ -661,6 +665,10 @@
 
   #todos {
     width: 90vw;
+  }
+
+  #todo-open :nth-child(2) {
+    display: none;
   }
 }
 

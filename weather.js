@@ -1,4 +1,4 @@
-//                     WEATHER DISPLAY                  //
+//    WEATHER DISPLAY   //
 const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showWeather, showError, {
@@ -6,11 +6,8 @@ const getLocation = () => {
       timeout: 10000
     });
   } else {
-    !document.getElementById('rad-temp-far').checked
-      ? (document.getElementById('weather-dis').innerHTML =
-          '<span>Geolocation not supported on this device</span>')
-      : (document.getElementById('weather-dis-alt').innerHTML =
-          '<span>Geolocation not supported on this device</span>');
+    document.getElementById('weather-div').innerHTML =
+      '<span>Geolocation not supported on this device</span>';
   }
 };
 
@@ -67,8 +64,8 @@ const showWeather = async position => {
       resDataAlt.weather[0].icon
     }.png'></img>`;
 
-    //              Weekly Forecast                     //
-    //  Farenheit
+    //    Weekly Forecast   //
+    //    Farenheit
     const resWeeklyFar = await fetch(
       `/.netlify/functions/getweeklyfaren?lat=${lat}&lon=${lon}`
     );
@@ -174,7 +171,7 @@ const showWeather = async position => {
     )}<span>&deg;</span></h5>
       <h5>${resWkFa.list[39].weather[0].main}</h5>`;
 
-    //   Celcius
+    //    Celcius
     const resWeeklyCel = await fetch(
       `/.netlify/functions/getweeklycelc?lat=${lat}&lon=${lon}`
     );
@@ -288,58 +285,33 @@ const showWeather = async position => {
 };
 
 const showError = error => {
-  const weatherDis = document.getElementById('weather-dis');
-  const weatherDisAlt = document.getElementById('weather-dis-alt');
-  if (!document.getElementById('rad-temp-far').checked) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        weatherDis.innerHTML = '<span>User denied geolocation request.</span>';
-        setTimeout(
-          () =>
-            (weatherDis.innerHTML =
-              '<span>Please enable location services.</span>'),
-          5000
-        );
-        setTimeout(() => (weatherDis.innerHTML = ''), 25000);
-        return;
-      case error.POSITION_UNAVAILABLE:
-        weatherDis.innerHTML =
-          '<span>Location info unavailable from current position.</span>';
-        return;
-      case error.TIMEOUT:
-        weatherDis.innerHTML = '<span>Location request timed out.</span>';
-        return;
-      case error.UNKNOWN_ERROR:
-        weatherDis.innerHTML = '<span>An unknown error occured.</span>';
-        return;
-      default:
-        weatherDis.innerHTML = '<span>Something went wrong.</span>';
-    }
-  } else {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        weatherDisAlt.innerHTML =
-          '<span>User denied geolocation request.</span>';
-        setTimeout(
-          () =>
-            (weatherDisAlt.innerHTML =
-              '<span>Please enable location services.</span>'),
-          5000
-        );
-        setTimeout(() => (weatherDisAlt.innerHTML = ''), 25000);
-        return;
-      case error.POSITION_UNAVAILABLE:
-        weatherDisAlt.innerHTML =
-          '<span>Location info unavailable from current position.</span>';
-        return;
-      case error.TIMEOUT:
-        weatherDisAlt.innerHTML = '<span>Location request timed out.</span>';
-        return;
-      case error.UNKNOWN_ERROR:
-        weatherDisAlt.innerHTML = '<span>An unknown error occured.</span>';
-        return;
-      default:
-        weatherDisAlt.innerHTML = '<span>Something went wrong.</span>';
-    }
+  const weatherDiv = document.getElementById('weather-div');
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      weatherDiv.innerHTML =
+        '<span class="weather-err">User denied geolocation request.</span>';
+      setTimeout(
+        () =>
+          (weatherDiv.innerHTML =
+            '<span class="weather-err">Please enable location services.</span>'),
+        5000
+      );
+      setTimeout(() => (weatherDiv.innerHTML = ''), 10000);
+      return;
+    case error.POSITION_UNAVAILABLE:
+      weatherDiv.innerHTML =
+        '<span class="weather-err">Location info unavailable from current position.</span>';
+      return;
+    case error.TIMEOUT:
+      weatherDiv.innerHTML =
+        '<span class="weather-err">Location request timed out.</span>';
+      return;
+    case error.UNKNOWN_ERROR:
+      weatherDiv.innerHTML =
+        '<span class="weather-err">An unknown error occured.</span>';
+      return;
+    default:
+      weatherDiv.innerHTML =
+        '<span class="weather-err">Something went wrong.</span>';
   }
 };

@@ -4,7 +4,7 @@ todoClear = document.getElementById('todo-clear');
 todoList = document.getElementById('todo-list');
 settings = document.getElementById('settings');
 
-//             TIME/BACKGROUND IMAGE DISPLAY                //
+//    TIME/BACKGROUND IMAGE DISPLAY   //
 const time = () => {
   const today = new Date();
   let hours = today.getHours();
@@ -166,9 +166,7 @@ const setDisplay = async () => {
   }
 };
 
-//////////////////////////////////////////////////////////
-//                USER/FOCUS DISPLAY                    //
-
+//    USER/FOCUS DISPLAY    //
 const clearUser = () => {
   if (user.textContent === '[Enter Name]') user.textContent = '';
 };
@@ -225,8 +223,8 @@ const setInputFocus = e => {
     location.reload();
   }
 };
-///////////////////////////////////////////////////////////
-//                        TODO LIST                     //
+
+//    TODO LIST   //
 const openTodos = () => {
   const todos = document.getElementById('todos');
   if (todos.style.display === 'none') {
@@ -348,7 +346,7 @@ todoList.addEventListener('click', e => {
   }
 });
 
-//                     Daily Quote                        //
+//    Daily Quote   //
 const getQuote = async () => {
   try {
     const res = await fetch('https://favqs.com/api/qotd', {
@@ -374,8 +372,7 @@ const getQuote = async () => {
   }
 };
 
-//////////////////////////////////////////////////////////////
-//                       SETTINGS                           //
+//    SETTINGS    //
 const openSettings = () => {
   if (settings.style.display === 'none') {
     settings.className = 'fadeIn';
@@ -496,7 +493,7 @@ document.querySelectorAll('input[type=checkbox]').forEach(box => {
   }
 });
 
-/////////////////////////////////////////////////////////////////
+//    Event Listeners   //
 document.addEventListener('DOMContentLoaded', getLocation);
 user.addEventListener('click', clearUser);
 user.addEventListener('keydown', setUser);
