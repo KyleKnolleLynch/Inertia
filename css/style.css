@@ -582,7 +582,7 @@
 
   #heading {
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin: 5vh 0 0.5rem;
   }
 
   #user {
@@ -600,6 +600,10 @@
 
   #clockSpan {
     font-size: 2rem;
+  }
+
+  #weather-div {
+    top: 0;
   }
 
   .weather-err {
@@ -668,8 +672,7 @@
     font-size: 1.1rem;
   }
 
-  #weather-dis,
-  #weather-dis-alt {
+  #weather-div {
     font-size: 0.8rem;
   }
 
@@ -683,6 +686,14 @@
 }
 
 @media screen and (max-width: 330px) {
+  #heading {
+    font-size: 0.8rem;
+  }
+
+  #weather-div {
+    font-size: 0.6rem;
+  }
+
   #show-todo-list {
     height: 5rem;
     line-height: 1.8ch;
