@@ -742,7 +742,7 @@
   }
 
   #quote {
-    bottom: -100vh;
+    display: none;
   }
 
   #attribute :nth-child(1) {

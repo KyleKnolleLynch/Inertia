@@ -720,6 +720,14 @@ const closeSettings = e => {
   load();
 };
 
+const showFocus = () => {
+  document.getElementById('focus').classList.remove('empty');
+};
+
+const hideFocus = () => {
+  document.getElementById('focus').classList.add('empty');
+};
+
 const showClock = () => {
   document.getElementById('alt-clock').style.display = 'none';
   document.getElementById('clock').style.display = 'block';
@@ -780,24 +788,28 @@ const hideWeekly = e => {
   }
 };
 
+const showQuote = () => {
+  document.getElementById('quote').classList.remove('empty');
+};
+
+const hideQuote = () => {
+  document.getElementById('quote').classList.add('empty');
+};
+
 const load = () => {
-  const focus = document.getElementById('focus');
-  const quote = document.getElementById('quote');
   document.querySelectorAll('input[type=checkbox]').forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
     document.getElementById('rad-clock-alt').checked
       ? showAltClock()
       : showClock();
     document.getElementById('rad-temp-far').checked ? showCel() : showFar();
-    document.getElementById('rad-focus-on').checked
-      ? (focus.style.display = 'block')
-      : (focus.style.display = 'none');
+    document.getElementById('rad-focus-on').checked ? showFocus() : hideFocus();
     document.getElementById('rad-todo-show').checked
       ? showTodoList()
       : (document.getElementById('show-todo-list').innerHTML = '');
     document.getElementById('rad-quote-show').checked
-      ? (quote.style.display = 'block')
-      : (quote.style.display = 'none');
+      ? showQuote()
+      : hideQuote();
   });
 };
 
