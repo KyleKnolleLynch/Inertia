@@ -3,6 +3,8 @@ inputFocus = document.getElementById('input-focus');
 todoClear = document.getElementById('todo-clear');
 todoList = document.getElementById('todo-list');
 settings = document.getElementById('settings');
+weatherDis = document.getElementById('weather-dis');
+weatherDisAlt = document.getElementById('weather-dis-alt');
 
 //    TIME/BACKGROUND IMAGE DISPLAY   //
 const time = () => {
@@ -165,7 +167,6 @@ const setDisplay = async () => {
     }
   }
 };
-
 
 //    USER/FOCUS DISPLAY    //
 const clearUser = () => {
@@ -403,14 +404,6 @@ const closeSettings = e => {
   load();
 };
 
-const showFocus = () => {
-  document.getElementById('focus').style.display = 'block';
-};
-
-const hideFocus = () => {
-  document.getElementById('focus').style.display = 'none';
-};
-
 const showClock = () => {
   document.getElementById('alt-clock').style.display = 'none';
   document.getElementById('clock').style.display = 'block';
@@ -439,18 +432,18 @@ const showTodoList = () => {
   if (showTodo) return;
 };
 
-const hideTodoList = () => {
-  document.getElementById('show-todo-list').innerHTML = '';
-};
-
 const showCel = () => {
-  document.getElementById('weather-dis').style.display = 'none';
-  document.getElementById('weather-dis-alt').style.display = 'grid';
+  if (weatherDis || weatherDisAlt) {
+    weatherDis.style.display = 'none';
+    weatherDisAlt.style.display = 'grid';
+  }
 };
 
 const showFar = () => {
-  document.getElementById('weather-dis-alt').style.display = 'none';
-  document.getElementById('weather-dis').style.display = 'grid';
+  if (weatherDisAlt || weatherDis) {
+    weatherDisAlt.style.display = 'none';
+    weatherDis.style.display = 'grid';
+  }
 };
 
 const showWeekly = () => {
@@ -475,14 +468,6 @@ const hideWeekly = e => {
   }
 };
 
-const showQuote = () => {
-  document.getElementById('quote').style.display = 'block';
-};
-
-const hideQuote = () => {
-  document.getElementById('quote').style.display = 'none';
-};
-
 const load = () => {
   document.querySelectorAll('input[type=checkbox]').forEach(box => {
     box.checked = localStorage.getItem(box.id) === 'true' ? true : false;
@@ -490,13 +475,15 @@ const load = () => {
       ? showAltClock()
       : showClock();
     document.getElementById('rad-temp-far').checked ? showCel() : showFar();
-    document.getElementById('rad-focus-on').checked ? showFocus() : hideFocus();
+    document.getElementById('rad-focus-on').checked
+      ? document.getElementById('focus').classList.remove('empty')
+      : document.getElementById('focus').classList.add('empty');
     document.getElementById('rad-todo-show').checked
       ? showTodoList()
-      : hideTodoList();
+      : (document.getElementById('show-todo-list').innerHTML = '');
     document.getElementById('rad-quote-show').checked
-      ? showQuote()
-      : hideQuote();
+      ? document.getElementById('quote').classList.remove('empty')
+      : document.getElementById('quote').classList.add('empty');
   });
 };
 
