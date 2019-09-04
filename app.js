@@ -748,10 +748,6 @@ const showTodoList = () => {
   if (showTodo) return;
 };
 
-const hideTodoList = () => {
-  document.getElementById('show-todo-list').innerHTML = '';
-};
-
 const showCel = () => {
   document.getElementById('weather-dis').style.display = 'none';
   document.getElementById('weather-dis-alt').style.display = 'grid';
@@ -794,14 +790,14 @@ const load = () => {
       : showClock();
     document.getElementById('rad-temp-far').checked ? showCel() : showFar();
     document.getElementById('rad-focus-on').checked
-      ? focus.classList.remove('empty')
-      : focus.classList.add('empty');
+      ? (focus.style.display = 'block')
+      : (focus.style.display = 'none');
     document.getElementById('rad-todo-show').checked
       ? showTodoList()
-      : hideTodoList();
+      : (document.getElementById('show-todo-list').innerHTML = '');
     document.getElementById('rad-quote-show').checked
-      ? quote.classList.remove('empty')
-      : quote.classList.add('empty');
+      ? (quote.style.display = 'block')
+      : (quote.style.display = 'none');
   });
 };
 

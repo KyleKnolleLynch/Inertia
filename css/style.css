@@ -82,11 +82,14 @@
   width: 100vw;
 }
 
-#weather-dis,
-#weather-dis-alt {
+#weather-div {
   position: absolute;
   top: 0.4rem;
   right: 0;
+}
+
+#weather-dis,
+#weather-dis-alt {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   cursor: pointer;
@@ -179,9 +182,17 @@
 
 #clock,
 #alt-clock {
-  margin: 4rem 0 0 1rem;
+  position: absolute;
+  top: 35vh;
+  right: 0;
+  left: 0;
+  margin: auto;
   font-size: 8rem;
   font-weight: 600;
+}
+
+#clock {
+  margin-left: 2rem;
 }
 
 #clockSpan {
@@ -672,10 +683,6 @@
 }
 
 @media screen and (max-width: 330px) {
-  #clock {
-    margin: 1rem 0 0 1rem;
-  }
-
   #show-todo-list {
     height: 5rem;
     line-height: 1.8ch;
@@ -703,7 +710,7 @@
 
   #clock,
   #alt-clock {
-    margin: 1rem 0 0 1rem;
+    margin-top: 4rem;
     font-size: 5rem;
   }
 
@@ -735,7 +742,7 @@
   }
 
   #quote {
-    display: none;
+    bottom: -100vh;
   }
 
   #attribute :nth-child(1) {
