@@ -582,7 +582,7 @@
 
   #heading {
     font-size: 1.3rem;
-    margin: 5vh 0 0.5rem;
+    margin: 6vh 0 0.5rem;
   }
 
   #user {
@@ -603,7 +603,7 @@
   }
 
   #weather-div {
-    top: 0;
+    top: 0.2rem;
   }
 
   .weather-err {
@@ -685,7 +685,7 @@
   }
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 360px) {
   #heading {
     font-size: 0.8rem;
   }
