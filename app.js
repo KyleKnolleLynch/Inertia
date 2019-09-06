@@ -166,6 +166,7 @@ const setDisplay = async () => {
         '<p>river beside mountain under full moon</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>';
     }
   }
+
 };
 
 //    USER/FOCUS DISPLAY    //
