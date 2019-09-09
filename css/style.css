@@ -146,7 +146,7 @@
 
 #dayone h5:nth-child(2),
 #alt-dayone h5:nth-child(2) {
-  font-size: 3rem;
+  font-size: 3.5rem;
   grid-column: 1 / 2;
   align-self: flex-end;
 }
@@ -160,8 +160,21 @@
 
 #dayone img,
 #alt-dayone img {
-  justify-self: flex-end;
+  grid-column: span 2;
   width: 5rem;
+  margin-top: -3rem;
+}
+
+#dayone :nth-child(5),
+#alt-dayone :nth-child(5) {
+  grid-column: 4 / 6;
+  margin-top: -2.5rem;
+}
+
+#dayone :nth-child(6),
+#alt-dayone :nth-child(6) {
+  grid-column: 4 / 6;
+  margin-top: -1.5rem;
 }
 
 .days {
