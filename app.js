@@ -55,7 +55,7 @@ const setDisplay = async () => {
       attr.innerHTML = `
       <p>${desc}</p>
       <div class="slider-attr-div"><div class="slider">
-      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
+      <span>Photo by <a href="${resData.user.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
@@ -89,7 +89,7 @@ const setDisplay = async () => {
       attr.innerHTML = `
       <p>${desc}</p>
       <div class="slider-attr-div"><div class="slider">
-      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
+      <span>Photo by <a href="${resData.user.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good morning,';
@@ -123,7 +123,7 @@ const setDisplay = async () => {
       attr.innerHTML = `
       <p>${desc}</p>
       <div class="slider-attr-div"><div class="slider">
-        <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
+        <span>Photo by <a href="${resData.user.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good afternoon,';
@@ -157,7 +157,7 @@ const setDisplay = async () => {
       attr.innerHTML = `
       <p>${desc}</p>
       <div class="slider-attr-div"><div class="slider">
-      <span>Photo by <a href="${resData.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
+      <span>Photo by <a href="${resData.user.links.html}?utm_source=Inertia&utm_medium=referral">${resData.user.first_name} ${resData.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral">Unsplash</a></span></div></div>
       `;
     } catch (err) {
       title.innerHTML = 'Good evening,';
