@@ -99,38 +99,23 @@ const setDisplay = async () => {
     }
   } else if (hours < 18) {
     try {
-      // const res = await fetch('/.netlify/functions/getnoonpics', {
-      const res = await fetch('http://localhost:9000/getnoonpics', {
+      const res = await fetch('/.netlify/functions/getnoonpics', {
         method: 'get'
       });
       const resData = await res.json();
-      // const desc = !resData.location
-      //   ? resData.alt_description
-      //   : resData.location.title
-      //   ? resData.location.title
-      //   : resData.location.title === null || ''
-      //   ? resData.location.position.title
-      //   : resData.location.position.title === null
-      //   ? resData.location.city + ', ' + resData.location.country
-      //   : resData.location.city === null && resData.location.country === null
-      //   ? resData.alt_description
-      //   : resData.alt_description === null
-      //   ? 'Location Undefined'
-      //   : 'Location undefined';
-      console.log(resData);
-
-      const desc = !resData.location.title == null 
-        ? resData.location.title
-        // : resData.location.title === null 
-        // ? resData.location.name
-        // : resData.location.name === null
-        // ? resData.location.position.title
-        // : resData.location.position.title === null
-        // ? resData.location.city + ', ' + resData.location.country
-        // : resData.location.city === null && resData.location.country === null
-        : resData.alt_description
+      const desc = !resData.location
         ? resData.alt_description
-        : 'Location Undefined';
+        : resData.location.title
+        ? resData.location.title
+        : resData.location.title === null || ''
+        ? resData.location.position.title
+        : resData.location.position.title === null
+        ? resData.location.city + ', ' + resData.location.country
+        : resData.location.city === null && resData.location.country === null
+        ? resData.alt_description
+        : resData.alt_description === null
+        ? 'Location Undefined'
+        : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
