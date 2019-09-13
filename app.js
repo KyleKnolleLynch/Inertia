@@ -35,11 +35,11 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location
+      const desc = !resData.location || resData.location.title === null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null || ''
+        : resData.location.title === null 
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
@@ -69,11 +69,11 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location
+      const desc = !resData.location || resData.location.title === null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null || ''
+        : resData.location.title === null 
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
@@ -103,11 +103,11 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location
+      const desc = !resData.location || resData.location.title === null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null || ''
+        : resData.location.title === null 
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
@@ -137,11 +137,22 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location
+      // const desc = !resData.location || resData.location.title === null
+      //   ? resData.alt_description
+      //   : resData.location.title
+      //   ? resData.location.title
+      //   : !resData.location.position.title === null
+      //   ? resData.location.position.title
+      //   : !resData.location.city === null && !resData.location.country === null
+      //   ? resData.location.city + ', ' + resData.location.country
+      //   : resData.alt_description
+      //   ? resData.alt_description 
+      //   : 'Location Undefined';
+      const desc = !resData.location || resData.location.title === null
         ? resData.alt_description
         : resData.location.title
         ? resData.location.title
-        : resData.location.title === null || ''
+        : resData.location.title === null 
         ? resData.location.position.title
         : resData.location.position.title === null
         ? resData.location.city + ', ' + resData.location.country
