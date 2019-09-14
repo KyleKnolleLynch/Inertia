@@ -35,19 +35,20 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location || resData.location.title === null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null 
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+      const desc =
+        !resData.location || resData.location.title === null
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
@@ -69,19 +70,20 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location || resData.location.title === null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null 
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location Undefined';
+      const desc =
+        !resData.location || resData.location.title === null
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location Undefined';
 
       title.innerHTML = 'Good morning,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
@@ -103,19 +105,20 @@ const setDisplay = async () => {
         method: 'get'
       });
       const resData = await res.json();
-      const desc = !resData.location || resData.location.title === null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null 
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+      const desc =
+        !resData.location || resData.location.title === null
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
       title.innerHTML = 'Good afternoon,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;
@@ -146,21 +149,22 @@ const setDisplay = async () => {
       //   : !resData.location.city === null && !resData.location.country === null
       //   ? resData.location.city + ', ' + resData.location.country
       //   : resData.alt_description
-      //   ? resData.alt_description 
+      //   ? resData.alt_description
       //   : 'Location Undefined';
-      const desc = !resData.location || resData.location.title === null
-        ? resData.alt_description
-        : resData.location.title
-        ? resData.location.title
-        : resData.location.title === null 
-        ? resData.location.position.title
-        : resData.location.position.title === null
-        ? resData.location.city + ', ' + resData.location.country
-        : resData.location.city === null && resData.location.country === null
-        ? resData.alt_description
-        : resData.alt_description === null
-        ? 'Location Undefined'
-        : 'Location undefined';
+      const desc =
+        !resData.location || resData.location.title === null
+          ? resData.alt_description
+          : resData.location.title
+          ? resData.location.title
+          : resData.location.title === null
+          ? resData.location.position.title
+          : resData.location.position.title === null
+          ? resData.location.city + ', ' + resData.location.country
+          : resData.location.city === null && resData.location.country === null
+          ? resData.alt_description
+          : resData.alt_description === null
+          ? 'Location Undefined'
+          : 'Location undefined';
 
       title.innerHTML = 'Good evening,';
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url('${resData.urls.regular}') center/cover no-repeat`;

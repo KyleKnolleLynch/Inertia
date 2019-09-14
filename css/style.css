@@ -206,6 +206,7 @@ body {
   margin: auto;
   font-size: 8rem;
   font-weight: 600;
+  z-index: 50;
 }
 
 #clock {
