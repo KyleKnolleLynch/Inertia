@@ -719,7 +719,7 @@ body {
   }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 600px) {
   html {
     height: 100vh;
     min-height: 120%;
