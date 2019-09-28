@@ -468,7 +468,7 @@ body {
   position: absolute;
   bottom: 12vh;
   right: 3vw;
-  z-index: 2;
+  z-index: 20;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3rem;
 }
