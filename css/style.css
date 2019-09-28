@@ -74,7 +74,7 @@ body {
 }
 
 #input-focus {
-  width: 35vw;
+  width: 40vw;
   outline-color: #999;
   margin: auto;
   cursor: pointer;
@@ -610,6 +610,10 @@ body {
 
   #focus {
     font-size: 0.8rem;
+  }
+
+  #input-focus {
+    width: 50vw;
   }
 
   #clock,
