@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Exo:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond&display=swap");
 
 * {
   box-sizing: border-box;
@@ -52,7 +52,7 @@ body {
   width: 100vw;
   text-align: center;
   color: #fff0f5;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
 }
 
 #heading {
@@ -224,8 +224,8 @@ body {
   position: absolute;
   font-size: 1.5rem;
   font-weight: 600;
-  bottom: 10vh;
-  left: 3vw;
+  bottom: 14vh;
+  left: 2vw;
   opacity: 0.6;
   transition: 0.4s ease-out;
   z-index: 10;
@@ -238,7 +238,7 @@ body {
 }
 
 #todos {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
@@ -256,7 +256,7 @@ body {
 }
 
 #todo-input {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   display: block;
   width: 100%;
   margin: 1rem 0;
@@ -269,7 +269,7 @@ body {
 }
 
 #todo-clear {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   display: none;
   margin: 2rem auto 0;
 }
@@ -301,7 +301,7 @@ body {
   color: #999;
 }
 
-#todo-list input[type='checkbox'],
+#todo-list input[type="checkbox"],
 #todo-list:empty,
 ::-webkit-scrollbar {
   display: none;
@@ -317,7 +317,7 @@ body {
 }
 
 .checkmark::before {
-  content: '✓';
+  content: "✓";
   font-size: 20px;
   display: none;
   align-self: center;
@@ -343,7 +343,7 @@ body {
 }
 
 .empty-text {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   font-size: 1.3rem;
   margin: 0.2rem 2rem 0;
 }
@@ -353,7 +353,7 @@ body {
 }
 
 #show-todo-list {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -376,22 +376,19 @@ body {
 
 #show-todo-list .checkmark,
 #show-todo-list a,
-#show-todo-list input[type='checkbox'] {
+#show-todo-list input[type="checkbox"] {
   display: none;
 }
 
 #quote {
-  width: 35rem;
-  height: 6rem;
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-#quote > h4 {
-  font-family: 'EB Garamond', serif;
+  max-width: 24rem;
+  font-size: 0.9rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: flex-end;
+  font-family: "EB Garamond", serif;
 }
 
 #quote h5 {
@@ -518,7 +515,7 @@ body {
   border-radius: 100px;
   background: #fff0f5;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
-  content: '';
+  content: "";
   transition: all 0.3s ease;
 }
 
@@ -538,6 +535,7 @@ body {
 }
 
 #attribute {
+  max-width: 22rem;
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -588,7 +586,6 @@ body {
 
 @media screen and (max-width: 970px) {
   #quote {
-    bottom: 6rem;
     width: 18rem;
   }
 }
@@ -637,6 +634,9 @@ body {
   #cog {
     font-size: 1.3rem;
     opacity: 0.7;
+  }
+
+  #cog {
     bottom: 11vh;
   }
 
@@ -657,6 +657,7 @@ body {
 
   #quote {
     font-size: 0.8rem;
+    padding: 1rem;
   }
 
   #quote a {
@@ -674,8 +675,12 @@ body {
     transform: translate(0, 0);
   }
 
+  #attribute {
+    max-width: 15rem;
+  }
+
   #attribute :nth-child(1) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   #attribute .slider span,
@@ -761,7 +766,7 @@ body {
   }
 
   #todo-open {
-    bottom: 20vh;
+    bottom: 30vh;
   }
 
   #todo-open,
@@ -781,7 +786,7 @@ body {
   }
 
   #attribute :nth-child(1) {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   #attribute .slider span,
