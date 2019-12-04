@@ -24,10 +24,10 @@ const showWeather = async position => {
       <h4 id="weather-title">${resData.name}</h4>
       <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
         resData.weather[0].icon
-      }.png'></img></p>
+      }.png' alt='current-icon'></img></p>
       <h4 id="weather-temp">${Math.round(
         resData.main.temp
-      )}<span>&deg;</span><span id="deg">F</span></h4>
+      )}<span>&deg;</span><span class="deg">F</span></h4>
     `;
 
     document.getElementById('dayone').innerHTML = `
@@ -38,7 +38,7 @@ const showWeather = async position => {
     <h5>${resData.weather[0].description}</h5>
     <img src='http://openweathermap.org/img/wn/${
       resData.weather[0].icon
-    }.png'></img>
+    }.png' alt='current-icon'></img>
     <h6>humidity ${resData.main.humidity}%</h6>
     <h6>wind ${Math.round(resData.wind.speed)} mph</h6>`;
 
@@ -50,10 +50,10 @@ const showWeather = async position => {
     <h4 id="weather-title">${resDataAlt.name}</h4>
     <p id="weather-icon"><img src='http://openweathermap.org/img/wn/${
       resDataAlt.weather[0].icon
-    }.png'></img></p>
+    }.png' alt='alt-icon'></img></p>
     <h4 id="weather-temp">${Math.round(
       resDataAlt.main.temp
-    )}<span>&deg;</span><span id="deg">C</span></h4>
+    )}<span>&deg;</span><span class="deg">C</span></h4>
   `;
 
     document.getElementById('alt-dayone').innerHTML = `
@@ -64,7 +64,7 @@ const showWeather = async position => {
     <h5>${resDataAlt.weather[0].description}</h5>
     <img src='http://openweathermap.org/img/wn/${
       resDataAlt.weather[0].icon
-    }.png'></img>
+    }.png' alt='alt-icon'></img>
     <h6>humidity ${resDataAlt.main.humidity}%</h6>
     <h6>wind ${Math.round(resDataAlt.wind.speed * 60 * 60 / 1000)} kph</h6>`;
 
