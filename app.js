@@ -5,6 +5,7 @@ todoList = document.getElementById("todo-list");
 settings = document.getElementById("settings");
 weatherDis = document.getElementById("weather-dis");
 weatherDisAlt = document.getElementById("weather-dis-alt");
+document.cookie = 'cross-site-cookie=http://unsplash.com/; SameSite=None; Secure';
 
 //    TIME/BACKGROUND IMAGE DISPLAY   //
 const time = () => {
