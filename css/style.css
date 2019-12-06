@@ -53,6 +53,7 @@ body {
   text-align: center;
   color: #fff0f5;
   font-family: "Exo", sans-serif;
+  font-display: swap;
 }
 
 #heading {
@@ -239,6 +240,7 @@ body {
 
 #todos {
   font-family: "Nanum Gothic", sans-serif;
+  font-display: swap;
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
@@ -257,6 +259,7 @@ body {
 
 #todo-input {
   font-family: "Nanum Gothic", sans-serif;
+  font-display: swap;
   display: block;
   width: 100%;
   margin: 1rem 0;
@@ -270,6 +273,7 @@ body {
 
 #todo-clear {
   font-family: "Nanum Gothic", sans-serif;
+  font-display: swap;
   display: none;
   margin: 2rem auto 0;
 }
@@ -344,6 +348,7 @@ body {
 
 .empty-text {
   font-family: "Nanum Gothic", sans-serif;
+  font-display: swap;
   font-size: 1.3rem;
   margin: 0.2rem 2rem 0;
 }
@@ -354,6 +359,7 @@ body {
 
 #show-todo-list {
   font-family: "Nanum Gothic", sans-serif;
+  font-display: swap;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -389,6 +395,7 @@ body {
   right: 0;
   margin: auto auto 3rem;
   font-family: "EB Garamond", serif;
+  font-display: swap;
 }
 
 #quote h5 {
