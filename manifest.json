@@ -3,10 +3,9 @@
   "name": "Inertia",
   "short_name": "Inertia",
   "start_url": "/index.html",
-  "display": "browser",
+  "display": "minimal-ui",
   "background_color": "#b6e2e0",
   "theme_color": "#2dffba",
-  "orientation": "any",
   "description": "Welcome Page",
   "version": "1.0.0",
   "icons": [
@@ -27,7 +26,7 @@
     }
   ],
   "browser_action": {
-    "default_icon": "icon19.png",
+    "default_icon": "/images/icons/inertia_72x72.png",
     "default_popup": "index.html"
   },
   "permissions": [
