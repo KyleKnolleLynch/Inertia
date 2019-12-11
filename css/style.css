@@ -116,7 +116,7 @@ body {
 
 .weather-icon,
 .weather-icon-alt {
-  margin: -0.7rem -0.6rem 0 0;
+  margin: -0.7rem -0.7rem 0 0;
 }
 
 #five-day,
@@ -397,7 +397,7 @@ body {
 }
 
 #quote span {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
 }
 
 .slider-div {
@@ -624,7 +624,7 @@ body {
   }
 
   #weather-div {
-    top: 0.2rem;
+    top: 0.1rem;
   }
 
   .weather-err {
@@ -662,14 +662,6 @@ body {
     margin-bottom: 5rem;
   }
 
-  #quote a {
-    font-size: 0.6rem;
-  }
-
-  #quote span {
-    font-size: 0.6rem;
-  }
-
   #quote .slider {
     -webkit-transform: translate(0, 0);
     -moz-transform: translate(0, 0);
@@ -682,12 +674,7 @@ body {
   }
 
   #attribute :nth-child(1) {
-    font-size: 0.9rem;
-  }
-
-  #attribute .slider span,
-  #attribute .slider a {
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
 
   #attribute .slider {
@@ -788,12 +775,7 @@ body {
   }
 
   #attribute :nth-child(1) {
-    font-size: 0.9rem;
-  }
-
-  #attribute .slider span,
-  #attribute .slider a {
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
 
   #attribute .slider {
