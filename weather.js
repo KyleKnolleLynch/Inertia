@@ -1,11 +1,8 @@
 //    WEATHER DISPLAY   //
-const weatherAskDiv = document.getElementById("weather-location");
-const weatherAllow = document.getElementById("weather-allow");
 
 const getLocation = () => {
-  weatherAskDiv.style.display = "none";
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showWeather, showError, {
+    navigator.geolocation.watchPosition(showWeather, showError, {
       enableHighAccuracy: true,
       timeout: 10000
     });
@@ -296,34 +293,32 @@ const showError = error => {
   switch (error.code) {
     case error.PERMISSION_DENIED:
       weatherDiv.innerHTML =
-        '<span class="weather-err">User denied geolocation request.</span>';
+        '<span class="weather-err">User denied geolocation request &nbsp;</span>';
       setTimeout(
         () =>
           (weatherDiv.innerHTML =
-            '<span class="weather-err">Please enable location services.</span>'),
+            '<span class="weather-err">Please enable location services for live weather &nbsp;</span>'),
         5000
       );
       setTimeout(() => (weatherDiv.innerHTML = ""), 10000);
       return;
     case error.POSITION_UNAVAILABLE:
       weatherDiv.innerHTML =
-        '<span class="weather-err">Location info unavailable from current position.</span>';
+        '<span class="weather-err">Location info unavailable from current position &nbsp;</span>';
       return;
     case error.TIMEOUT:
       weatherDiv.innerHTML =
-        '<span class="weather-err">Location request timed out.</span>';
+        '<span class="weather-err">Location request timed out &nbsp;</span>';
       return;
     case error.UNKNOWN_ERROR:
       weatherDiv.innerHTML =
-        '<span class="weather-err">An unknown error occured.</span>';
+        '<span class="weather-err">An unknown error occured &nbsp;</span>';
       return;
     default:
       weatherDiv.innerHTML =
-        '<span class="weather-err">Something went wrong.</span>';
+        '<span class="weather-err">Something went wrong &nbsp;</span>';
   }
 };
 
-
-
-weatherAllow.addEventListener("click", getLocation);
-
+// weatherAllow.addEventListener("click", getLocation);
+document.addEventListener("DOMContentLoaded", getLocation);

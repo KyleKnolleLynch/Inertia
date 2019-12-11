@@ -86,26 +86,6 @@ body {
   width: 100vw;
 }
 
-#weather-location {
-  max-width: 25rem;
-  padding:0.5rem 1rem 1rem;
-  border-radius: 5px;
-  background: rgba(33, 33, 33, 0.9);
-  -webkit-transition: linear 1s;
-  transition: linear 1s;
-  margin: 1rem 0 0 2rem;
-}
-
-#weather-location button {
-  margin-top: 0.7rem;
-  padding: 0.2rem 0.3rem;
-  border: 1px solid #22f0f5;
-  border-radius: 5px;
-  color: #22f0bc;
-  text-transform: uppercase;
-}
-
-
 #weather-div {
   position: absolute;
   top: 0.4rem;
@@ -617,16 +597,6 @@ body {
     min-height: 120%;
   }
 
-  #weather-location {
-    max-width: 20rem;
-    margin: 0 auto;
-    font-size: 0.7rem;
-  }
-
-  #weather-location button {
-    font-size: 0.7rem;
-  }
-
   #heading {
     font-size: 1.3rem;
     margin: 6vh 0 0.5rem;
@@ -697,7 +667,7 @@ body {
   }
 
   #quote span {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
 
   #quote .slider {
