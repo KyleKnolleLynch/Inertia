@@ -3,7 +3,7 @@
   "name": "Inertia",
   "short_name": "Inertia",
   "start_url": "/index.html",
-  "display": "minimal-ui",
+  "display": "browser",
   "background_color": "#b6e2e0",
   "theme_color": "#2dffba",
   "description": "Welcome Page",
@@ -40,6 +40,6 @@
   ],
   "background": {
     "scripts": ["app.js"],
-    "persistent": false
+    "persistent": true
   }
 }

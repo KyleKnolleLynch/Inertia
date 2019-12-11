@@ -1,5 +1,9 @@
 //    WEATHER DISPLAY   //
+const weatherAskDiv = document.getElementById("weather-location");
+const weatherAllow = document.getElementById("weather-allow");
+
 const getLocation = () => {
+  weatherAskDiv.style.display = "none";
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showWeather, showError, {
       enableHighAccuracy: true,
@@ -318,3 +322,8 @@ const showError = error => {
         '<span class="weather-err">Something went wrong.</span>';
   }
 };
+
+
+
+weatherAllow.addEventListener("click", getLocation);
+

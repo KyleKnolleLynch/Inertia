@@ -86,6 +86,26 @@ body {
   width: 100vw;
 }
 
+#weather-location {
+  max-width: 25rem;
+  padding:0.5rem 1rem 1rem;
+  border-radius: 5px;
+  background: rgba(33, 33, 33, 0.9);
+  -webkit-transition: linear 1s;
+  transition: linear 1s;
+  margin: 1rem 0 0 2rem;
+}
+
+#weather-location button {
+  margin-top: 0.7rem;
+  padding: 0.2rem 0.3rem;
+  border: 1px solid #22f0f5;
+  border-radius: 5px;
+  color: #22f0bc;
+  text-transform: uppercase;
+}
+
+
 #weather-div {
   position: absolute;
   top: 0.4rem;
@@ -535,7 +555,6 @@ body {
 }
 
 #attribute {
-  max-width: 22rem;
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -545,6 +564,7 @@ body {
 
 #attribute :nth-child(1) {
   font-size: 1.2rem;
+  max-width: 70vw;
 }
 
 #attribute .slider span,
@@ -582,6 +602,7 @@ body {
   -moz-transform: translate(0, -100%);
   -ms-transform: translate(0, -100%);
   transform: translate(0, -100%);
+  max-width: 70vw;
 }
 
 @media screen and (max-width: 970px) {
@@ -594,6 +615,16 @@ body {
   html {
     height: 100vh;
     min-height: 120%;
+  }
+
+  #weather-location {
+    max-width: 20rem;
+    margin: 0 auto;
+    font-size: 0.7rem;
+  }
+
+  #weather-location button {
+    font-size: 0.7rem;
   }
 
   #heading {
@@ -637,7 +668,7 @@ body {
   }
 
   #cog {
-    bottom: 11vh;
+    bottom: 5vh;
   }
 
   #todos {

@@ -479,7 +479,6 @@ document.querySelectorAll("input[type=checkbox]").forEach(box => {
 
 //    Event Listeners   //
 
-document.addEventListener("DOMContentLoaded", getLocation);
 user.addEventListener("click", clearUser);
 user.addEventListener("keydown", setUser);
 user.addEventListener("blur", setUser);
