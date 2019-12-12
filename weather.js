@@ -1,5 +1,4 @@
 //    WEATHER DISPLAY   //
-
 const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showWeather, showError, {

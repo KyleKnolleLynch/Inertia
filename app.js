@@ -124,7 +124,7 @@ const setDisplay = async () => {
       title.innerHTML = "Good afternoon,";
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`;
       attr.innerHTML =
-        '<p>Roxborough Park, Colorado</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://kyleknollelynch.github.io/Portfolio">Kyle Lynch</a></span></div></div>';
+        '<p>Roxborough Park, Colorado</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="#">Kyle Lynch</a></span></div></div>';
     }
   } else if (hours < 24) {
     try {
