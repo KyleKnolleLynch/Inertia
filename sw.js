@@ -53,6 +53,9 @@ self.addEventListener("fetch", e => {
       //     return fetchRes;
       //   })
       // })
+      || fetch(e.request).then(fetchRes => {
+        return caches.delete(fetchRes)
+      })
     })
   );
 });
