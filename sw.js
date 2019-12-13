@@ -1,5 +1,5 @@
-const staticCache = "site-static-v1";
-const dynamicCache = "site-dynamic-v1";
+const staticCache = "site-static-v2";
+const dynamicCache = "site-dynamic-v2";
 
 const assets = [
   "/",
@@ -47,14 +47,11 @@ self.addEventListener("fetch", e => {
     .match(e.request)
     .then(cacheRes => {
       return cacheRes 
-      // || fetch(e.request).then(fetchRes => {
-      //   return caches.open(dynamicCache).then(cache => {
-      //     cache.put(e.request.url, fetchRes.clone());
-      //     return fetchRes;
-      //   })
-      // })
       || fetch(e.request).then(fetchRes => {
-        return caches.delete(fetchRes)
+        return caches.open(dynamicCache).then(cache => {
+          cache.put(e.request.url, fetchRes.clone());
+          return fetchRes;
+        })
       })
     })
   );
