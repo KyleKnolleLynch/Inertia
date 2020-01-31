@@ -4,8 +4,8 @@
   "short_name": "Inertia",
   "start_url": "/index.html",
   "display": "browser",
-  "background_color": "#2dffba",
-  "theme_color": "#b6e2e0",
+  "background_color": "#a1a1a1",
+  "theme_color": "#d6d6d6",
   "description": "Welcome Page",
   "version": "1.0.0",
   "icons": [
