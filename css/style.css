@@ -89,7 +89,7 @@ body {
 #weather-div {
   position: absolute;
   top: 0.4rem;
-  right: 0;
+  right: 0.5rem;
 }
 
 #weather-dis,
@@ -114,10 +114,11 @@ body {
   font-size: 1rem;
 }
 
-.weather-icon,
+.weather-icon ,
 .weather-icon-alt {
-  margin: -0.7rem -0.9rem 0 0;
+  /* margin: -0.7rem -0.9rem 0 0;  */
 }
+
 
 #five-day,
 #alt-five-day {
@@ -162,12 +163,19 @@ body {
   font-size: 1.3rem;
 }
 
-#dayone img,
+/* #dayone img,
 #alt-dayone img {
   grid-column: span 2;
   width: 5rem;
   margin-top: -3rem;
+} */
+
+#dayone i,
+#alt-dayone i {
+  grid-column: span 2;
+  margin-top: -2rem;
 }
+
 
 #dayone :nth-child(5),
 #alt-dayone :nth-child(5) {

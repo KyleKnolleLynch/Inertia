@@ -6,10 +6,15 @@ const getLocation = () => {
       timeout: 10000
     });
   } else {
-    document.getElementById("weather-div").innerHTML =
-      "<span>Geolocation not supported on this device</span>";
+    document.getElementById('weather-div').innerHTML =
+      '<span>Geolocation not supported on this device</span>';
   }
 };
+
+//  day or night icon
+const now = new Date();
+let hours = now.getHours();
+const amPm = hours <= 5 || hours > 19 ? '-n' : '-d';
 
 const showWeather = async position => {
   try {
@@ -19,25 +24,45 @@ const showWeather = async position => {
       `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
     );
     const resData = await res.json();
-    document.getElementById("weather-dis").innerHTML = `
-      <h4 class="weather-title">${resData.name}</h4>
-      <p class="weather-icon"><img src='http://openweathermap.org/img/wn/${
-        resData.weather[0].icon
-      }.png' alt='current-icon'></img></p>
-      <h4 class="weather-temp">${Math.round(
-        resData.main.temp
-      )}<span>&deg;</span><span class="deg">F</span></h4>
-    `;
+    // document.getElementById('weather-dis').innerHTML = `
+    //   <h4 class="weather-title">${resData.name}</h4>
+    //   <p class="weather-icon"><img src='http://openweathermap.org/img/wn/${
+    //     resData.weather[0].icon
+    //   }.png' alt='current-icon'></img>
+    //   </p>
+    //   <h4 class="weather-temp">${Math.round(
+    //     resData.main.temp
+    //   )}<span>&deg;</span><span class="deg">F</span></h4>
+    // `;
 
-    document.getElementById("dayone").innerHTML = `
+    document.getElementById('weather-dis').innerHTML = `
+    <h4 class="weather-title">${resData.name}</h4>
+    <i class='weather-icon owf owf-2x owf-${resData.weather[0].id}${amPm}'></i>
+    <h4 class="weather-temp">${Math.round(
+      resData.main.temp
+    )}<span>&deg;</span><span class="deg">F</span></h4>
+  `;
+    console.log(resData);
+
+    // document.getElementById('dayone').innerHTML = `
+    // <h4>${resData.name}</h4>
+    // <h5>${Math.round(
+    //   resData.main.temp
+    // )}<span>&deg;</span><span style="font-size: 1rem">F</span></h5>
+    // <h5>${resData.weather[0].description}</h5>
+    // <img src='http://openweathermap.org/img/wn/${
+    //   resData.weather[0].icon
+    // }.png' alt='current-icon'></img>
+    // <h6>humidity ${resData.main.humidity}%</h6>
+    // <h6>wind ${Math.round(resData.wind.speed)} mph</h6>`;
+
+    document.getElementById('dayone').innerHTML = `
     <h4>${resData.name}</h4>
     <h5>${Math.round(
       resData.main.temp
     )}<span>&deg;</span><span style="font-size: 1rem">F</span></h5>
     <h5>${resData.weather[0].description}</h5>
-    <img src='http://openweathermap.org/img/wn/${
-      resData.weather[0].icon
-    }.png' alt='current-icon'></img>
+    <i class='owf owf-3x owf-${resData.weather[0].id}${amPm}'></i>
     <h6>humidity ${resData.main.humidity}%</h6>
     <h6>wind ${Math.round(resData.wind.speed)} mph</h6>`;
 
@@ -45,25 +70,23 @@ const showWeather = async position => {
       `/.netlify/functions/getweathercelc?lat=${lat}&lon=${lon}`
     );
     const resDataAlt = await resAlt.json();
-    document.getElementById("weather-dis-alt").innerHTML = `
+    document.getElementById('weather-dis-alt').innerHTML = `
     <h4 class="weather-title">${resDataAlt.name}</h4>
-    <p class="weather-icon"><img src='http://openweathermap.org/img/wn/${
-      resDataAlt.weather[0].icon
-    }.png' alt='alt-icon'></img></p>
+    <i class='weather-icon owf owf-2x owf-${
+      resDataAlt.weather[0].id
+    }${amPm}'></i>
     <h4 class="weather-temp">${Math.round(
       resDataAlt.main.temp
     )}<span>&deg;</span><span class="deg">C</span></h4>
   `;
 
-    document.getElementById("alt-dayone").innerHTML = `
+    document.getElementById('alt-dayone').innerHTML = `
     <h4>${resDataAlt.name}</h4>
     <h5>${Math.round(
       resDataAlt.main.temp
     )}<span>&deg;</span><span style="font-size: 1rem">C</span></h5>
     <h5>${resDataAlt.weather[0].description}</h5>
-    <img src='http://openweathermap.org/img/wn/${
-      resDataAlt.weather[0].icon
-    }.png' alt='alt-icon'></img>
+    <i class='owf owf-3x owf-${resDataAlt.weather[0].id}${amPm}'></i>
     <h6>humidity ${resDataAlt.main.humidity}%</h6>
     <h6>wind ${Math.round((resDataAlt.wind.speed * 60 * 60) / 1000)} kph</h6>`;
 
@@ -75,16 +98,16 @@ const showWeather = async position => {
     const resWkFa = await resWeeklyFar.json();
 
     let d = new Date(resWkFa.list[3].dt_txt).toDateString().slice(0, -11);
-    let t = new Date(resWkFa.list[3].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    let t = new Date(resWkFa.list[3].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
     let altD = new Date(resWkFa.list[7].dt_txt).toDateString().slice(0, -11);
-    let altT = new Date(resWkFa.list[7].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    let altT = new Date(resWkFa.list[7].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("daytwo").innerHTML = `
+    document.getElementById('daytwo').innerHTML = `
       <h5 class="days">${d}</h5>
       <h5>${t} ${Math.round(resWkFa.list[5].main.temp)}<span>&deg;</span></h5>
       <h5>${resWkFa.list[5].weather[0].main}</h5>
@@ -95,16 +118,16 @@ const showWeather = async position => {
       <h5>${resWkFa.list[8].weather[0].main}</h5>`;
 
     d = new Date(resWkFa.list[11].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[11].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    t = new Date(resWkFa.list[11].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
     altD = new Date(resWkFa.list[15].dt_txt).toDateString().slice(0, -11);
-    altT = new Date(resWkFa.list[15].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altT = new Date(resWkFa.list[15].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("daythree").innerHTML = `
+    document.getElementById('daythree').innerHTML = `
       <h5 class="days">${d}</h5>
       <h5>${t} ${Math.round(resWkFa.list[13].main.temp)}<span>&deg;</span></h5>
       <h5>${resWkFa.list[13].weather[0].main}</h5>
@@ -115,16 +138,16 @@ const showWeather = async position => {
       <h5>${resWkFa.list[16].weather[0].main}</h5>`;
 
     d = new Date(resWkFa.list[19].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[19].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    t = new Date(resWkFa.list[19].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
     altD = new Date(resWkFa.list[23].dt_txt).toDateString().slice(0, -11);
-    altT = new Date(resWkFa.list[23].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altT = new Date(resWkFa.list[23].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("dayfour").innerHTML = `
+    document.getElementById('dayfour').innerHTML = `
       <h5 class="days">${d}</h5>
       <h5>${t} ${Math.round(resWkFa.list[21].main.temp)}<span>&deg;</span></h5>
       <h5>${resWkFa.list[21].weather[0].main}</h5>
@@ -135,16 +158,16 @@ const showWeather = async position => {
       <h5>${resWkFa.list[24].weather[0].main}</h5>`;
 
     d = new Date(resWkFa.list[27].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[27].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    t = new Date(resWkFa.list[27].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
     altD = new Date(resWkFa.list[31].dt_txt).toDateString().slice(0, -11);
-    altT = new Date(resWkFa.list[31].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altT = new Date(resWkFa.list[31].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("dayfive").innerHTML = `
+    document.getElementById('dayfive').innerHTML = `
       <h5 class="days">${d}</h5>
       <h5>${t} ${Math.round(resWkFa.list[29].main.temp)}<span>&deg;</span></h5>
       <h5>${resWkFa.list[29].weather[0].main}</h5>
@@ -155,16 +178,16 @@ const showWeather = async position => {
       <h5>${resWkFa.list[32].weather[0].main}</h5>`;
 
     d = new Date(resWkFa.list[35].dt_txt).toDateString().slice(0, -11);
-    t = new Date(resWkFa.list[35].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    t = new Date(resWkFa.list[35].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
     altD = new Date(resWkFa.list[39].dt_txt).toDateString().slice(0, -11);
-    altT = new Date(resWkFa.list[39].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altT = new Date(resWkFa.list[39].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("daysix").innerHTML = `
+    document.getElementById('daysix').innerHTML = `
       <h5 class="days">${d}</h5>
       <h5>${t} ${Math.round(resWkFa.list[37].main.temp)}<span>&deg;</span></h5>
       <h5>${resWkFa.list[37].weather[0].main}</h5>
@@ -183,15 +206,15 @@ const showWeather = async position => {
     let celD;
     let celT;
     celD = new Date(resWkCe.list[3].dt_txt).toDateString().slice(0, -11);
-    celT = new Date(resWkCe.list[3].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    celT = new Date(resWkCe.list[3].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
     altCelD = new Date(resWkCe.list[7].dt_txt).toDateString().slice(0, -11);
-    altCelT = new Date(resWkCe.list[7].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altCelT = new Date(resWkCe.list[7].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
 
-    document.getElementById("alt-daytwo").innerHTML = `
+    document.getElementById('alt-daytwo').innerHTML = `
         <h5 class="days">${celD}</h5>
         <h5>${celT} ${Math.round(
       resWkCe.list[5].main.temp
@@ -204,14 +227,14 @@ const showWeather = async position => {
         <h5>${resWkCe.list[8].weather[0].main}</h5>`;
 
     celD = new Date(resWkCe.list[11].dt_txt).toDateString().slice(0, -11);
-    celT = new Date(resWkCe.list[11].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    celT = new Date(resWkCe.list[11].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
     altCelD = new Date(resWkCe.list[15].dt_txt).toDateString().slice(0, -11);
-    altCelT = new Date(resWkCe.list[15].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altCelT = new Date(resWkCe.list[15].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
-    document.getElementById("alt-daythree").innerHTML = `
+    document.getElementById('alt-daythree').innerHTML = `
         <h5 class="days">${celD}</h5>
         <h5>${celT} ${Math.round(
       resWkCe.list[13].main.temp
@@ -224,14 +247,14 @@ const showWeather = async position => {
         <h5>${resWkCe.list[16].weather[0].main}</h5>`;
 
     celD = new Date(resWkCe.list[19].dt_txt).toDateString().slice(0, -11);
-    celT = new Date(resWkCe.list[19].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    celT = new Date(resWkCe.list[19].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
     altCelD = new Date(resWkCe.list[23].dt_txt).toDateString().slice(0, -11);
-    altCelT = new Date(resWkCe.list[23].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altCelT = new Date(resWkCe.list[23].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
-    document.getElementById("alt-dayfour").innerHTML = `
+    document.getElementById('alt-dayfour').innerHTML = `
         <h5 class="days">${celD}</h5>
         <h5>${celT} ${Math.round(
       resWkCe.list[21].main.temp
@@ -244,14 +267,14 @@ const showWeather = async position => {
         <h5>${resWkCe.list[24].weather[0].main}</h5>`;
 
     celD = new Date(resWkCe.list[27].dt_txt).toDateString().slice(0, -11);
-    celT = new Date(resWkCe.list[27].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    celT = new Date(resWkCe.list[27].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
     altCelD = new Date(resWkCe.list[31].dt_txt).toDateString().slice(0, -11);
-    altCelT = new Date(resWkCe.list[31].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altCelT = new Date(resWkCe.list[31].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
-    document.getElementById("alt-dayfive").innerHTML = `
+    document.getElementById('alt-dayfive').innerHTML = `
         <h5 class="days">${celD}</h5>
         <h5>${celT} ${Math.round(
       resWkCe.list[29].main.temp
@@ -264,14 +287,14 @@ const showWeather = async position => {
         <h5>${resWkCe.list[32].weather[0].main}</h5>`;
 
     celD = new Date(resWkCe.list[35].dt_txt).toDateString().slice(0, -11);
-    celT = new Date(resWkCe.list[35].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    celT = new Date(resWkCe.list[35].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
     altCelD = new Date(resWkCe.list[39].dt_txt).toDateString().slice(0, -11);
-    altCelT = new Date(resWkCe.list[39].dt_txt).toLocaleTimeString("default", {
-      hour: "numeric"
+    altCelT = new Date(resWkCe.list[39].dt_txt).toLocaleTimeString('default', {
+      hour: 'numeric'
     });
-    document.getElementById("alt-daysix").innerHTML = `
+    document.getElementById('alt-daysix').innerHTML = `
         <h5 class="days">${celD}</h5>
         <h5>${celT} ${Math.round(
       resWkCe.list[37].main.temp
@@ -288,7 +311,7 @@ const showWeather = async position => {
 };
 
 const showError = error => {
-  const weatherDiv = document.getElementById("weather-div");
+  const weatherDiv = document.getElementById('weather-div');
   switch (error.code) {
     case error.PERMISSION_DENIED:
       weatherDiv.innerHTML =
@@ -299,7 +322,7 @@ const showError = error => {
             '<span class="weather-err">Please enable location services for live weather &nbsp;</span>'),
         5000
       );
-      setTimeout(() => (weatherDiv.innerHTML = ""), 10000);
+      setTimeout(() => (weatherDiv.innerHTML = ''), 10000);
       return;
     case error.POSITION_UNAVAILABLE:
       weatherDiv.innerHTML =
@@ -319,5 +342,4 @@ const showError = error => {
   }
 };
 
-// weatherAllow.addEventListener("click", getLocation);
-document.addEventListener("DOMContentLoaded", getLocation);
+document.addEventListener('DOMContentLoaded', getLocation);
