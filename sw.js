@@ -5,7 +5,6 @@ const assets = [
   "/",
   "/index.html",
   "/app.js",
-  "/weather.js",
   "/css/style.css",
   "https://fonts.googleapis.com/css?family=Exo:300&display=swap",
   "https://fonts.googleapis.com/css?family=EB+Garamond&display=swap",
