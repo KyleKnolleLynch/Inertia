@@ -1,10 +1,11 @@
-const staticCache = "site-static-v2";
-const dynamicCache = "site-dynamic-v2";
+const staticCache = "site-static-v1";
+const dynamicCache = "site-dynamic-v1";
 
 const assets = [
   "/",
   "/index.html",
   "/app.js",
+  "/weather.js",
   "/css/style.css",
   "https://fonts.googleapis.com/css?family=Exo:300&display=swap",
   "https://fonts.googleapis.com/css?family=EB+Garamond&display=swap",
