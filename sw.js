@@ -47,12 +47,12 @@ self.addEventListener("fetch", e => {
     .match(e.request)
     .then(cacheRes => {
       return cacheRes 
-      // || fetch(e.request).then(fetchRes => {
-      //   return caches.open(dynamicCache).then(cache => {
-      //     cache.put(e.request.url, fetchRes.clone());
-      //     return fetchRes;
-      //   })
-      // })
+      || fetch(e.request).then(fetchRes => {
+        return caches.open(dynamicCache).then(cache => {
+          cache.put(e.request.url, fetchRes.clone());
+          return fetchRes;
+        })
+      })
     })
   );
 });
