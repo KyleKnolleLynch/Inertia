@@ -24,16 +24,6 @@ const showWeather = async position => {
       `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
     );
     const resData = await res.json();
-    // document.getElementById('weather-dis').innerHTML = `
-    //   <h4 class="weather-title">${resData.name}</h4>
-    //   <p class="weather-icon"><img src='http://openweathermap.org/img/wn/${
-    //     resData.weather[0].icon
-    //   }.png' alt='current-icon'></img>
-    //   </p>
-    //   <h4 class="weather-temp">${Math.round(
-    //     resData.main.temp
-    //   )}<span>&deg;</span><span class="deg">F</span></h4>
-    // `;
 
     document.getElementById('weather-dis').innerHTML = `
     <h4 class="weather-title">${resData.name}</h4>
@@ -42,19 +32,6 @@ const showWeather = async position => {
       resData.main.temp
     )}<span>&deg;</span><span class="deg">F</span></h4>
   `;
-    console.log(resData);
-
-    // document.getElementById('dayone').innerHTML = `
-    // <h4>${resData.name}</h4>
-    // <h5>${Math.round(
-    //   resData.main.temp
-    // )}<span>&deg;</span><span style="font-size: 1rem">F</span></h5>
-    // <h5>${resData.weather[0].description}</h5>
-    // <img src='http://openweathermap.org/img/wn/${
-    //   resData.weather[0].icon
-    // }.png' alt='current-icon'></img>
-    // <h6>humidity ${resData.main.humidity}%</h6>
-    // <h6>wind ${Math.round(resData.wind.speed)} mph</h6>`;
 
     document.getElementById('dayone').innerHTML = `
     <h4>${resData.name}</h4>

@@ -3,7 +3,7 @@
   "name": "Inertia",
   "short_name": "Inertia",
   "start_url": "/index.html",
-  "display": "browser",
+  "display": "minimal-ui",
   "background_color": "#a1a1a1",
   "theme_color": "#d6d6d6",
   "description": "Welcome Page",
