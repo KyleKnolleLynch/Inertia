@@ -1,5 +1,5 @@
-const staticCache = 'site-static-v2';
-const dynamicCache = 'site-dynamic-v2';
+const staticCache = 'site-static-v1';
+const dynamicCache = 'site-dynamic-v1';
 
 const assets = [
   '/',
@@ -7,6 +7,12 @@ const assets = [
   '/app.js',
   '/weather.js',
   '/css/style.css',
+  '/css/owf-css/owfont-regular.css',
+  '/images/default-early-am.jpg',
+  '/images/default-morning.jpg',
+  '/images/default-night.jpg',
+  '/images/rox-park-noon.jpg',
+  '/images/icons/inertia_96x96.png',
   'https://fonts.googleapis.com/css?family=Exo:300&display=swap',
   'https://fonts.googleapis.com/css?family=EB+Garamond&display=swap',
   'https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap',
