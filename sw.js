@@ -10,7 +10,10 @@ const assets = [
   '/images/default-morning.jpg',
   '/images/default-night.jpg',
   '/images/rox-park-noon.jpg',
-  '/images/icons/inertia_96x96.png',
+  '/images/icons/inertia_96x96.png'
+];
+
+const fontAssets = [
   '/css/fonts/Exo-Light.woff',
   '/css/fonts/NanumGothic-Regular.woff',
   '/css/fonts/EBGaramond-VariableFont_wght.woff',
@@ -42,31 +45,31 @@ self.addEventListener('activate', e => {
   );
 });
 
-// self.addEventListener("fetch", e => {
-//   console.log("fetch event ");
-//   e.respondWith(
-//     caches
-//     .match(e.request)
-//     .then(cacheRes => {
-//       return cacheRes
-//       || fetch(e.request).then(fetchRes => {
-//         return caches.open(dynamicCache).then(cache => {
-//           cache.put(e.request.url, fetchRes.clone());
-//           return fetchRes;
-//         })
-//       })
-//     })
-//   );
-// });
-
-self.addEventListener('fetch', e => {
-  console.log('fetch event');
+self.addEventListener("fetch", e => {
+  console.log("fetch event ");
   e.respondWith(
-    caches.match(e.request).then(cacheRes => {
-      if (cacheRes) {
-        return cacheRes;
-      }
-      return fetch(e.request);
+    caches
+    .match(e.request)
+    .then(cacheRes => {
+      return cacheRes
+      || fetch(e.request).then(fetchRes => {
+        return caches.open(dynamicCache).then(cache => {
+          cache.put(fontAssets, fetchRes.clone());
+          return fetchRes;
+        })
+      })
     })
   );
 });
+
+// self.addEventListener('fetch', e => {
+//   console.log('fetch event');
+//   e.respondWith(
+//     caches.match(e.request).then(cacheRes => {
+//       if (cacheRes) {
+//         return cacheRes;
+//       }
+//       return fetch(e.request);
+//     })
+//   );
+// });
