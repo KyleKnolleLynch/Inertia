@@ -5,18 +5,16 @@ const assets = [
   '/',
   '/index.html',
   '/app.js',
-  '/weather.js',
   '/css/style.css',
-  // '/css/owf-css/owfont-regular.css',
   '/images/default-early-am.jpg',
   '/images/default-morning.jpg',
   '/images/default-night.jpg',
   '/images/rox-park-noon.jpg',
   '/images/icons/inertia_96x96.png',
-  // '/css/fonts/Exo-Light.woff',
-  // '/css/fonts/NanumGothic-Regular.woff',
-  // '/css/fonts/EBGaramond-VariableFont_wght.woff',
-  // '/css/fonts/EBGaramond-Italic-VariableFont_wght.woff'
+  '/css/fonts/Exo-Light.woff',
+  '/css/fonts/NanumGothic-Regular.woff',
+  '/css/fonts/EBGaramond-VariableFont_wght.woff',
+  '/css/fonts/EBGaramond-Italic-VariableFont_wght.woff'
 ];
 
 //  install sw
