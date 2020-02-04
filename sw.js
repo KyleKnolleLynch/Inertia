@@ -13,11 +13,10 @@ const assets = [
   '/images/default-night.jpg',
   '/images/rox-park-noon.jpg',
   '/images/icons/inertia_96x96.png',
-  '/css/fonts/Exo-Light.ttf',
-  '/css/fonts/NanumGothic-Regular.ttf',
-  '/css/fonts/EBGaramond-VariableFont_wght.ttf',
-  '/css/fonts/EBGaramond-Italic-VariableFont_wght.ttf',
-  'https://favqs.com/'
+  '/css/fonts/Exo-Light.woff',
+  '/css/fonts/NanumGothic-Regular.woff',
+  '/css/fonts/EBGaramond-VariableFont_wght.woff',
+  '/css/fonts/EBGaramond-Italic-VariableFont_wght.woff'
 ];
 
 //  install sw
