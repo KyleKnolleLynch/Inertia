@@ -1,11 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+@font-face {
+  font-family: 'Exo', sans-serif;
+  src: url('fonts/Exo-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nanum Gothic', sans-serif;
+  src: url('fonts/NanumGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EB Garamond', serif;
+  src: url('fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EB Garamond Italic', serif;
+  src: url('fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -62,8 +89,6 @@ html {
   text-align: center;
   color: #fff0f5;
   font-family: 'Exo', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #heading {
@@ -397,6 +422,7 @@ html {
 }
 
 #quote h5 {
+  font-family: 'EB Garamond Italic', serif;
   font-style: italic;
   margin-bottom: -0.5rem;
 }

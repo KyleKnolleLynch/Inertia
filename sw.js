@@ -13,10 +13,10 @@ const assets = [
   '/images/default-night.jpg',
   '/images/rox-park-noon.jpg',
   '/images/icons/inertia_96x96.png',
-  'https://fonts.googleapis.com/css?family=Exo:300&display=swap',
-  'https://fonts.googleapis.com/css?family=EB+Garamond&display=swap',
-  'https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap',
-  'https://use.fontawesome.com/releases/v5.6.3/css/all.css',
+  '/css/fonts/Exo-Light.ttf',
+  '/css/fonts/NanumGothic-Regular.ttf',
+  '/css/fonts/EBGaramond-VariableFont_wght.ttf',
+  '/css/fonts/EBGaramond-Italic-VariableFont_wght.ttf',
   'https://favqs.com/'
 ];
 
