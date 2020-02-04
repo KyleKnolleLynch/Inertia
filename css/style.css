@@ -700,6 +700,13 @@ html {
     font-size: 0.6rem;
   }
 
+  #five-day,
+  #alt-five-day {
+    top: -1rem;
+    right: -1rem;
+    transform: scale(0.8);
+  }
+
   #show-todo-list {
     height: 5rem;
     line-height: 1.8ch;
