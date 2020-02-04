@@ -17,7 +17,6 @@ const assets = [
   'https://fonts.googleapis.com/css?family=EB+Garamond&display=swap',
   'https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap',
   'https://use.fontawesome.com/releases/v5.6.3/css/all.css',
-  'https://favqs.com/api/qotd',
   'https://favqs.com/'
 ];
 
