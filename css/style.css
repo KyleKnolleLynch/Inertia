@@ -125,11 +125,6 @@ html {
   font-size: 1rem;
 }
 
-.weather-icon,
-.weather-icon-alt {
-  /* margin: -0.7rem -0.9rem 0 0;  */
-}
-
 #five-day,
 #alt-five-day {
   position: absolute;
@@ -407,7 +402,7 @@ html {
 }
 
 #quote span {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
 }
 
 .slider-div {
@@ -651,9 +646,13 @@ html {
   }
 
   #quote {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 1rem;
     margin-bottom: 5rem;
+  }
+
+  #quote span {
+    font-size: 12px;
   }
 
   #quote .slider {
