@@ -6,13 +6,6 @@
 }
 
 @font-face {
-  font-family: 'Nanum Gothic';
-  src: url('fonts/NanumGothic-Regular.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'EB Garamond';
   src: url('fonts/EBGaramond-VariableFont_wght.woff') format('woff');
   font-weight: 400;
@@ -268,7 +261,7 @@ html {
 }
 
 #todos {
-  font-family: 'Nanum Gothic', 'Century Gothic', Helvetica, sans-serif;
+  font-family: 'Arial Narrow', Arial, 'Century Gothic', Helvetica, sans-serif;
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
@@ -286,7 +279,6 @@ html {
 }
 
 #todo-input {
-  font-family: 'Nanum Gothic', 'Century Gothic', Helvetica, sans-serif;
   display: block;
   width: 100%;
   margin: 1rem 0;
@@ -299,7 +291,6 @@ html {
 }
 
 #todo-clear {
-  font-family: 'Nanum Gothic', 'Century Gothic', Helvetica, sans-serif;
   display: none;
   margin: 2rem auto 0;
 }
@@ -373,7 +364,6 @@ html {
 }
 
 .empty-text {
-  font-family: 'Nanum Gothic', 'Century Gothic', Helvetica, sans-serif;
   font-size: 1.3rem;
   margin: 0.2rem 2rem 0;
 }
@@ -383,7 +373,6 @@ html {
 }
 
 #show-todo-list {
-  font-family: 'Nanum Gothic', 'Century Gothic', Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -471,7 +460,7 @@ html {
   bottom: 3vh;
   right: 3vw;
   opacity: 0.6;
-  transition: transform 0.5s ease-out;
+  transition: all 0.5s ease-out;
   z-index: 10;
 }
 
@@ -689,6 +678,7 @@ html {
 
   #attribute {
     max-width: 15rem;
+    padding-bottom: auto;
   }
 
   #attribute :nth-child(1) {
