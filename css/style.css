@@ -678,7 +678,7 @@ html {
 
   #attribute {
     max-width: 15rem;
-    padding-bottom: auto;
+    padding-bottom: 0.4rem;
   }
 
   #attribute :nth-child(1) {
