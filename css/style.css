@@ -684,11 +684,11 @@ html {
     font-size: 1rem;
   }
 
-  #attribute .slider {
+  #attribute .slider,
+  #attribute .slider span {
     transform: translate(0, 0);
     max-width: 100vw;
   }
-
 }
 
 @media screen and (max-width: 440px) {
