@@ -588,7 +588,7 @@ html {
 
 #attribute .slider {
   transform: translate(0, -100%);
-  max-width: 70vw;
+  max-width: 90vw;
 }
 
 @media screen and (max-width: 970px) {
@@ -677,8 +677,7 @@ html {
   }
 
   #attribute {
-    max-width: 15rem;
-    padding-bottom: 0.4rem;
+    max-width: 16rem;
   }
 
   #attribute :nth-child(1) {
