@@ -265,8 +265,7 @@ html {
   display: none;
   background: rgba(33, 33, 33, 0.9);
   border-radius: 5px;
-  border-bottom: 0.9rem solid rgba(33, 33, 33, 0);
-  padding: 0 1rem;
+  padding: 0 1rem 0.5rem;
   width: 30rem;
   min-height: 9rem;
   max-height: 20rem;
@@ -275,7 +274,23 @@ html {
   bottom: 20vh;
   z-index: 20;
   overflow-y: scroll;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #111 #333;
+}
+
+#todos::-webkit-scrollbar {
+  width: 9px;
+}
+
+#todos::-webkit-scrollbar-track {
+  background: #333;
+}
+
+#todos::-webkit-scrollbar-thumb {
+  background-color: #111;
+  border-radius: 6px;
+  border: 3px solid #333;
+  cursor: none;
 }
 
 #todo-input {
@@ -323,8 +338,7 @@ html {
 }
 
 #todo-list input[type='checkbox'],
-#todo-list:empty,
-::-webkit-scrollbar {
+#todo-list:empty {
   display: none;
 }
 
@@ -395,7 +409,9 @@ html {
 
 #show-todo-list .checkmark,
 #show-todo-list a,
-#show-todo-list input[type='checkbox'] {
+#show-todo-list input[type='checkbox'],
+#show-todo-list::-webkit-scrollbar,
+.slider::-webkit-scrollbar {
   display: none;
 }
 
@@ -577,7 +593,7 @@ html {
 }
 
 .slider-attr-div {
-  height: 2rem;
+  min-height: 2rem;
   overflow: hidden;
   margin-top: -0.3rem;
   max-width: 70vw;
@@ -658,8 +674,8 @@ html {
 
   #show-todo-list {
     width: 14rem;
-    height: 7.2rem;
-    bottom: 7rem;
+    height: 8rem;
+    bottom: 10rem;
   }
 
   #quote {
@@ -676,13 +692,17 @@ html {
     transform: translate(0, 0);
   }
 
+  #attribute {
+    left: 0.5rem;
+  }
+
   #attribute p {
     font-size: 1rem;
     max-width: 16rem;
   }
 
   .slider-attr-div {
-    min-width: 90vw;
+    max-width: 90vw;
   }
 
   #attribute .slider {
