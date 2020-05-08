@@ -480,10 +480,6 @@ html {
   z-index: 10;
 }
 
-#cog:active {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
 .rotate {
   transform: scale(1.2) rotate(65deg);
 }
@@ -665,6 +661,10 @@ html {
 
   #cog {
     bottom: 5vh;
+  }
+
+  #cog:active {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   #todos {
