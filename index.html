@@ -37,12 +37,59 @@
       type="text/css"
     />
     <title>Inertia</title>
+    <style>
+      #loading-div {
+        min-height: 100vh;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .spinner {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border: 4px solid #ccc;
+        border-radius: 50%;
+        position: relative;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner.spinner:after {
+        content: '';
+        width: 4px;
+        height: 80px;
+        display: block;
+        background: #09f;
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: top center;
+        animation: spin 2s infinite linear;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('loading-div').style.display = 'none';
+      });
+    </script>
   </head>
   <body>
+    <div id="loading-div">
+      <div class="spinner"></div>
+    </div>
+
     <div class="container" id="bg-full-image">
       <div id="weather-div">
         <div id="weather-dis"></div>
-        <div id="weather-dis-alt" style="display: none"></div>
+        <div id="weather-dis-alt" style="display: none;"></div>
       </div>
       <div id="heading">
         <h1 id="title"></h1>
@@ -52,7 +99,7 @@
         <h2>My Focus Is</h2>
         <h2 id="input-focus" contenteditable="true"></h2>
       </div>
-      <div id="five-day" class="p" style="display: none">
+      <div id="five-day" class="p" style="display: none;">
         <div id="dayone"></div>
         <div id="daytwo"></div>
         <div id="daythree"></div>
@@ -60,7 +107,7 @@
         <div id="dayfive"></div>
         <div id="daysix"></div>
       </div>
-      <div id="alt-five-day" class="p" style="display: none">
+      <div id="alt-five-day" class="p" style="display: none;">
         <div id="alt-dayone"></div>
         <div id="alt-daytwo"></div>
         <div id="alt-daythree"></div>
@@ -70,7 +117,7 @@
       </div>
       <time id="clock"></time>
       <time id="alt-clock"></time>
-      <div id="todos" style="display: none">
+      <div id="todos" style="display: none;">
         <form id="todo-form">
           <label for="todo-input"
             ><input
@@ -95,7 +142,7 @@
       </div>
       <ul id="show-todo-list"></ul>
       <div id="quote"></div>
-      <form id="settings" style="display: none">
+      <form id="settings" style="display: none;">
         <h3>Settings</h3>
         <div id="focus-settings">
           <h4>Focus</h4>
@@ -178,7 +225,7 @@
       <div id="attribute"></div>
     </div>
 
-    <script src="weather.js"></script>
     <script src="app.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
