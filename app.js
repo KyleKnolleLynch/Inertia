@@ -1,3 +1,6 @@
+import { getLocation } from './weather.js'
+
+//  init service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('/sw.js')
@@ -5,11 +8,7 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.log('service worker not registered', err))
 }
 
-import { getLocation } from './weather.js'
-
-//  execute weather.js functions
-document.addEventListener('DOMContentLoaded', getLocation)
-
+//  global constant variables
 const user = document.getElementById('user')
 const inputFocus = document.getElementById('input-focus')
 const todoClear = document.getElementById('todo-clear')
@@ -19,6 +18,8 @@ const weatherDis = document.getElementById('weather-dis')
 const weatherDisAlt = document.getElementById('weather-dis-alt')
 
 //    TIME/BACKGROUND IMAGE DISPLAY   //
+
+//  set clock
 const time = () => {
   const today = new Date()
   let hours = today.getHours()
@@ -34,6 +35,7 @@ const time = () => {
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`
 }
 
+//  dynamically display background images depending on time of day/night
 const setDisplay = async () => {
   const bgImg = document.getElementById('bg-full-image')
   const title = document.getElementById('title')
@@ -488,8 +490,10 @@ document.querySelectorAll('input[type=checkbox]').forEach(box => {
   }
 })
 
-//    Event Listeners   //
+//  execute weather.js functions when DOM load is complete
+document.addEventListener('DOMContentLoaded', getLocation)
 
+//    Event Listeners   //
 user.addEventListener('click', clearUser)
 user.addEventListener('keydown', setUser)
 user.addEventListener('blur', setUser)

@@ -1,4 +1,6 @@
 //    WEATHER DISPLAY   //
+
+//  get geolocation from browser then execute api calls to openweathermap
 export const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showWeather, showError, {
@@ -16,10 +18,13 @@ const now = new Date()
 let hours = now.getHours()
 const amPm = hours <= 5 || hours > 19 ? '-n' : '-d'
 
+//  api calls to openweathermap
 const showWeather = async position => {
   try {
     const lat = position.coords.latitude
     const lon = position.coords.longitude
+
+    //  get and inject into DOM current fahrenheit data
     const res = await fetch(
       `/.netlify/functions/getweatherfaren?lat=${lat}&lon=${lon}`
     )
@@ -43,6 +48,7 @@ const showWeather = async position => {
     <h6>humidity ${resData.main.humidity}%</h6>
     <h6>wind ${Math.round(resData.wind.speed)} mph</h6>`
 
+    //  get and inject into DOM current celcius data
     const resAlt = await fetch(
       `/.netlify/functions/getweathercelc?lat=${lat}&lon=${lon}`
     )
@@ -68,17 +74,20 @@ const showWeather = async position => {
     <h6>wind ${Math.round((resDataAlt.wind.speed * 60 * 60) / 1000)} kph</h6>`
 
     //    Weekly Forecast   //
-    //    Farenheit
+
+    //   get and inject into DOM weekly fahrenheit data
     const resWeeklyFar = await fetch(
       `/.netlify/functions/getweeklyfaren?lat=${lat}&lon=${lon}`
     )
     const resWkFa = await resWeeklyFar.json()
 
+    //  next day fahrenheit forecast data... 
     let d = new Date(resWkFa.list[3].dt_txt).toDateString().slice(0, -11)
     let t = new Date(resWkFa.list[3].dt_txt).toLocaleTimeString('default', {
       hour: 'numeric',
     })
 
+    //  next day +12hours fahrenheit forecast data...
     let altD = new Date(resWkFa.list[7].dt_txt).toDateString().slice(0, -11)
     let altT = new Date(resWkFa.list[7].dt_txt).toLocaleTimeString('default', {
       hour: 'numeric',
@@ -174,22 +183,25 @@ const showWeather = async position => {
     )}<span>&deg;</span></h5>
       <h5>${resWkFa.list[39].weather[0].main}</h5>`
 
-    //    Celcius
+    //  get and inject into DOM weekly celcius data
     const resWeeklyCel = await fetch(
       `/.netlify/functions/getweeklycelc?lat=${lat}&lon=${lon}`
     )
     const resWkCe = await resWeeklyCel.json()
 
-    let celD
-    let celT
-    celD = new Date(resWkCe.list[3].dt_txt).toDateString().slice(0, -11)
-    celT = new Date(resWkCe.list[3].dt_txt).toLocaleTimeString('default', {
+    //  next day celcius forecast data...
+    let celD = new Date(resWkCe.list[3].dt_txt).toDateString().slice(0, -11)
+    let celT = new Date(resWkCe.list[3].dt_txt).toLocaleTimeString('default', {
       hour: 'numeric',
     })
-    altCelD = new Date(resWkCe.list[7].dt_txt).toDateString().slice(0, -11)
-    altCelT = new Date(resWkCe.list[7].dt_txt).toLocaleTimeString('default', {
-      hour: 'numeric',
-    })
+    //  next day + 12hours celcius forecast data...
+    let altCelD = new Date(resWkCe.list[7].dt_txt).toDateString().slice(0, -11)
+    let altCelT = new Date(resWkCe.list[7].dt_txt).toLocaleTimeString(
+      'default',
+      {
+        hour: 'numeric',
+      }
+    )
 
     document.getElementById('alt-daytwo').innerHTML = `
         <h5 class="days">${celD}</h5>
@@ -287,6 +299,7 @@ const showWeather = async position => {
   }
 }
 
+//  multiple error switch statement catch
 const showError = error => {
   const weatherDiv = document.getElementById('weather-div')
   switch (error.code) {
@@ -318,5 +331,3 @@ const showError = error => {
         '<span class="weather-err">Something went wrong &nbsp;</span>'
   }
 }
-
-// document.addEventListener('DOMContentLoaded', getLocation);
