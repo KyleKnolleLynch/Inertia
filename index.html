@@ -13,8 +13,8 @@
     <link rel="apple-touch-icon" href="/images/icons/inertiaIcon_96.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#d6d6d6" />
     <!---->
-    <link rel="preload" href="app.js" as="script" />
-    <link rel="preload" href="weather.js" as="script" />
+    <!-- <link rel="preload" href="app.js" as="script" /> -->
+    <!-- <link rel="preload" href="weather.js" as="script" /> -->
     <link rel="preconnect" href="http://openweathermap.org" />
     <link rel="preconnect" href="https://favqs.com/api/qotd" />
     <link rel="shortcut icon" href="/images/icons/inertiaIcon_96.png" />
@@ -73,8 +73,8 @@
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('loading-div').style.display = 'none';
-      });
+        document.getElementById('loading-div').style.display = 'none'
+      })
     </script>
   </head>
   <body>
@@ -85,7 +85,7 @@
     <div class="container" id="bg-full-image">
       <div id="weather-div">
         <div id="weather-dis"></div>
-        <div id="weather-dis-alt" style="display: none;"></div>
+        <div id="weather-dis-alt" style="display: none"></div>
       </div>
       <div id="heading">
         <h1 id="title"></h1>
@@ -95,7 +95,7 @@
         <h2>My Focus Is</h2>
         <h2 id="input-focus" contenteditable="true"></h2>
       </div>
-      <div id="five-day" class="p" style="display: none;">
+      <div id="five-day" class="p" style="display: none">
         <div id="dayone"></div>
         <div id="daytwo"></div>
         <div id="daythree"></div>
@@ -103,7 +103,7 @@
         <div id="dayfive"></div>
         <div id="daysix"></div>
       </div>
-      <div id="alt-five-day" class="p" style="display: none;">
+      <div id="alt-five-day" class="p" style="display: none">
         <div id="alt-dayone"></div>
         <div id="alt-daytwo"></div>
         <div id="alt-daythree"></div>
@@ -113,7 +113,7 @@
       </div>
       <time id="clock"></time>
       <time id="alt-clock"></time>
-      <div id="todos" style="display: none;">
+      <div id="todos" style="display: none">
         <form id="todo-form">
           <label for="todo-input"
             ><input
@@ -138,7 +138,7 @@
       </div>
       <ul id="show-todo-list"></ul>
       <div id="quote"></div>
-      <form id="settings" style="display: none;">
+      <form id="settings" style="display: none">
         <h3>Settings</h3>
         <div id="focus-settings">
           <h4>Focus</h4>
@@ -221,7 +221,7 @@
       <div id="attribute"></div>
     </div>
 
-    <script src="app.js"></script>
-    <script src="weather.js"></script>
+    <script src="app.js" type="module"></script>
+    <!-- <script src="weather.js"></script> -->
   </body>
 </html>

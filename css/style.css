@@ -408,7 +408,7 @@ html {
 }
 
 #show-todo-list .checkmark,
-#show-todo-list a,
+#show-todo-list .delete-todo,
 #show-todo-list input[type='checkbox'],
 #show-todo-list::-webkit-scrollbar,
 .slider::-webkit-scrollbar {
