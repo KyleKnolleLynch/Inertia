@@ -355,18 +355,18 @@ const getQuote = async () => {
     const resData = await res.json()
     document.getElementById('quote').insertAdjacentHTML(
       'afterbegin',
-      `<h4>${resData.quote.body}</h4>
+      `<h3>${resData.quote.body}</h3>
       <div class='slider-div'>
       <div class='slider'>
-      <h5 class='p' id='quote-author'>- ${resData.quote.author}</h5>
+      <p class='p' id='quote-author'>- ${resData.quote.author}</p>
       <span id="quote-span">Quote source:<a href="https://favqs.com/" target="_blank" rel="noopener noreferrer"> FavQs</a></span>
       </div></div>`
     )
   } catch (err) {
     document.getElementById('quote').insertAdjacentHTML(
       'afterbegin',
-      `<h4>It does not require many words to speak the truth.</h4>
-     <h5 class='p'>- Chief Joseph ~ Nez Perce </h5>`
+      `<h3>It does not require many words to speak the truth.</h3>
+     <p class='p'>- Chief Joseph ~ Nez Perce </p>`
     )
   }
 }

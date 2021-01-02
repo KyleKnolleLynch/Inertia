@@ -226,7 +226,7 @@ html {
   right: 0;
   left: 0;
   margin: auto;
-  font-size: 8rem;
+  font-size: 12rem;
   font-weight: 600;
   z-index: 10;
 }
@@ -236,9 +236,10 @@ html {
 }
 
 #clockSpan {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-left: 0.4rem;
   font-weight: 300;
+  z-index: 10;
 }
 
 #todo-open {
@@ -416,17 +417,13 @@ html {
 
 #quote {
   max-width: 24rem;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto auto 3rem;
   font-family: 'EB Garamond', Garamond, 'Big Caslon', 'Times New Roman', Times,
     serif;
+  font-size: 0.9rem;
 }
 
-#quote h5 {
+#quote p {
   font-family: 'EB Garamond Italic', Garamond, 'Big Caslon', 'Times New Roman',
     Times, serif;
   font-style: italic;
@@ -606,9 +603,13 @@ html {
   transform: translate(0, -100%);
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1025px) {
   #quote {
-    width: 18rem;
+    width: 20rem;
+  }
+
+  #quote .slider {
+    transform: translate(0, 0);
   }
 }
 
@@ -637,11 +638,11 @@ html {
 
   #clock,
   #alt-clock {
-    font-size: 5rem;
+    font-size: 7rem;
   }
 
   #clockSpan {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   #weather-div {
@@ -682,17 +683,9 @@ html {
   }
 
   #quote {
-    font-size: 0.9rem;
+    width: 18rem;
+    font-size: 0.8rem;
     padding: 1rem;
-    margin-bottom: 5rem;
-  }
-
-  #quote span {
-    font-size: 12px;
-  }
-
-  #quote .slider {
-    transform: translate(0, 0);
   }
 
   #attribute {
@@ -751,9 +744,13 @@ html {
     height: 5rem;
     line-height: 1.8ch;
   }
+
+  #quote {
+    font-size: 0.6rem;
+  }
 }
 
-@media screen and (max-height: 550px) {
+@media screen and (max-height: 569px) {
   html {
     height: 100vh;
     min-height: 120%;
@@ -775,11 +772,11 @@ html {
   #clock,
   #alt-clock {
     margin-top: 4rem;
-    font-size: 5rem;
+    font-size: 6rem;
   }
 
   #clockSpan {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   #todos {
