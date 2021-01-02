@@ -644,6 +644,7 @@ html {
 
   #clock,
   #alt-clock {
+    top: 30vh;
     font-size: 7rem;
   }
 
@@ -686,7 +687,14 @@ html {
 
   #quote {
     width: 18rem;
+    max-height: 12rem;
+    margin-bottom: 4rem;
     padding: 1rem;
+    overflow-y: scroll;
+  }
+
+  #quote::-webkit-scrollbar {
+    opacity: 0;
   }
 
   #attribute {
