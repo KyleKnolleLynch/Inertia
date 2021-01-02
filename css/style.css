@@ -427,11 +427,12 @@ html {
   font-family: 'EB Garamond Italic', Garamond, 'Big Caslon', 'Times New Roman',
     Times, serif;
   font-style: italic;
-  margin-bottom: -0.5rem;
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
 }
 
-#quote span {
-  font-size: 0.7rem;
+#quote p span {
+  font-size: 0.8rem;
 }
 
 .slider-div {
@@ -611,6 +612,11 @@ html {
   #quote .slider {
     transform: translate(0, 0);
   }
+
+  #todo-open:active,
+  #cog:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -663,10 +669,6 @@ html {
     bottom: 5vh;
   }
 
-  #cog:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
   #todos {
     min-height: 7rem;
     width: 70vw;
@@ -684,7 +686,6 @@ html {
 
   #quote {
     width: 18rem;
-    font-size: 0.8rem;
     padding: 1rem;
   }
 
@@ -744,10 +745,6 @@ html {
     height: 5rem;
     line-height: 1.8ch;
   }
-
-  #quote {
-    font-size: 0.6rem;
-  }
 }
 
 @media screen and (max-height: 569px) {
@@ -771,7 +768,7 @@ html {
 
   #clock,
   #alt-clock {
-    margin-top: 4rem;
+    margin-top: 2rem;
     font-size: 6rem;
   }
 
