@@ -69,7 +69,7 @@ const setDisplay = async () => {
       `
     } catch (err) {
       title.innerHTML = 'Good morning,'
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.jpg) center/cover no-repeat`
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.webp) center/cover no-repeat`
       attr.innerHTML =
         '<p>Silverthorne, United States</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -99,7 +99,7 @@ const setDisplay = async () => {
       `
     } catch (err) {
       title.innerHTML = 'Good morning,'
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.jpg) center/cover no-repeat`
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.webp) center/cover no-repeat`
       attr.innerHTML =
         '<p>Hopeful horizons</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -129,7 +129,7 @@ const setDisplay = async () => {
       `
     } catch (err) {
       title.innerHTML = 'Good afternoon,'
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.jpg) center/cover no-repeat`
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.webp) center/cover no-repeat`
       attr.innerHTML =
         '<p>Roxborough Park, Colorado</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://kylelynch.me/" target="_blank" rel="noopener noreferrer">Kyle Lynch</a></span></div></div>'
     }
@@ -159,7 +159,7 @@ const setDisplay = async () => {
       `
     } catch (err) {
       title.innerHTML = 'Good evening,'
-      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.jpg) center/cover no-repeat`
+      bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.webp) center/cover no-repeat`
       attr.innerHTML =
         '<p>river beside mountain under full moon</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -253,9 +253,9 @@ let newTodos = localStorage.getItem('new-todos')
   ? JSON.parse(localStorage.getItem('new-todos'))
   : []
 
-newTodos.length === 0
+!newTodos.length
   ? (todoList.innerHTML = '')
-  : (todoClear.style.display = 'inline-block')
+  : (todoClear.style.display = 'flex')
 
 if (newTodos) {
   newTodos.forEach(item => {
@@ -265,7 +265,7 @@ if (newTodos) {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
-  <div class='delete-todo button'> <i class="danger fas fa-minus"></i></div> 
+  <div class='delete-todo button'> <i class="danger las la-minus-circle"></i></div> 
   </li>`
     )
   })
@@ -286,10 +286,10 @@ const addTodos = text => {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
-  <div class='delete-todo button'><i class="danger fas fa-minus"></i></div> 
+  <div class='delete-todo button'><i class="danger las la-minus-circle"></i></div> 
   </li>`
   )
-  todoClear.style.display = 'inline-block'
+  todoClear.style.display = 'flex'
 }
 
 document.getElementById('todo-form').addEventListener('submit', e => {
@@ -340,7 +340,7 @@ todoList.addEventListener('click', e => {
     toggleCheck(itemKey)
   }
 
-  if (e.target.classList.contains('fa-minus')) {
+  if (e.target.classList.contains('la-minus-circle')) {
     const itemKey = e.target.parentElement.parentElement.dataset.key
     deleteTodoFunc(itemKey)
   }

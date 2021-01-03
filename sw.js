@@ -1,15 +1,15 @@
-const staticCache = 'site-static-v1';
-const dynamicCache = 'site-dynamic-v1';
+const staticCache = 'site-static-v0';
+const dynamicCache = 'site-dynamic-v0';
 
 const assets = [
   '/',
   '/index.html',
   '/app.js',
   '/css/style.css',
-  '/images/default-early-am.jpg',
-  '/images/default-morning.jpg',
-  '/images/default-night.jpg',
-  '/images/rox-park-noon.jpg',
+  '/images/default-early-am.webp',
+  '/images/default-morning.webp',
+  '/images/default-night.webp',
+  '/images/rox-park-noon.webp',
   '/images/icons/inertiaIcon_96.png',
   '/css/fonts/Exo-Light.woff',
   '/css/fonts/EBGaramond-VariableFont_wght.woff',
