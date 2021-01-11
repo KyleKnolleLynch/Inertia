@@ -5,7 +5,7 @@
 *  Vanilla Javascript
 *  Unsplash API
 *  OpenWeatherMap API
-*  Font Awesome
+*  Line Awesome
 *  Netlify serverless lambda functions
 
 
