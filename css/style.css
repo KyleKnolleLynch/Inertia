@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'Exo';
-  src: url('fonts/Exo-Light.woff') format('woff');
+  src: url('fonts/Exo-Light.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'EB Garamond';
-  src: url('fonts/EBGaramond-VariableFont_wght.woff') format('woff');
+  src: url('fonts/EBGaramond-VariableFont_wght.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'EB Garamond Italic';
-  src: url('fonts/EBGaramond-Italic-VariableFont_wght.woff') format('woff');
+  src: url('fonts/EBGaramond-Italic-VariableFont_wght.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -30,6 +30,7 @@ body,
 html {
   overflow: hidden;
   color: #fff0f5;
+  background: #111;
   font-family: 'Exo', 'Arial Narrow', Futura, sans-serif;
   text-rendering: optimizeLegibility;
   text-rendering: geometricPrecision;
@@ -81,7 +82,6 @@ html {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: #111;
 }
 
 #heading {

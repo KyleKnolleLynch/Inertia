@@ -17,13 +17,33 @@
     <link rel="preconnect" href="https://favqs.com/api/qotd" />
     <link rel="shortcut icon" href="/images/icons/inertiaIcon_96.png" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/css/line-awesome/css/line-awesome.min.css" />
+    <script src="app.js" type="module"></script>
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+      media="print"
+      onload="this.media='all';this.onload=null"
+    />
+    <noscript><link rel="stylesheet" href="/css/style.css" /></noscript>
+    <link
+      rel="stylesheet"
+      href="/css/line-awesome/css/line-awesome.min.css"
+      media="print"
+      onload="this.media='all';this.onload=null"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/css/line-awesome/css/line-awesome.min.css"
+    /></noscript>
     <link
       rel="stylesheet"
       href="/css/owf-css/owfont-regular.min.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all';this.onload=null"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <noscript
+      ><link rel="stylesheet" href="/css/owf-css/owfont-regular.min.css"
+    /></noscript>
+
     <title>Inertia</title>
     <style>
       #loading-div {
@@ -212,7 +232,5 @@
       <div id="cog"><i class="las la-cog p"></i></div>
       <div id="attribute"></div>
     </div>
-
-    <script src="app.js" type="module"></script>
   </body>
 </html>
