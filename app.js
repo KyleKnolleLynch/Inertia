@@ -265,7 +265,7 @@ if (newTodos) {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
-  <div class='delete-todo button'> <i class="danger las la-minus-circle"></i></div> 
+  <button class='delete-todo button'> <i class="danger las la-minus-circle"></i></button> 
   </li>`
     )
   })
@@ -286,7 +286,7 @@ const addTodos = text => {
   <input id='${item.id}' type='checkbox' />
   <label for='${item.id}' class='checkmark p'></label>
   <span id='todo-span'>${item.text}</span>
-  <div class='delete-todo button'><i class="danger las la-minus-circle"></i></div> 
+  <button class='delete-todo button'><i class="danger las la-minus-circle"></i></button> 
   </li>`
   )
   todoClear.style.display = 'flex'
@@ -340,8 +340,8 @@ todoList.addEventListener('click', e => {
     toggleCheck(itemKey)
   }
 
-  if (e.target.classList.contains('la-minus-circle')) {
-    const itemKey = e.target.parentElement.parentElement.dataset.key
+  if (e.target.classList.contains('delete-todo')) {
+    const itemKey = e.target.parentElement.dataset.key
     deleteTodoFunc(itemKey)
   }
 })

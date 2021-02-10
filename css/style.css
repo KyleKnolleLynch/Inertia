@@ -379,6 +379,10 @@ html {
   right: 1rem;
 }
 
+.la-minus-circle {
+  pointer-events: none;
+}
+
 .empty {
   display: none;
   width: 100%;
