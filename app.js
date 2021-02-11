@@ -426,7 +426,6 @@ const showTodoList = () => {
   const showTodo = document.getElementById('show-todo-list')
   const clone = Object.assign(todoList)
   todoList ? (showTodo.innerHTML = clone.innerHTML) : (showTodo.innerHTML = '')
-  if (showTodo) return
 }
 
 const showCel = () => {
