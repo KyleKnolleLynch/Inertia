@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Exo';
   src: url('fonts/Exo-Light.woff2') format('woff2');
+  font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
@@ -8,6 +9,7 @@
 @font-face {
   font-family: 'EB Garamond';
   src: url('fonts/EBGaramond-VariableFont_wght.woff2') format('woff2');
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
@@ -15,8 +17,8 @@
 @font-face {
   font-family: 'EB Garamond Italic';
   src: url('fonts/EBGaramond-Italic-VariableFont_wght.woff2') format('woff2');
-  font-weight: 400;
   font-style: italic;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -619,7 +621,7 @@ html {
 
 @media screen and (max-width: 1025px) {
   #quote {
-    width: 20rem;
+    max-width: 20rem;
   }
 
   #quote .slider {
@@ -675,7 +677,7 @@ html {
 
   #todo-open,
   #cog {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   #cog {
@@ -698,10 +700,9 @@ html {
   }
 
   #quote {
-    width: 18rem;
-    max-height: 12rem;
-    margin-bottom: 4rem;
-    padding: 1rem;
+    max-width: 75vw;
+    max-height: 11rem;
+    margin-bottom: 5rem;
     overflow-y: scroll;
   }
 
@@ -809,7 +810,7 @@ html {
 
   #todo-open,
   #cog {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   #show-todo-list {
