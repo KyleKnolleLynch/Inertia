@@ -3,6 +3,7 @@
   src: url('fonts/Exo-Light.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
+  unicode-range: U+0020 —007F;
   font-display: swap;
 }
 
@@ -11,6 +12,7 @@
   src: url('fonts/EBGaramond-VariableFont_wght.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
+  unicode-range: U+0020 —007F;
   font-display: swap;
 }
 
@@ -19,6 +21,7 @@
   src: url('fonts/EBGaramond-Italic-VariableFont_wght.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
+  unicode-range: U+0020 —007F;
   font-display: swap;
 }
 
@@ -253,7 +256,7 @@ html {
   bottom: 14vh;
   left: 2vw;
   opacity: 0.6;
-  transition: 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
   z-index: 10;
 }
 
@@ -261,10 +264,12 @@ html {
   font-size: 1.5rem;
 }
 
-#todo-open:hover,
-#cog:hover {
-  opacity: 0.9;
-  transition: 0.4s ease-in;
+#todo-open:hover {
+  opacity: 1;
+}
+
+#todo-open:active {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #todos {
@@ -488,8 +493,16 @@ html {
   bottom: 3vh;
   right: 3vw;
   opacity: 0.6;
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
   z-index: 10;
+}
+
+#cog:hover {
+  opacity: 1;
+}
+
+#cog:active {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .rotate {
@@ -626,11 +639,6 @@ html {
 
   #quote .slider {
     transform: translate(0, 0);
-  }
-
-  #todo-open:active,
-  #cog:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
 

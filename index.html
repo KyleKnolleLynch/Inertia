@@ -15,7 +15,7 @@
     <!---->
     <link rel="shortcut icon" href="/images/icons/inertiaIcon_96.png" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="prefetch" href="https://openweathermap.org" />
+    <link rel="prefetch" href="https://openweathermap.org" crossorigin />
     <link rel="preconnect" href="https://favqs.com/api/qotd" crossorigin />
     <script src="app.js" type="module" defer></script>
 
@@ -30,6 +30,15 @@
     <link
       rel="preload"
       href="/css/fonts/EBGaramond-VariableFont_wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link
+      rel="preload"
+      media="screen and (max-width: 1025px)"
+      href="/css/fonts/EBGaramond-Italic-VariableFont_wght.woff2"
       as="font"
       type="font/woff2"
       crossorigin
