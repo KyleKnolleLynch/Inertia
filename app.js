@@ -11,6 +11,8 @@ if ('serviceWorker' in navigator) {
 //  global constant variables
 const user = document.getElementById('user')
 const inputFocus = document.getElementById('input-focus')
+const clock = document.getElementById('clock')
+const altClock = document.getElementById('alt-clock')
 const todoClear = document.getElementById('todo-clear')
 const todoList = document.getElementById('todo-list')
 const settings = document.getElementById('settings')
@@ -31,9 +33,23 @@ const time = () => {
     return (parseInt(num, 10) < 10 ? '0' : '') + num
   }
 
-  document.getElementById('clock').innerHTML = `
+  clock.innerHTML = `
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`
 }
+
+//  set 24hour clock
+const altTime = () => {
+  const d = new Date().toLocaleTimeString('default', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+  })
+  altClock.innerHTML = d
+}
+
+//  instantly show time upon page load
+time()
+altTime()
 
 //  dynamically display background images depending on time of day/night
 const setDisplay = async () => {
@@ -401,25 +417,21 @@ const closeSettings = e => {
   load()
 }
 
+let ti
+let ati
+
 const showClock = () => {
-  document.getElementById('alt-clock').style.display = 'none'
-  document.getElementById('clock').style.display = 'block'
-  setInterval(time, 1000)
+  clearInterval(ati)
+  altClock.style.display = 'none'
+  clock.style.display = 'block'
+  ti = setInterval(time, 1000)
 }
 
 const showAltClock = () => {
-  const altClock = document.getElementById('alt-clock')
-  document.getElementById('clock').style.display = 'none'
-  const altTime = () => {
-    const d = new Date().toLocaleTimeString('default', {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false,
-    })
-    altClock.innerHTML = d
-  }
+  clearInterval(ti)
+  clock.style.display = 'none'
   altClock.style.display = 'block'
-  setInterval(altTime, 1000)
+  ati = setInterval(altTime, 1000)
 }
 
 const showTodoList = () => {
