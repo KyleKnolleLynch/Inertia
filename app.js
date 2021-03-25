@@ -47,10 +47,6 @@ const altTime = () => {
   altClock.innerHTML = d
 }
 
-//  instantly show time upon page load
-time()
-altTime()
-
 //  dynamically display background images depending on time of day/night
 const setDisplay = async () => {
   const bgImg = document.getElementById('bg-full-image')
@@ -417,10 +413,12 @@ const closeSettings = e => {
   load()
 }
 
-let ti
-let ati
+
+let ti    //  TODO
+let ati   //  TODO
 
 const showClock = () => {
+  time()
   clearInterval(ati)
   altClock.style.display = 'none'
   clock.style.display = 'block'
@@ -428,6 +426,7 @@ const showClock = () => {
 }
 
 const showAltClock = () => {
+  altTime()
   clearInterval(ti)
   clock.style.display = 'none'
   altClock.style.display = 'block'
@@ -519,7 +518,7 @@ todoClear.addEventListener('click', clearAll)
 document.getElementById('weather-div').addEventListener('click', showWeekly)
 window.addEventListener('click', hideWeekly)
 
-setInterval(time, 1000)
+!document.getElementById('rad-clock-alt').checked && showClock()
 setDisplay()
 getUser()
 getInputFocus()
