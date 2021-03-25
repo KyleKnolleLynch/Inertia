@@ -91,6 +91,7 @@
     <title>Inertia</title>
     <style>
       #loading-div {
+        width: 100vw;
         min-height: 100vh;
         background: #111;
         display: flex;
@@ -181,7 +182,7 @@
           /></label>
         </form>
         <ul id="todo-list"></ul>
-        <div class="empty container">
+        <div class="empty">
           <i class="las la-chalkboard la-2x"></i>
           <p class="empty-text">No Todos Yet..</p>
         </div>
@@ -189,10 +190,10 @@
           <i class="las la-times danger"></i>Clear All
         </button>
       </div>
+      <ul id="show-todo-list"></ul>
       <div id="todo-open">
         <i class="las la-list-alt"></i> <span>Todos</span>
       </div>
-      <ul id="show-todo-list"></ul>
       <div id="quote"></div>
       <form id="settings" style="display: none">
         <h3>Settings</h3>
@@ -273,8 +274,9 @@
           </div>
         </div>
       </form>
-      <div id="cog"><i class="las la-cog p"></i></div>
+
       <div id="attribute"></div>
+      <div id="cog"><i class="las la-cog p"></i></div>
     </div>
   </body>
 </html>

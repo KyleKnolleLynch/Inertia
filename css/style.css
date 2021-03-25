@@ -84,27 +84,31 @@ html {
 .container {
   width: 100vw;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
   text-align: center;
+  background: #111;
 }
 
 #heading {
+  width: 100%;
   font-size: 1.7rem;
-  margin: 3vh 0 1rem;
+  grid-column: span 3;
   align-self: center;
 }
 
 #user {
   max-width: 60vw;
-  margin: -0.5rem auto;
+  margin: auto;
   outline-color: #999;
   cursor: pointer;
 }
 
 #focus {
+  /* min-height: 130px; */
   font-size: 1.2rem;
-  align-self: center;
+  grid-column: span 3;
 }
 
 #input-focus {
@@ -227,11 +231,8 @@ html {
 
 #clock,
 #alt-clock {
-  position: absolute;
-  top: 35vh;
-  right: 0;
-  left: 0;
-  margin: auto;
+  /* min-height: 255px; */
+  grid-column: span 3;
   font-size: 12rem;
   font-weight: 600;
   z-index: 10;
@@ -250,11 +251,12 @@ html {
 
 #todo-open {
   cursor: pointer;
-  position: absolute;
+  justify-self: flex-start;
+  grid-column: span 1;
+  align-self: flex-end;
+  margin-left: 2vw;
   font-size: 1.7rem;
   font-weight: 600;
-  bottom: 14vh;
-  left: 2vw;
   opacity: 0.6;
   transition: opacity 0.4s ease-out;
   z-index: 10;
@@ -395,6 +397,8 @@ html {
   width: 100%;
   min-height: 100%;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .empty-text {
@@ -437,7 +441,9 @@ html {
 
 #quote {
   max-width: 24rem;
-  margin: auto auto 3rem;
+  /* margin: auto auto 3rem; */
+  grid-column: span 1;
+  align-self: flex-end;
   font-family: 'EB Garamond', Garamond, 'Big Caslon', 'Times New Roman', Times,
     serif;
   font-size: 0.8rem;
@@ -486,12 +492,12 @@ html {
 }
 
 #cog {
-  display: block;
   cursor: pointer;
-  position: absolute;
+  grid-column: span 1;
+  align-self: center;
+  justify-self: flex-end;
+  margin-right: 3vw;
   font-size: 1.6rem;
-  bottom: 3vh;
-  right: 3vw;
   opacity: 0.6;
   transition: all 0.4s ease-out;
   z-index: 10;
@@ -516,7 +522,7 @@ html {
   width: 16rem;
   height: 15rem;
   position: absolute;
-  bottom: 12vh;
+  bottom: 13vh;
   right: 3vw;
   z-index: 20;
   grid-template-columns: 1fr 1fr;
@@ -588,16 +594,16 @@ html {
 }
 
 #attribute {
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
+  grid-column: span 2;
+  align-self: flex-end;
+  padding: 0 1rem;
   color: #999;
   text-align: start;
 }
 
 #attribute p {
   font-size: 1.2rem;
-  max-width: 70vw;
+  /* max-width: 70vw; */
 }
 
 #attribute .slider span,
@@ -649,12 +655,8 @@ html {
   }
 
   #heading {
+    min-height: 83px;
     font-size: 1.3rem;
-    margin: 6vh 0 0.5rem;
-  }
-
-  #user {
-    margin-bottom: -0.2rem;
   }
 
   #focus {
@@ -667,7 +669,7 @@ html {
 
   #clock,
   #alt-clock {
-    top: 30vh;
+    min-height: 150px;
     font-size: 7rem;
   }
 
@@ -689,7 +691,7 @@ html {
   }
 
   #cog {
-    bottom: 5vh;
+    align-self: flex-start;
   }
 
   #todos {
@@ -705,6 +707,7 @@ html {
     width: 14rem;
     height: 8rem;
     bottom: 10rem;
+    left: 0;
   }
 
   #quote {
@@ -719,12 +722,12 @@ html {
   }
 
   #attribute {
-    left: 0.5rem;
+    padding: 0 0.3rem;
   }
 
   #attribute p {
     font-size: 1rem;
-    max-width: 16rem;
+    /* max-width: 16rem; */
   }
 
   .slider-attr-div {
@@ -738,6 +741,7 @@ html {
 
 @media screen and (max-width: 440px) {
   #heading {
+    max-height: 50px;
     font-size: 1.1rem;
   }
 
@@ -757,6 +761,11 @@ html {
 @media screen and (max-width: 360px) {
   #heading {
     font-size: 0.8rem;
+  }
+
+  #user {
+    max-width: 80vw;
+    min-height: 34px;
   }
 
   #weather-div {
@@ -783,12 +792,8 @@ html {
   }
 
   #heading {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-  }
-
-  #user {
-    margin-bottom: -0.2rem;
+    /* min-height: 83px; */
+    font-size: 1rem;
   }
 
   #focus {
@@ -797,7 +802,6 @@ html {
 
   #clock,
   #alt-clock {
-    margin-top: 2rem;
     font-size: 6rem;
   }
 
@@ -813,12 +817,18 @@ html {
   }
 
   #todo-open {
-    bottom: 30vh;
+    align-self: flex-start;
   }
 
   #todo-open,
   #cog {
     opacity: 0.8;
+  }
+
+  #cog {
+    grid-column: 3 / 4;
+    grid-row: 5;
+    align-self: flex-end;
   }
 
   #show-todo-list {
@@ -829,6 +839,10 @@ html {
 
   #quote {
     display: none;
+  }
+
+  #attribute {
+    grid-column: 1 / 4;
   }
 
   #attribute :nth-child(1) {
