@@ -492,7 +492,6 @@ document.querySelectorAll('input[type=checkbox]').forEach(box => {
 //  execute weather.js functions when DOM load is complete
 document.addEventListener('DOMContentLoaded', getLocation)
 
-
 //    Event Listeners   //
 user.addEventListener('click', clearUser)
 user.addEventListener('keydown', setUser)
