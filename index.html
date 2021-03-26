@@ -45,7 +45,6 @@
 
     <link
       rel="preload"
-      media="screen and (max-width: 1025px)"
       href="/css/fonts/EBGaramond-Italic-VariableFont_wght.woff2"
       as="font"
       type="font/woff2"
@@ -139,6 +138,14 @@
       <div class="spinner"></div>
     </div>
     <div class="container" id="bg-full-image">
+      <div class="prompt">
+        <span><i class="las la-times"></i></span>
+        <p>Enabling locations will display weather</p>
+        <div>
+          <button class="button accept-prompt">Accept</button>
+          <button class="button deny-prompt">Deny</button>
+        </div>
+      </div>
       <div id="weather-div">
         <div id="weather-dis"></div>
         <div id="weather-dis-alt" style="display: none"></div>

@@ -1,4 +1,5 @@
 import { getLocation } from './weather.js'
+import { showError } from './weather.js'
 
 //  init service worker
 if ('serviceWorker' in navigator) {
@@ -365,15 +366,16 @@ const getQuote = async () => {
       method: 'get',
     })
     const resData = await res.json()
-    document.getElementById('quote').insertAdjacentHTML(
-      'afterbegin',
-      `<h3>${resData.quote.body}</h3>
+    resData &&
+      document.getElementById('quote').insertAdjacentHTML(
+        'afterbegin',
+        `<h3>${resData.quote.body}</h3>
       <div class='slider-div'>
       <div class='slider'>
       <p class='p' id='quote-author'>- ${resData.quote.author}</p>
       <span id="quote-span">Quote source:<a href="https://favqs.com/" target="_blank" rel="noopener noreferrer"> FavQs</a></span>
       </div></div>`
-    )
+      )
   } catch (err) {
     document.getElementById('quote').insertAdjacentHTML(
       'afterbegin',
@@ -413,9 +415,8 @@ const closeSettings = e => {
   load()
 }
 
-
-let ti    //  TODO
-let ati   //  TODO
+let ti //  TODO
+let ati //  TODO
 
 const showClock = () => {
   time()
@@ -477,31 +478,49 @@ const hideWeekly = e => {
 
 const load = () => {
   document.querySelectorAll('input[type=checkbox]').forEach(box => {
-    box.checked = localStorage.getItem(box.id) === 'true' ? true : false
-    document.getElementById('rad-clock-alt').checked
-      ? showAltClock()
-      : showClock()
-    document.getElementById('rad-temp-far').checked ? showCel() : showFar()
-    document.getElementById('rad-focus-on').checked
-      ? document.getElementById('focus').classList.remove('empty')
-      : document.getElementById('focus').classList.add('empty')
-    document.getElementById('rad-todo-show').checked
-      ? showTodoList()
-      : (document.getElementById('show-todo-list').innerHTML = '')
-    document.getElementById('rad-quote-show').checked
-      ? document.getElementById('quote').classList.remove('empty')
-      : document.getElementById('quote').classList.add('empty')
+    if (localStorage.getItem(box.id)) {
+      box.checked = localStorage.getItem(box.id) === 'true' ? true : false
+      document.getElementById('rad-clock-alt').checked
+        ? showAltClock()
+        : showClock()
+      document.getElementById('rad-temp-far').checked ? showCel() : showFar()
+      document.getElementById('rad-focus-on').checked
+        ? document.getElementById('focus').classList.remove('empty')
+        : document.getElementById('focus').classList.add('empty')
+      document.getElementById('rad-todo-show').checked
+        ? showTodoList()
+        : (document.getElementById('show-todo-list').innerHTML = '')
+      document.getElementById('rad-quote-show').checked
+        ? document.getElementById('quote').classList.remove('empty')
+        : document.getElementById('quote').classList.add('empty')
+    }
   })
 }
 
-document.querySelectorAll('input[type=checkbox]').forEach(box => {
-  if (localStorage.getItem(box.id)) {
-    load()
-  }
+//  TODO
+// document.querySelectorAll('input[type=checkbox]').forEach(box => {
+// if (localStorage.getItem(box.id)) {
+document.addEventListener('DOMContentLoaded', load)
+// }
+// })
+
+//  show prompt on DOM load for user to accept or deny location request, if accepted weather is shown or prompt from browser to enable locations shown; if deny showError function runs and lets user know they denied location request and to enable locations if they so choose.
+//
+document.querySelector('.accept-prompt').addEventListener('click', () => {
+  getLocation()
+  document.querySelector('.prompt').style.display = 'none'
 })
 
-//  execute weather.js functions when DOM load is complete
-document.addEventListener('DOMContentLoaded', getLocation)
+const denyLocation = () => {
+  document.querySelector('.prompt').style.display = 'none'
+  showError('PERMISSION_DENIED')
+}
+
+document.querySelector('.deny-prompt').addEventListener('click', denyLocation)
+
+document
+  .querySelector('.prompt .la-times')
+  .addEventListener('click', denyLocation)
 
 //    Event Listeners   //
 user.addEventListener('click', clearUser)

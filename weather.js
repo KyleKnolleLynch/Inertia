@@ -8,8 +8,9 @@ export const getLocation = () => {
       timeout: 10000,
     })
   } else {
-    document.getElementById('weather-div').innerHTML =
-      '<span>Geolocation not supported on this device</span>'
+    document.getElementById(
+      'weather-div'
+    ).innerHTML = `<span class='weather-error'>Geolocation not supported on this device</span>`
   }
 }
 
@@ -81,7 +82,7 @@ const showWeather = async position => {
     )
     const resWkFa = await resWeeklyFar.json()
 
-    //  next day fahrenheit forecast data... 
+    //  next day fahrenheit forecast data...
     let d = new Date(resWkFa.list[3].dt_txt).toDateString().slice(0, -11)
     let t = new Date(resWkFa.list[3].dt_txt).toLocaleTimeString('default', {
       hour: 'numeric',
@@ -300,7 +301,7 @@ const showWeather = async position => {
 }
 
 //  multiple error switch statement catch
-const showError = error => {
+export const showError = error => {
   const weatherDiv = document.getElementById('weather-div')
   switch (error.code) {
     case error.PERMISSION_DENIED:
