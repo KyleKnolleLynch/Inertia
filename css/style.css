@@ -34,9 +34,7 @@
 body,
 html {
   overflow: hidden;
-  color: #fff0f5;
-  background: #111;
-  font-family: 'Exo', 'Arial Narrow', Futura, sans-serif;
+  font-family: 'Exo', 'Arial Narrow', 'Futura', sans-serif;
   text-rendering: optimizeLegibility;
   text-rendering: geometricPrecision;
   font-smooth: always;
@@ -46,6 +44,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+  color: #fff0f5;
+  background: #111;
 }
 
 .danger {
@@ -119,7 +122,6 @@ html {
   height: 100vh;
   width: 100vw;
   background-blend-mode: multiply;
-  background: #111;
 }
 
 .prompt {
