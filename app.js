@@ -522,6 +522,9 @@ document
   .querySelector('.prompt .la-times')
   .addEventListener('click', denyLocation)
 
+  // if (navigator.permissions)
+  console.log(location)
+
 //    Event Listeners   //
 user.addEventListener('click', clearUser)
 user.addEventListener('keydown', setUser)
