@@ -509,33 +509,36 @@ const handlePermission = () => {
     showError('PERMISSION_DENIED')
   }
 
-  navigator.permissions.query({ name: 'geolocation' }).then(result => {
-    if (result.state == 'granted') {
-      // report(result.state)
-      getLocation()
-      prompt.style.display = 'none'
-    } else if (result.state == 'prompt') {
-      // report(result.state)
-      document.querySelector('.accept-prompt').addEventListener('click', () => {
+  navigator.permissions &&
+    navigator.permissions.query({ name: 'geolocation' }).then(result => {
+      if (result.state == 'granted') {
+        // report(result.state)
         getLocation()
         prompt.style.display = 'none'
-      })
+      } else if (result.state == 'prompt') {
+        // report(result.state)
+        document
+          .querySelector('.accept-prompt')
+          .addEventListener('click', () => {
+            getLocation()
+            prompt.style.display = 'none'
+          })
 
-      document
-        .querySelector('.deny-prompt')
-        .addEventListener('click', denyLocation)
+        document
+          .querySelector('.deny-prompt')
+          .addEventListener('click', denyLocation)
 
-      document
-        .querySelector('.prompt .la-times')
-        .addEventListener('click', denyLocation)
-    } else if (result.state == 'denied') {
-      // report(result.state)
-      denyLocation()
-    }
-    // result.onchange = () => {
-    //   report(result.state)
-    // }
-  })
+        document
+          .querySelector('.prompt .la-times')
+          .addEventListener('click', denyLocation)
+      } else if (result.state == 'denied') {
+        // report(result.state)
+        denyLocation()
+      }
+      // result.onchange = () => {
+      //   report(result.state)
+      // }
+    })
   // const report = state => {
   //   console.log('Permission ' + state)
   // }
