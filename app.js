@@ -476,6 +476,7 @@ const hideWeekly = e => {
   }
 }
 
+//  check for settings values in local storage, if they exist/are different from default values, load them upon DOM load.
 const load = () => {
   document.querySelectorAll('input[type=checkbox]').forEach(box => {
     if (localStorage.getItem(box.id)) {
@@ -497,33 +498,51 @@ const load = () => {
   })
 }
 
-//  TODO
-// document.querySelectorAll('input[type=checkbox]').forEach(box => {
-// if (localStorage.getItem(box.id)) {
 document.addEventListener('DOMContentLoaded', load)
-// }
-// })
 
 //  show prompt on DOM load for user to accept or deny location request, if accepted weather is shown or prompt from browser to enable locations shown; if deny showError function runs and lets user know they denied location request and to enable locations if they so choose.
 //
-document.querySelector('.accept-prompt').addEventListener('click', () => {
-  getLocation()
-  document.querySelector('.prompt').style.display = 'none'
-})
+const handlePermission = () => {
+  const prompt = document.querySelector('.prompt')
+  const denyLocation = () => {
+    prompt.style.display = 'none'
+    showError('PERMISSION_DENIED')
+  }
 
-const denyLocation = () => {
-  document.querySelector('.prompt').style.display = 'none'
-  showError('PERMISSION_DENIED')
+  navigator.permissions.query({ name: 'geolocation' }).then(result => {
+    if (result.state == 'granted') {
+      // report(result.state)
+      getLocation()
+      prompt.style.display = 'none'
+    } else if (result.state == 'prompt') {
+      // report(result.state)
+      document.querySelector('.accept-prompt').addEventListener('click', () => {
+        getLocation()
+        prompt.style.display = 'none'
+      })
+
+      document
+        .querySelector('.deny-prompt')
+        .addEventListener('click', denyLocation)
+
+      document
+        .querySelector('.prompt .la-times')
+        .addEventListener('click', denyLocation)
+    } else if (result.state == 'denied') {
+      // report(result.state)
+      denyLocation()
+    }
+    // result.onchange = () => {
+    //   report(result.state)
+    // }
+  })
+  // const report = state => {
+  //   console.log('Permission ' + state)
+  // }
 }
 
-document.querySelector('.deny-prompt').addEventListener('click', denyLocation)
-
-document
-  .querySelector('.prompt .la-times')
-  .addEventListener('click', denyLocation)
-
-  // if (navigator.permissions)
-  console.log(location)
+handlePermission()
+/////////////////////////////////////////////////////////////
 
 //    Event Listeners   //
 user.addEventListener('click', clearUser)
