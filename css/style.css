@@ -84,14 +84,6 @@ body {
   animation: fadeOut 500ms ease-out;
 }
 
-.container {
-  width: 100vw;
-  min-height: 100vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
 #heading {
   height: 160px;
   padding-top: 1rem;
@@ -116,12 +108,6 @@ body {
   outline-color: #999;
   margin: auto;
   cursor: pointer;
-}
-
-#bg-full-image {
-  height: 100vh;
-  width: 100vw;
-  background-blend-mode: multiply;
 }
 
 .prompt {

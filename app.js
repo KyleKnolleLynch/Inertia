@@ -83,6 +83,7 @@ const setDisplay = async () => {
     } catch (err) {
       title.innerHTML = 'Good morning,'
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-early-am.webp) center/cover no-repeat`
+
       attr.innerHTML =
         '<p>Silverthorne, United States</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Nathan Anderson</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -143,6 +144,7 @@ const setDisplay = async () => {
     } catch (err) {
       title.innerHTML = 'Good afternoon,'
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/rox-park-noon.webp) center/cover no-repeat`
+
       attr.innerHTML =
         '<p>Roxborough Park, Colorado</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://kylelynch.me/" target="_blank" rel="noopener noreferrer">Kyle Lynch</a></span></div></div>'
     }
@@ -173,6 +175,7 @@ const setDisplay = async () => {
     } catch (err) {
       title.innerHTML = 'Good evening,'
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-night.webp) center/cover no-repeat`
+
       attr.innerHTML =
         '<p>river beside mountain under full moon</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@sayannath?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Sayan Nath</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -509,43 +512,40 @@ const handlePermission = () => {
     showError('PERMISSION_DENIED')
   }
 
-  navigator.permissions &&
-    navigator.permissions.query({ name: 'geolocation' }).then(result => {
-      if (result.state == 'granted') {
-        // report(result.state)
+  navigator.permissions.query({ name: 'geolocation' }).then(result => {
+    if (result.state == 'granted') {
+      // report(result.state)
+      getLocation()
+      prompt.style.display = 'none'
+    } else if (result.state == 'prompt') {
+      // report(result.state)
+      document.querySelector('.accept-prompt').addEventListener('click', () => {
         getLocation()
         prompt.style.display = 'none'
-      } else if (result.state == 'prompt') {
-        // report(result.state)
-        document
-          .querySelector('.accept-prompt')
-          .addEventListener('click', () => {
-            getLocation()
-            prompt.style.display = 'none'
-          })
+      })
 
-        document
-          .querySelector('.deny-prompt')
-          .addEventListener('click', denyLocation)
+      document
+        .querySelector('.deny-prompt')
+        .addEventListener('click', denyLocation)
 
-        document
-          .querySelector('.prompt .la-times')
-          .addEventListener('click', denyLocation)
-      } else if (result.state == 'denied') {
-        // report(result.state)
-        denyLocation()
-      }
-      // result.onchange = () => {
-      //   report(result.state)
-      // }
-    })
+      document
+        .querySelector('.prompt .la-times')
+        .addEventListener('click', denyLocation)
+    } else if (result.state == 'denied') {
+      // report(result.state)
+      denyLocation()
+    }
+    // result.onchange = () => {
+    //   report(result.state)
+    // }
+  })
   // const report = state => {
   //   console.log('Permission ' + state)
   // }
 }
 
-handlePermission()
-/////////////////////////////////////////////////////////////
+//  if browser supports navigator permissions, run it, if no browser support, run navigator geolocation without pre-prompt check
+navigator.permissions ? handlePermission() : getLocation()
 
 //    Event Listeners   //
 user.addEventListener('click', clearUser)
