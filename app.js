@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
 }
 
 //  global constant variables
+const prompt = document.querySelector('.prompt')
 const user = document.getElementById('user')
 const inputFocus = document.getElementById('input-focus')
 const clock = document.getElementById('clock')
@@ -114,6 +115,7 @@ const setDisplay = async () => {
     } catch (err) {
       title.innerHTML = 'Good morning,'
       bgImg.style.background = `linear-gradient(0deg, #333, transparent 50%, 70%, #888 100%), url(./images/default-morning.webp) center/cover no-repeat`
+
       attr.innerHTML =
         '<p>Hopeful horizons</p><div class="slider-attr-div"><div class="slider"><span>Photo by <a href="https://unsplash.com/@davealmine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer">Dawid Zawila</a> on <a href="https://unsplash.com/?utm_source=Inertia&utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a></span></div></div>'
     }
@@ -506,7 +508,6 @@ document.addEventListener('DOMContentLoaded', load)
 //  show prompt on DOM load for user to accept or deny location request, if accepted weather is shown or prompt from browser to enable locations shown; if deny showError function runs and lets user know they denied location request and to enable locations if they so choose.
 //
 const handlePermission = () => {
-  const prompt = document.querySelector('.prompt')
   const denyLocation = () => {
     prompt.style.display = 'none'
     showError('PERMISSION_DENIED')
@@ -545,7 +546,12 @@ const handlePermission = () => {
 }
 
 //  if browser supports navigator permissions, run it, if no browser support, run navigator geolocation without pre-prompt check
-navigator.permissions ? handlePermission() : getLocation()
+if (navigator.permissions) {
+  handlePermission()
+} else {
+  getLocation()
+  prompt.style.display = 'none'
+}
 
 //    Event Listeners   //
 user.addEventListener('click', clearUser)

@@ -37,9 +37,7 @@ html {
   font-family: 'Exo', 'Arial Narrow', 'Futura', sans-serif;
   text-rendering: optimizeLegibility;
   text-rendering: geometricPrecision;
-  font-smooth: always;
-
-  font-smoothing: antialiased;
+  
   -moz-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
