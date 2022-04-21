@@ -185,6 +185,9 @@ const setDisplay = async () => {
 }
 
 //    USER/FOCUS DISPLAY    //
+//  regex for any non-whitespace character
+const regex = /\S/
+
 const clearUser = () => {
   if (user.textContent === '[Enter Name]') user.textContent = ''
 }
@@ -202,14 +205,24 @@ const getUser = () => {
 }
 
 const setUser = e => {
-  if (e.type === 'keydown') {
-    if (e.keyCode == 13) {
-      localStorage.setItem('user', e.target.innerText)
-      user.blur()
-    }
+  if (e.target.innerText === '') {
+    user.textContent = '[Enter Name]'
+  } else if (e.keyCode == 13 && !regex.test(e.target.innerText)) {
+    user.textContent = '[Enter Name]'
+    user.blur()
+  } else if (e.keyCode == 13 && regex.test(e.target.innerText)) {
+    localStorage.setItem('user', e.target.innerText)
+    user.blur()
   } else {
     localStorage.setItem('user', e.target.innerText)
-    location.reload()
+  }
+}
+
+const checkUser = e => {
+  if (!regex.test(user.textContent)) {
+    user.textContent = '[Enter Name]'
+  } else {
+    localStorage.setItem('user', e.target.innerText)
   }
 }
 
@@ -231,14 +244,26 @@ const getInputFocus = () => {
 }
 
 const setInputFocus = e => {
-  if (e.type === 'keydown') {
-    if (e.keyCode == 13) {
-      localStorage.setItem('input-focus', e.target.innerText)
-      inputFocus.blur()
-    }
+  if (e.target.innerText === '') {
+    inputFocus.style.borderBottom = '2px solid #fff0f5'
+  } else if (e.keyCode == 13 && !regex.test(e.target.innerText)) {
+    inputFocus.style.borderBottom = '2px solid #fff0f5'
+    inputFocus.textContent = ''
+    inputFocus.blur()
+  } else if (e.keyCode == 13 && regex.test(e.target.innerText)) {
+    localStorage.setItem('input-focus', e.target.innerText)
+    inputFocus.style.borderBottom = 'none'
+    inputFocus.blur()
   } else {
     localStorage.setItem('input-focus', e.target.innerText)
-    location.reload()
+  }
+}
+
+const checkInputFocus = e => {
+  if (!regex.test(inputFocus.textContent)) {
+    inputFocus.style.borderBottom = '2px solid #fff0f5'
+  } else {
+    localStorage.setItem('input-focus', e.target.innerText)
   }
 }
 
@@ -547,19 +572,22 @@ const handlePermission = () => {
 
 //  if browser supports navigator permissions, run it, if no browser support, run navigator geolocation without pre-prompt check
 if (navigator.permissions) {
-  handlePermission()
+  setTimeout(() => {
+    prompt.style.display = 'flex'
+    handlePermission()
+  }, 1000)
 } else {
   getLocation()
   prompt.style.display = 'none'
 }
 
 //    Event Listeners   //
-user.addEventListener('click', clearUser)
-user.addEventListener('keydown', setUser)
-user.addEventListener('blur', setUser)
-inputFocus.addEventListener('click', clearFocus)
-inputFocus.addEventListener('keydown', setInputFocus)
-inputFocus.addEventListener('blur', setInputFocus)
+user.addEventListener('focus', clearUser)
+user.addEventListener('keyup', setUser)
+user.addEventListener('blur', checkUser)
+inputFocus.addEventListener('focus', clearFocus)
+inputFocus.addEventListener('keyup', setInputFocus)
+inputFocus.addEventListener('blur', checkInputFocus)
 document.getElementById('cog').addEventListener('click', openSettings)
 window.addEventListener('click', closeSettings)
 document.getElementById('todo-open').addEventListener('click', openTodos)

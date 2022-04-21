@@ -174,14 +174,27 @@
         <div id="weather-dis"></div>
         <div id="weather-dis-alt" style="display: none"></div>
       </div>
-      <div id="heading">
-        <h1 id="title"></h1>
-        <h1 id="user" contenteditable="true"></h1>
-      </div>
+
+      <h1 id="heading">
+        <span id="title"></span>
+        <span
+          id="user"
+          contenteditable="true"
+          tabindex="0"
+          role="User Name"
+        ></span>
+      </h1>
+
       <div id="focus">
-        <h2>My Focus Is</h2>
-        <h2 id="input-focus" contenteditable="true"></h2>
+        <h2>Current Focus</h2>
+        <p
+          id="input-focus"
+          contenteditable="true"
+          tabindex="0"
+          role="Current Focus"
+        ></p>
       </div>
+
       <div id="five-day" class="p" style="display: none">
         <div id="dayone"></div>
         <div id="daytwo"></div>
@@ -198,9 +211,11 @@
         <div id="alt-dayfive"></div>
         <div id="alt-daysix"></div>
       </div>
-      <time id="clock"></time>
-      <time id="alt-clock"></time>
-      <div id="todos" style="display: none">
+      <section class="clocks">
+        <time id="clock"></time>
+        <time id="alt-clock"></time>
+      </section>
+      <section id="todos" style="display: none">
         <form id="todo-form">
           <label for="todo-input"
             ><input
@@ -219,7 +234,7 @@
         <button id="todo-clear" class="button">
           <i class="las la-times danger"></i>Clear All
         </button>
-      </div>
+      </section>
       <ul id="show-todo-list"></ul>
       <div id="todo-open">
         <i class="las la-list-alt"></i> <span>Todos</span>
