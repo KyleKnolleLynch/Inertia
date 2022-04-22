@@ -23,7 +23,7 @@ const weatherDisAlt = document.getElementById('weather-dis-alt')
 
 //    TIME/BACKGROUND IMAGE DISPLAY   //
 
-//  set clock
+//  set 12hour clock
 const time = () => {
   const today = new Date()
   let hours = today.getHours()
@@ -37,6 +37,10 @@ const time = () => {
 
   clock.innerHTML = `
  ${hours}:${displayZero(minutes)}<span id="clockSpan">${amPm}</span>`
+
+  //  set datetime attribute in time element
+  const datetime = new Date().toISOString()
+  clock.setAttribute('datetime', datetime)
 }
 
 //  set 24hour clock
@@ -47,7 +51,15 @@ const altTime = () => {
     hour12: false,
   })
   altClock.innerHTML = d
+
+  //  set datetime attribute in time element
+  const datetime = new Date().toISOString()
+  altClock.setAttribute('datetime', datetime)
 }
+
+//  Start both time unit clocks with setInterval
+const startClock = setInterval(time, 1000)
+const startAltClock = setInterval(altTime, 1000)
 
 //  dynamically display background images depending on time of day/night
 const setDisplay = async () => {
@@ -306,7 +318,9 @@ if (newTodos) {
       'afterbegin',
       `<li id='todo-item' data-key='${item.id}' class=${item.checked && 'done'}>
   <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark p'></label>
+  <label for='${
+    item.id
+  }' class='checkmark p' role='checkbox' tabindex='0'></label>
   <span id='todo-span'>${item.text}</span>
   <button class='delete-todo button'> <i class="danger las la-minus-circle"></i></button> 
   </li>`
@@ -327,7 +341,7 @@ const addTodos = text => {
     'afterbegin',
     `<li id='todo-item' data-key='${item.id}'>
   <input id='${item.id}' type='checkbox' />
-  <label for='${item.id}' class='checkmark p'></label>
+  <label for='${item.id}' class='checkmark p' role='checkbox' tabindex='0'></label>
   <span id='todo-span'>${item.text}</span>
   <button class='delete-todo button'><i class="danger las la-minus-circle"></i></button> 
   </li>`
@@ -445,23 +459,16 @@ const closeSettings = e => {
   load()
 }
 
-let ti //  TODO
-let ati //  TODO
-
 const showClock = () => {
   time()
-  clearInterval(ati)
   altClock.style.display = 'none'
   clock.style.display = 'block'
-  ti = setInterval(time, 1000)
 }
 
 const showAltClock = () => {
   altTime()
-  clearInterval(ti)
   clock.style.display = 'none'
   altClock.style.display = 'block'
-  ati = setInterval(altTime, 1000)
 }
 
 const showTodoList = () => {

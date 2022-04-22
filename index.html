@@ -162,7 +162,7 @@
       <div class="spinner" id="spinner"></div>
 
       <div class="prompt">
-        <span><i class="las la-times"></i></span>
+        <span role="button" tabindex="0"><i class="las la-times"></i></span>
         <p>Enabling locations will display weather.</p>
         <p>Would you like to proceed?</p>
         <div>
@@ -170,7 +170,7 @@
           <button class="button deny-prompt">Deny</button>
         </div>
       </div>
-      <div id="weather-div">
+      <div id="weather-div" role="button" tabindex="0">
         <div id="weather-dis"></div>
         <div id="weather-dis-alt" style="display: none"></div>
       </div>
@@ -181,7 +181,7 @@
           id="user"
           contenteditable="true"
           tabindex="0"
-          role="User Name"
+          role="textbox"
         ></span>
       </h1>
 
@@ -191,7 +191,7 @@
           id="input-focus"
           contenteditable="true"
           tabindex="0"
-          role="Current Focus"
+          role="textbox"
         ></p>
       </div>
 
@@ -236,11 +236,11 @@
         </button>
       </section>
       <ul id="show-todo-list"></ul>
-      <div id="todo-open">
+      <div id="todo-open" role="widget" tabindex="0">
         <i class="las la-list-alt"></i> <span>Todos</span>
       </div>
       <div id="quote"></div>
-      <form id="settings" style="display: none">
+      <form id="settings" style="display: none" role="radiogroup">
         <h3>Settings</h3>
         <div id="focus-settings">
           <h4>Focus</h4>
@@ -321,7 +321,7 @@
       </form>
 
       <div id="attribute"></div>
-      <div id="cog"><i class="las la-cog p"></i></div>
+      <div id="cog" role="widget" tabindex="0"><i class="las la-cog p"></i></div>
     </div>
   </body>
 </html>
