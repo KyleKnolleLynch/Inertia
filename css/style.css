@@ -259,7 +259,7 @@ html {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 50vh;
+  bottom: 45vh;
   margin: auto;
   font-size: clamp(6rem, 18vw + 2px, 12rem);
   font-weight: 600;
@@ -698,6 +698,7 @@ html {
   .weather-err {
     font-size: 0.6rem;
   }
+
 
   #todo-open,
   #cog i {

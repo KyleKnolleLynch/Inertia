@@ -582,7 +582,7 @@ if (navigator.permissions) {
   setTimeout(() => {
     prompt.style.display = 'flex'
     handlePermission()
-  }, 1000)
+  }, 2000)
 } else {
   getLocation()
   prompt.style.display = 'none'

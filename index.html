@@ -162,15 +162,26 @@
       <div class="spinner" id="spinner"></div>
 
       <div class="prompt">
-        <span role="button" tabindex="0"><i class="las la-times"></i></span>
+        <span role="button" tabindex="0" aria-label="Close prompt"
+          ><i class="las la-times"></i
+        ></span>
         <p>Enabling locations will display weather.</p>
         <p>Would you like to proceed?</p>
         <div>
-          <button class="button accept-prompt">Accept</button>
-          <button class="button deny-prompt">Deny</button>
+          <button class="button accept-prompt" name="acceptLocationsEnable">
+            Accept
+          </button>
+          <button class="button deny-prompt" name="denyLocationsEnable">
+            Deny
+          </button>
         </div>
       </div>
-      <div id="weather-div" role="button" tabindex="0">
+      <div
+        id="weather-div"
+        role="button"
+        tabindex="0"
+        aria-label="Open weather panel"
+      >
         <div id="weather-dis"></div>
         <div id="weather-dis-alt" style="display: none"></div>
       </div>
@@ -182,6 +193,7 @@
           contenteditable="true"
           tabindex="0"
           role="textbox"
+          aria-label="Enter user name"
         ></span>
       </h1>
 
@@ -192,6 +204,7 @@
           contenteditable="true"
           tabindex="0"
           role="textbox"
+          aria-label="Enter daily focus"
         ></p>
       </div>
 
@@ -216,11 +229,12 @@
         <time id="alt-clock"></time>
       </section>
       <section id="todos" style="display: none">
-        <form id="todo-form">
+        <form id="todo-form" aria-label="Todo list">
           <label for="todo-input"
             ><input
               class="p"
               type="text"
+              name="todoInput"
               id="todo-input"
               placeholder="Add Todo.."
               required
@@ -231,16 +245,21 @@
           <i class="las la-chalkboard la-2x"></i>
           <p class="empty-text">No Todos Yet..</p>
         </div>
-        <button id="todo-clear" class="button">
+        <button id="todo-clear" class="button" name="clearTodos">
           <i class="las la-times danger"></i>Clear All
         </button>
       </section>
       <ul id="show-todo-list"></ul>
-      <div id="todo-open" role="widget" tabindex="0">
+      <div
+        id="todo-open"
+        role="button"
+        tabindex="0"
+        aria-label="Toggle todo list"
+      >
         <i class="las la-list-alt"></i> <span>Todos</span>
       </div>
       <div id="quote"></div>
-      <form id="settings" style="display: none" role="radiogroup">
+      <form id="settings" style="display: none" aria-label="Settings panel">
         <h3>Settings</h3>
         <div id="focus-settings">
           <h4>Focus</h4>
@@ -249,7 +268,7 @@
               class="cbx empty"
               type="checkbox"
               id="rad-focus-on"
-              name="radFocus"
+              name="radioFocus"
               value="show"
               checked
             />
@@ -265,7 +284,7 @@
               class="cbx empty"
               type="checkbox"
               id="rad-clock-alt"
-              name="radClock"
+              name="radioClock"
               value="regClock"
             />
             <span>12</span><label for="rad-clock-alt" class="setLabel m"></label
@@ -279,7 +298,7 @@
               class="cbx empty"
               type="checkbox"
               id="rad-temp-far"
-              name="radTemp"
+              name="radioTemp"
               value="farenheit"
             />
             <span>&deg;F</span
@@ -294,7 +313,7 @@
               class="cbx empty"
               type="checkbox"
               id="rad-todo-show"
-              name="radTodo"
+              name="radioTodo"
               value="hide"
             />
             <span>Hide</span
@@ -309,7 +328,7 @@
               class="cbx empty"
               type="checkbox"
               id="rad-quote-show"
-              name="radQuote"
+              name="radioQuote"
               value="show"
               checked
             />
@@ -321,7 +340,14 @@
       </form>
 
       <div id="attribute"></div>
-      <div id="cog" role="widget" tabindex="0"><i class="las la-cog p"></i></div>
+      <div
+        id="cog"
+        role="button"
+        tabindex="0"
+        aria-label="Toggle settings panel"
+      >
+        <i class="las la-cog p"></i>
+      </div>
     </div>
   </body>
 </html>
