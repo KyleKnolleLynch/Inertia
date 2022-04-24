@@ -108,8 +108,10 @@
       .container {
         width: 100vw;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1fr 1fr 1fr min-content;
         text-align: center;
         background: #111;
         background-blend-mode: multiply;
@@ -158,10 +160,10 @@
     <title>Inertia</title>
   </head>
   <body>
-    <div class="container" id="bg-full-image">
+    <main class="container" id="bg-full-image">
       <div class="spinner" id="spinner"></div>
 
-      <div class="prompt">
+      <article class="prompt">
         <span role="button" tabindex="0" aria-label="Close prompt"
           ><i class="las la-times"></i
         ></span>
@@ -175,7 +177,7 @@
             Deny
           </button>
         </div>
-      </div>
+      </article>
       <div
         id="weather-div"
         role="button"
@@ -184,28 +186,6 @@
       >
         <div id="weather-dis"></div>
         <div id="weather-dis-alt" style="display: none"></div>
-      </div>
-
-      <h1 id="heading">
-        <span id="title"></span>
-        <span
-          id="user"
-          contenteditable="true"
-          tabindex="0"
-          role="textbox"
-          aria-label="Enter user name"
-        ></span>
-      </h1>
-
-      <div id="focus">
-        <h2>Current Focus</h2>
-        <p
-          id="input-focus"
-          contenteditable="true"
-          tabindex="0"
-          role="textbox"
-          aria-label="Enter daily focus"
-        ></p>
       </div>
 
       <div id="five-day" class="p" style="display: none">
@@ -224,11 +204,37 @@
         <div id="alt-dayfive"></div>
         <div id="alt-daysix"></div>
       </div>
+
+      <section class="greeting">
+        <h1 id="heading">
+          <span id="title"></span>
+          <span
+            id="user"
+            contenteditable="true"
+            tabindex="0"
+            role="textbox"
+            aria-label="Enter user name"
+          ></span>
+        </h1>
+
+        <!-- <div id="focus"> -->
+        <h2 id="focus">Current Focus</h2>
+        <p
+          id="input-focus"
+          contenteditable="true"
+          tabindex="0"
+          role="textbox"
+          aria-label="Enter daily focus"
+        ></p>
+        <!-- </div> -->
+      </section>
+
       <section class="clocks">
         <time id="clock"></time>
         <time id="alt-clock"></time>
       </section>
-      <section id="todos" style="display: none">
+
+      <article id="todos" style="display: none">
         <form id="todo-form" aria-label="Todo list">
           <label for="todo-input"
             ><input
@@ -248,7 +254,8 @@
         <button id="todo-clear" class="button" name="clearTodos">
           <i class="las la-times danger"></i>Clear All
         </button>
-      </section>
+      </article>
+
       <ul id="show-todo-list"></ul>
       <div
         id="todo-open"
@@ -258,7 +265,7 @@
       >
         <i class="las la-list-alt"></i> <span>Todos</span>
       </div>
-      <div id="quote"></div>
+      <section id="quote"></section>
       <form id="settings" style="display: none" aria-label="Settings panel">
         <h3>Settings</h3>
         <div id="focus-settings">
@@ -339,7 +346,7 @@
         </div>
       </form>
 
-      <div id="attribute"></div>
+      <article id="attribute"></article>
       <div
         id="cog"
         role="button"
@@ -348,6 +355,6 @@
       >
         <i class="las la-cog p"></i>
       </div>
-    </div>
+    </main>
   </body>
 </html>
