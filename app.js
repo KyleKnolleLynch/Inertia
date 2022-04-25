@@ -589,10 +589,10 @@ if (navigator.permissions) {
 }
 
 //    Event Listeners   //
-user.addEventListener('focus', clearUser)
+user.addEventListener('click', clearUser)
 user.addEventListener('keyup', setUser)
 user.addEventListener('blur', checkUser)
-inputFocus.addEventListener('focus', clearFocus)
+inputFocus.addEventListener('click', clearFocus)
 inputFocus.addEventListener('keyup', setInputFocus)
 inputFocus.addEventListener('blur', checkInputFocus)
 document.getElementById('cog').addEventListener('click', openSettings)
