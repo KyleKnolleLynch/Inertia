@@ -634,9 +634,10 @@
 }
 
 #attribute {
-  justify-self: flex-start;
-  align-self: flex-end;
-  padding: 0 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-inline: 1rem;
   color: #999;
   text-align: start;
 }
@@ -681,6 +682,7 @@
 @media screen and (max-width: 1025px) {
   #quote {
     max-width: 20rem;
+    align-self: center;
   }
 
   #quote .slider {
