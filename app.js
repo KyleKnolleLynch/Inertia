@@ -603,7 +603,11 @@ todoClear.addEventListener('click', clearAll)
 document.getElementById('weather-div').addEventListener('click', showWeekly)
 window.addEventListener('click', hideWeekly)
 
-!document.getElementById('rad-clock-alt').checked && showClock()
+// !document.getElementById('rad-clock-alt').checked && showClock()
+
+/* display 12 hour clock format once on initial page load before local storage settings take control loading clocks, therefore reducing 1 second lag to show clock */
+time()
+
 setDisplay()
 getUser()
 getInputFocus()
