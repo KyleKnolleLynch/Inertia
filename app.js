@@ -403,31 +403,6 @@ todoList.addEventListener('click', e => {
   }
 })
 
-//    Daily Quote   //
-const getQuote = async () => {
-  try {
-    const res = await fetch('https://favqs.com/api/qotd', {
-      method: 'get',
-    })
-    const resData = await res.json()
-    resData &&
-      document.getElementById('quote').insertAdjacentHTML(
-        'afterbegin',
-        `<h3>${resData.quote.body}</h3>
-      <div class='slider-div'>
-      <div class='slider'>
-      <p class='p' id='quote-author'>- ${resData.quote.author}</p>
-      <span id="quote-span">Quote source:<a href="https://favqs.com/" target="_blank" rel="noopener noreferrer"> FavQs</a></span>
-      </div></div>`
-      )
-  } catch (err) {
-    document.getElementById('quote').insertAdjacentHTML(
-      'afterbegin',
-      `<h3>It does not require many words to speak the truth.</h3>
-     <p class='p'>- Chief Joseph ~ Nez Perce </p>`
-    )
-  }
-}
 
 //    SETTINGS    //
 const openSettings = () => {
@@ -528,9 +503,6 @@ const load = () => {
       document.getElementById('rad-todo-show').checked
         ? showTodoList()
         : (document.getElementById('show-todo-list').innerHTML = '')
-      document.getElementById('rad-quote-show').checked
-        ? document.getElementById('quote').classList.remove('empty')
-        : document.getElementById('quote').classList.add('empty')
     }
   })
 }
@@ -611,4 +583,4 @@ time()
 setDisplay()
 getUser()
 getInputFocus()
-getQuote()
+

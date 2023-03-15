@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       name="description"
-      content="Welcome page with dynamic background photos matching time of day, with local weather, daily quote, and todo list included."
+      content="Welcome page with dynamic background photos matching time of day, featuring local weather and todo list."
     />
     <meta name="theme-color" content="#d6d6d6" />
     <!--  ios support -->
@@ -26,32 +26,11 @@
       crossorigin="anonymous"
     />
 
-    <link
-      rel="preconnect"
-      href="https://favqs.com/api/qotd"
-      crossorigin="anonymous"
-    />
     <script src="app.js" type="module" defer></script>
 
     <link
       rel="preload"
       href="/css/fonts/Exo-Light.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <link
-      rel="preload"
-      href="/css/fonts/EBGaramond-VariableFont_wght.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <link
-      rel="preload"
-      href="/css/fonts/EBGaramond-Italic-VariableFont_wght.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -275,7 +254,6 @@
       >
         <i class="las la-list-alt"></i> <span>Todos</span>
       </div>
-      <section id="quote"></section>
       <form id="settings" style="display: none" aria-label="Settings panel">
         <h3>Settings</h3>
         <div id="focus-settings">
@@ -338,24 +316,7 @@
             ><span>Show</span>
           </div>
         </div>
-        <div id="quote-settings">
-          <h4>Daily Quote</h4>
-          <div>
-            <input
-              class="cbx empty"
-              type="checkbox"
-              id="rad-quote-show"
-              name="radioQuote"
-              value="show"
-              checked
-            />
-            <span>Hide</span
-            ><label for="rad-quote-show" class="setLabel m"></label
-            ><span>Show</span>
-          </div>
-        </div>
       </form>
-
       <article id="attribute"></article>
       <div
         id="cog"
